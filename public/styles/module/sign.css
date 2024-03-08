@@ -1,0 +1,13 @@
+.banner-login {
+    background-image: url('/images/banner-login.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transition: 0.5s;
+    right: 50%;
+}
+
+.slide {
+    right: 0%;
+}
