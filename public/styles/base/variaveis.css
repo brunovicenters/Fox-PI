@@ -3,4 +3,12 @@
 :root {
     --font-hanalei: "Hanalei Fill";
     --font-poppins: Poppins;
+    --cor-laranja-claro: #EA760F;
+    --cor-laranja-escuro: #D36411;
+    --cor-roxo: #7F7CAF;
+    --cor-amarelo: #F9DF74;
+    --cor-vermelho: #B20D30;
+    --cor-verde: #283618;
+    --cor-azul: #87BCDE;
+    --cor-azul-claro: #E3F2FD;
 }
