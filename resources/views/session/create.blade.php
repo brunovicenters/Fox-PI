@@ -5,7 +5,7 @@
             
             {{-- Cadastrar --}}
             <div class="w-1/2 flex flex-col justify-center px-20 rounded-l-3xl">
-                <h1 class="text-5xl hanalei text-vermelho mb-5 drop-shadow-md">Cadastrar</h1>
+                <h1 class="text-6xl hanalei text-vermelho mb-5 drop-shadow-md">Cadastrar</h1>
                 <form action="/cadastrar" method="POST">
                     @csrf
                     <x-form.input-group label="Nome" name="nome" placeholder="Nome" title="Escreva seu nome" />
@@ -15,19 +15,16 @@
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
                             Já possui uma conta?
-                            <span class="text-azul signinBtn cursor-pointer">Entre</span>
+                            <span class="text-azul signinBtn cursor-pointer hover:underline">Entre</span>
                         </p>
-                        <button type="submit"
-                            class="poppins text-white rounded-lg px-5 py-2 uppercase font-bold drop-shadow-md bg-btn-sign">
-                            <span class="drop-shadow-md">Cadastrar</span>
-                        </button>
+                        <x-form.button>Cadastrar</x-form.button>
                     </div>
                 </form>
             </div>
 
             {{-- Entrar --}}
             <div class="w-1/2 flex flex-col justify-center px-20 rounded-r-3xl">
-                <h1 class="text-5xl hanalei text-vermelho mb-5 drop-shadow-md">Entrar</h1>
+                <h1 class="text-6xl hanalei text-vermelho mb-5 drop-shadow-md">Entrar</h1>
                 <form action="/entrar" method="POST">
                     @csrf
                     <div class="flex flex-col mb-3">
@@ -41,12 +38,9 @@
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
                             Não possui uma conta?
-                            <span class="text-azul signupBtn cursor-pointer">Cadastre-se</span>
+                            <span class="text-azul signupBtn cursor-pointer hover:underline">Cadastre-se</span>
                         </p>
-                        <button type="submit"
-                            class="poppins text-white rounded-lg px-5 py-2 uppercase font-bold drop-shadow-md bg-btn-sign">
-                            <span class="drop-shadow-md">Entrar</span>
-                        </button>
+                        <x-form.button>Entrar</x-form.button>
                     </div>
                 </form>
             </div>
