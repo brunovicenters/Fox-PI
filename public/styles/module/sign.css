@@ -1,4 +1,8 @@
-.banner-login {
+.container-sign {
+    background-color: var(--cor-amarelo);
+}
+
+.banner-sign {
     background-image: url('/images/banner-login.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -10,4 +14,8 @@
 
 .slide {
     right: 0%;
+}
+
+.bg-btn-sign {
+    background-color: var(--cor-laranja-claro) !important;
 }
