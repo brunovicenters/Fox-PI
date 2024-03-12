@@ -1,6 +1,6 @@
 let signinBtn = document.querySelector(".signinBtn");
 let signupBtn = document.querySelector(".signupBtn");
-let banner = document.querySelector(".banner-login");
+let banner = document.querySelector(".banner-sign");
 
 signupBtn.onclick = function () {
     banner.classList.toggle("slide");
