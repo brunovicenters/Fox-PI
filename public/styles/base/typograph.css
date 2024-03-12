@@ -1,0 +1,27 @@
+.hanalei {
+    font-family: var(--font-hanalei);
+}
+
+.poppins {
+    font-family: var(--font-poppins);
+}
+
+.text-vermelho {
+    color: var(--cor-vermelho);
+}
+
+.text-verde {
+    color: var(--cor-verde);
+}
+
+.text-laranja-escuro {
+    color: var(--cor-laranja-escuro);
+}
+
+.text-azul {
+    color: var(--cor-azul);
+}
+
+.text-roxo {
+    color: var(--cor-roxo);
+}
