@@ -19,3 +19,7 @@
 .bg-btn-sign {
     background-color: var(--cor-laranja-claro) !important;
 }
+
+.bg-btn-sign:hover {
+    background-color: var(--cor-laranja-escuro) !important;
+}
