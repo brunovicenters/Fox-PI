@@ -1,0 +1,11 @@
+.navbar {
+    background-color: var(--cor-roxo);
+}
+
+.menu-nav:hover {
+    color: var(--cor-laranja-escuro);
+}
+
+.icon:hover {
+    fill: yellow;
+}

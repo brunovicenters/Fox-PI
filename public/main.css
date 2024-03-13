@@ -2,4 +2,5 @@
 @import "styles/base/variaveis.css";
 @import "styles/base/typograph.css";
 @import "styles/layout/body.css";
+@import "styles/layout/navbar.css";
 @import "styles/module/sign.css";
