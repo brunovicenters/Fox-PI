@@ -6,6 +6,10 @@
     color: var(--cor-laranja-escuro);
 }
 
+.icon {
+    fill: white;
+}
+
 .icon:hover {
-    fill: yellow;
+    fill: var(--cor-laranja-escuro);
 }
