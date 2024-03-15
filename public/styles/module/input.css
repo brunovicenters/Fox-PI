@@ -1,0 +1,32 @@
+.input-form:focus {
+    outline: none;
+    border: var(--cor-laranja-escuro) solid 3px;
+    animation: animate_input 0.2s ease-in-out;
+}
+
+@keyframes animate_input {
+    0% {
+        border-top: solid 3px;
+        border-right: solid 0px;
+        border-bottom: solid 0px;
+        border-left: solid 0px;
+    }
+    33%{
+        border-top: solid 3px;
+        border-right: solid 3px;
+        border-bottom: solid 0px;
+        border-left: solid 0px;
+    }
+    66% {
+        border-top: solid 3px;
+        border-right: solid 3px;
+        border-bottom: solid 3px;
+        border-left: solid 0px;
+    }
+    100% {
+        border-top: solid 3px;
+        border-right: solid 3px;
+        border-bottom: solid 3px;
+        border-left: solid 3px;
+    }
+}
