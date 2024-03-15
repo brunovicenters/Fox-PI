@@ -1,5 +1,6 @@
 .navbar {
     background-color: var(--cor-roxo);
+    transition: all 0.1s ease-in-out;
 }
 
 .menu-nav:hover {
@@ -8,8 +9,17 @@
 
 .icon {
     fill: white;
+    transition: all 0.1s ease-in-out;
 }
 
 .icon:hover {
     fill: var(--cor-laranja-escuro);
+}
+
+.search {
+    transition: all 0.1s ease-in-out;
+}
+
+.search:hover {
+    background-color: rgba(64, 64, 64, 0.2);
 }
