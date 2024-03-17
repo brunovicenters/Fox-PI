@@ -52,5 +52,5 @@
         </section>
     </main>
 
-    <script src="scripts/modules/session.js"></script>
+    <script src="scripts/layout/session.js"></script>
 </x-layout>
