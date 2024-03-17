@@ -9,7 +9,13 @@
                 <form action="/cadastrar" method="POST">
                     @csrf
                     <x-form.input-group label="Nome" name="nome" placeholder="Nome" title="Escreva seu nome" />
-                    <x-form.input-group label="CPF" name="cpf" type="number" placeholder="00000000000" title="Escreva somente números"/>
+                    <x-form.input-group
+                        label="CPF" name="cpf"
+                        type="text"
+                        maxlength="14"
+                        oninput="mascara(this)"
+                        placeholder="00000000000"
+                        title="Escreva somente números"/>
                     <x-form.input-group label="E-mail" name="email" type="email" placeholder="email@email.com" title="Escreva um e-mail" />
                     <x-form.input-group label="Senha" name="senha" type="password" placeholder="Senha" title="Escreva uma senha segura e anote-a" />
                     <div class="flex items-center justify-between">
