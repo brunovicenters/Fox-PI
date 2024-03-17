@@ -49,3 +49,16 @@
 .menu-item:hover {
     color: var(--cor-roxo);
 }
+
+.categorias-container {
+    background-color: var(--cor-amarelo);
+    border-bottom: solid var(--cor-vermelho) 4px;
+}
+
+.arrow {
+    stroke: var(--cor-vermelho)
+}
+
+.divisor {
+    border: solid var(--cor-vermelho) 2px;
+}
