@@ -23,3 +23,7 @@
 .search:hover {
     background-color: rgba(64, 64, 64, 0.2);
 }
+
+.shopcart-icon-number {
+    background-color: var(--cor-vermelho);
+}
