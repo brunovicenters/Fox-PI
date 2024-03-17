@@ -7,7 +7,7 @@
         name="{{ $name }}"
         id="{{ $name }}"
         placeholder="{{ $placeholder }}"
-        class="p-2 rounded-lg drop-shadow-md text-laranja-escuro"
+        class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form"
         required
         {{ $attributes(['value' => old($name)]) }}>
 </div>

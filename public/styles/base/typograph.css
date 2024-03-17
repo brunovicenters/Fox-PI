@@ -25,3 +25,7 @@
 .text-roxo {
     color: var(--cor-roxo);
 }
+
+.text-amarelo {
+    color: var(--cor-amarelo);
+}

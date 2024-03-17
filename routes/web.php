@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sign', function () {
+Route::get('/entrar', function () {
     return view('session/create');
-});
+})->name('sign.index');
+
+Route::get('/meus-pedidos', function () {
+    return view('pedidos/index');
+})->name('pedidos.index');

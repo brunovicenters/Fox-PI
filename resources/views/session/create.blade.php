@@ -9,8 +9,14 @@
                 <form action="/cadastrar" method="POST">
                     @csrf
                     <x-form.input-group label="Nome" name="nome" placeholder="Nome" title="Escreva seu nome" />
-                    <x-form.input-group label="CPF" name="cpf" type="number" placeholder="00000000000" title="Escreva somente números"/>
-                    <x-form.input-group label="E-mail" name="email" type="email" placeholder="E-mail" />
+                    <x-form.input-group
+                        label="CPF" name="cpf"
+                        type="text"
+                        maxlength="14"
+                        oninput="mascara(this)"
+                        placeholder="00000000000"
+                        title="Escreva somente números"/>
+                    <x-form.input-group label="E-mail" name="email" type="email" placeholder="email@email.com" title="Escreva um e-mail" />
                     <x-form.input-group label="Senha" name="senha" type="password" placeholder="Senha" title="Escreva uma senha segura e anote-a" />
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
@@ -27,14 +33,8 @@
                 <h1 class="text-6xl hanalei text-vermelho mb-5 drop-shadow-md">Entrar</h1>
                 <form action="/entrar" method="POST">
                     @csrf
-                    <div class="flex flex-col mb-3">
-                        <label for="email" class="poppins text-laranja-escuro drop-shadow-md font-semibold">E-mail:</label>
-                        <input type="text" name="email" placeholder="E-mail" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro">
-                    </div>
-                    <div class="flex flex-col mb-3">
-                        <label for="senha" class="poppins text-laranja-escuro drop-shadow-md font-semibold">Senha:</label>
-                        <input type="text" name="senha" placeholder="Senha" class="p-2 rounded-lg drop-shadow-md">
-                    </div>
+                    <x-form.input-group label="E-mail" name="email" type="email" placeholder="email@email.com" title="Escreva um e-mail" />
+                    <x-form.input-group label="Senha" name="senha" type="password" placeholder="Senha" title="Escreva sua senha" />
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
                             Não possui uma conta?
@@ -52,5 +52,5 @@
         </section>
     </main>
 
-    <script src="scripts/modules/session.js"></script>
+    <script src="scripts/layout/session.js"></script>
 </x-layout>
