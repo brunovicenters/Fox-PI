@@ -1,0 +1,4 @@
+.card-horizontal {
+    background-color: var(--cor-amarelo);
+    border: solid 4px var(--cor-vermelho);
+}
