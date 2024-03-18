@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/sign', function () {
     return view('session/create');
 });
+
+Route::get('/fale-conosco', function () {
+    return view('fale-conosco/fale-conosco');
+});
