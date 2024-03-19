@@ -24,3 +24,7 @@ Route::get('/entrar', function () {
 Route::get('/meus-pedidos', function () {
     return view('pedidos/index');
 })->name('pedidos.index');
+
+Route::get('/pedido', function () {
+    return view('pedidos/show');
+})->name('pedidos.show');
