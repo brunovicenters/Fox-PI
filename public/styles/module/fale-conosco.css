@@ -1,0 +1,9 @@
+.titulos {
+    font-family: var(--font-hanalei);
+    color: var(--cor-roxo);
+}
+
+.cor-fonte {
+    color: var(--cor-laranja-escuro);
+}
+
