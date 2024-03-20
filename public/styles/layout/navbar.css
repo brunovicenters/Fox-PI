@@ -1,0 +1,64 @@
+.navbar {
+    background-color: var(--cor-roxo);
+    transition: all 0.1s ease-in-out;
+}
+
+.menu-nav:hover {
+    color: var(--cor-laranja-escuro);
+}
+
+.icon {
+    fill: white;
+    transition: all 0.1s ease-in-out;
+}
+
+.icon:hover {
+    fill: var(--cor-laranja-escuro);
+}
+
+.icon-stroke {
+    stroke: white;
+    transition: all 0.1s ease-in-out;
+}
+
+.icon-stroke:hover, #menu-btn:hover ~ .icon-stroke {
+    stroke: var(--cor-laranja-escuro);
+}
+
+.search {
+    transition: all 0.1s ease-in-out;
+}
+
+.search:hover {
+    background-color: rgba(64, 64, 64, 0.2);
+}
+
+.shopcart-icon-number {
+    background-color: var(--cor-vermelho);
+}
+
+.menu {
+    background-color: var(--cor-laranja-claro);
+    border: var(--cor-verde) solid 3px;
+}
+
+.menu-item {
+    transition: all 0.1s ease-in-out;
+}
+
+.menu-item:hover {
+    color: var(--cor-roxo);
+}
+
+.categorias-container {
+    background-color: var(--cor-amarelo);
+    border-bottom: solid var(--cor-vermelho) 4px;
+}
+
+.arrow {
+    stroke: var(--cor-vermelho)
+}
+
+.divisor {
+    border: solid var(--cor-vermelho) 2px;
+}

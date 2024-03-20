@@ -14,6 +14,10 @@
     color: var(--cor-verde);
 }
 
+.text-laranja-claro {
+    color: var(--cor-laranja-claro);
+}
+
 .text-laranja-escuro {
     color: var(--cor-laranja-escuro);
 }
@@ -24,4 +28,8 @@
 
 .text-roxo {
     color: var(--cor-roxo);
+}
+
+.text-amarelo {
+    color: var(--cor-amarelo);
 }
