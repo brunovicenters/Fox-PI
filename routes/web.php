@@ -32,3 +32,7 @@ Route::get('/meus-pedidos', function () {
 Route::get('/pedido', function () {
     return view('pedidos/show');
 })->name('pedidos.show');
+
+Route::get('/minha-conta', function () {
+    return view('minha-conta/minha-conta');
+});
