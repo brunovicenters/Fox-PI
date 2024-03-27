@@ -1,6 +1,6 @@
 <x-layout>
 
-    <x-navbar />
+    <x-navbar.navbar />
 
     <section class="max-w-5xl mx-auto flex flex-col h-screen mt-10 poppins">
         <main>
