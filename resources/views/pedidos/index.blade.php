@@ -13,4 +13,5 @@
         </div>
     </main>
 
+    <x-footer.footer />
 </x-layout>

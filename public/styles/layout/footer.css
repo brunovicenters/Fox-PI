@@ -1,0 +1,9 @@
+.divisoria-footer {
+    background: rgb(227,242,253);
+    background: linear-gradient(180deg, rgba(227,242,253,1) 0%, rgba(127,124,175,1) 100%);
+}
+
+.footer {
+    background: rgba(127,124,175,1);
+    background: linear-gradient(180deg, rgba(127,124,175,1) 0%, rgba(127,124,175,1) 100%);
+}
