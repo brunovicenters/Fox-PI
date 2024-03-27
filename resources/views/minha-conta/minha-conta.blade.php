@@ -2,7 +2,7 @@
     <x-navbar />
 
     <section class="max-w-5xl mx-auto flex flex-col items-center h-screen mt-10 poppins  drop-shadow-md space-y-4">
-        <div class="flex hanalei gap-9">
+        <div class="flex hanalei gap-9 ">
             <h1 class="text-6xl text">Minha Conta</h1> 
             <div>
                 <button id="editar" onclick="edit()" type="submit" class="flex items center poppins text-white rounded-lg  px-1  drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 w-11 mt-3">
@@ -33,7 +33,20 @@
                 <p class="pl-5 values">Senha</p>
                 <input type="text" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
             </div>
+
         </div>
+        <div class="flex justify-end w-2/5 drop-shadow-md gap-3 ">
+            <div>
+                <p class="values"><p>
+                <button class="hidden fields botao poppins text-white rounded-lg px-3 py-2 uppercase font-bold drop-shadow-md hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Cancelar</button>
+            </div>
+            <div>
+                <p class="values"><p>
+                <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Editar</button>
+            </div>
+        </div>
+       
+        
     </section>
 
     <script src="scripts\layout/conta.js"></script>
