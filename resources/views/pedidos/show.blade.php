@@ -60,4 +60,6 @@
             <x-button-amarelo href="fale-conosco" text="Fale conosco" />
         </div>
     </main>
+
+    <x-footer.footer />
 </x-layout>
