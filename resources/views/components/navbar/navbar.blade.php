@@ -14,9 +14,9 @@
                 Início
             </a>
             |
-            <p class="hanalei uppercase menu-nav text-lg">
+            <a href="#footer-cards" class="hanalei uppercase menu-nav text-lg">
                 Rua Lugar Algum, 761 - 04562-708
-            </p>
+            </a>
             |
             <a href="/fale-conosco" class="hanalei uppercase menu-nav">Fale conosco</a>
             |
