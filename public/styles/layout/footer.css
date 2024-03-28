@@ -1,0 +1,11 @@
+.divisoria-footer {
+    background: linear-gradient(180deg, rgba(227,242,253,1) 0%, rgba(127,124,175,1) 100%);
+}
+
+.footer {
+    background: linear-gradient(180deg, rgba(127,124,175,1) 0%, rgba(127,124,175,1) 100%);
+}
+
+.footer-card {
+    background-color: var(--cor-amarelo);
+}

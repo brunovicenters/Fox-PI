@@ -3,8 +3,8 @@
     @php
         $status = 2
     @endphp
-    <x-navbar />
-    
+    <x-navbar.navbar />
+
     <main class="max-w-5xl mx-auto mt-10 mb-3 flex gap-16">
         {{-- Pedido --}}
         <div class="w-3/4">
@@ -60,4 +60,6 @@
             <x-button-amarelo href="fale-conosco" text="Fale conosco" />
         </div>
     </main>
+
+    <x-footer.footer />
 </x-layout>

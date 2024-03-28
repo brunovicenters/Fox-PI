@@ -1,8 +1,8 @@
 <x-layout>
 
-    <x-navbar />
+    <x-navbar.navbar />
 
-    <section class="max-w-5xl mx-auto flex flex-col h-screen mt-10 poppins">
+    <section class="max-w-5xl mx-auto flex flex-col mb-8 mt-10 poppins">
         <main>
             <div class="flex flex-col space-y-2">
                 <h1 class="text-6xl titulos">FALE CONOSCO</h1>
@@ -53,7 +53,7 @@
                 <p class="poppins"><strong class="cor-fonte">Caso o produto venha danificado, posso receber reembolso? </strong> Sim, basta nos enviar uma mensagem acima com fotos </p>
             </div>
         </section>
-
     </section>
 
+    <x-footer.footer />
 </x-layout>

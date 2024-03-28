@@ -3,7 +3,12 @@
 @import "styles/base/typograph.css";
 @import "styles/layout/body.css";
 @import "styles/layout/navbar.css";
+@import "styles/layout/footer.css";
 @import "styles/layout/entrar.css";
 @import "styles/module/input.css";
 @import "styles/module/card-horizontal.css";
 @import "styles/module/fale-conosco.css";
+
+* {
+    scroll-behavior: smooth;
+}
