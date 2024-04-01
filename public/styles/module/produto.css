@@ -1,0 +1,26 @@
+.btn-add {
+    background-color: var(--cor-amarelo);
+    border: var(--cor-vermelho);
+}
+
+.btn-car {
+    background-color: var(--cor-verde);
+}
+
+.btn-buy {
+    background-color: var(--cor-amarelo);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-cep {
+    background-color: var(--cor-roxo);
+    color: var(--cor-laranja-escuro);
+}
+
+.bg-color-amarelo {
+    background-color: var(--cor-amarelo);
+}
+
+.color-border {
+    border: var(--cor-vermelho)
+}
