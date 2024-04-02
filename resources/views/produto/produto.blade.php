@@ -54,11 +54,47 @@
         </div>
     </section>
 
-    <section class="max-w-8xl flex justify-center items-right">
-    <div class="w-5/6 mt-10 flex flex-col gap-8">
+    <section class="max-w-8xl flex justify-center items-center">
+    <div class="w-5/6 mt-10 flex flex-col justify-center itens-center gap-8">
         <h1 class="text-6xl hanalei text-roxo text-left">Produtos semelhantes</h1>
-        <div class="flex items-center justify-center">
-            <div class="flex flex-col h-52 w-40 border-2 border-solid rounded-3xl color-border">
+        <div class="flex items-center justify-center gap-7">
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
                 <div class="h-1/2 bg-white rounded-t-3xl"></div>
                 <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
                     <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
@@ -68,6 +104,62 @@
                 </div>
             </div>
         </div>
+        <div class="flex items-center justify-center gap-7">
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+            <div class="flex flex-col h-52 w-36 border-2 border-solid rounded-3xl color-border">
+                <div class="h-1/2 bg-white rounded-t-3xl"></div>
+                <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                    <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
+                    <p>Categoria</p>
+                    <p>R$ 00,00</p>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex justify-center items-center mt-10">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+
     </div>
 </section>
 
