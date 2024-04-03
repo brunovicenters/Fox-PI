@@ -5,7 +5,7 @@
     <section class="max-w-5xl mx-auto flex flex-col mb-8 mt-10 poppins">
         <main>
             <div class="flex flex-col space-y-2">
-                <h1 class="text-6xl titulos">FALE CONOSCO</h1>
+                <h1 class="text-6xl hanalei text-azul">FALE CONOSCO</h1>
                 <div class="w-full flex justify-center items-right gap-5">
                     <div class="flex flex-col w-5/6">
                         <label class="poppins text-laranja-escuro drop-shadow-md font-semibold">Qual o assunto?</label>
@@ -44,13 +44,13 @@
 
         <section class="mt-10 ">
             <div class="flex flex-col space-y-2">
-                <h2 class=" text-4xl titulos ">PERGUNTAS FREQUENTES</h2>
+                <h2 class=" text-4xl hanalei text-azul">PERGUNTAS FREQUENTES</h2>
                 <div class="flex gap-10">
-                    <p class= "poppins"><strong class="cor-fonte">Qual o telefone para contato?</strong> +55 11 5839-7006</p>
-                    <p class="poppins"><strong class="cor-fonte">Em até quantas vezes posso parcelar?</strong> 6x sem juros, 12x com juros</p>
+                    <p class= "poppins"><strong class="text-laranja-escuro">Qual o telefone para contato?</strong> +55 11 5839-7006</p>
+                    <p class="poppins"><strong class="text-laranja-escuro">Em até quantas vezes posso parcelar?</strong> 6x sem juros, 12x com juros</p>
                 </div>
-                <p class="poppins"><strong class="cor-fonte">Como faço para trocar um produto?</strong> Nos envie uma mensagem acima, fornecendo o código do produto</p>
-                <p class="poppins"><strong class="cor-fonte">Caso o produto venha danificado, posso receber reembolso? </strong> Sim, basta nos enviar uma mensagem acima com fotos </p>
+                <p class="poppins"><strong class="text-laranja-escuro">Como faço para trocar um produto?</strong> Nos envie uma mensagem acima, fornecendo o código do produto</p>
+                <p class="poppins"><strong class="text-laranja-escuro">Caso o produto venha danificado, posso receber reembolso? </strong> Sim, basta nos enviar uma mensagem acima com fotos </p>
             </div>
         </section>
     </section>
