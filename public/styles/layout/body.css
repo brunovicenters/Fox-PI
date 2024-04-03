@@ -5,3 +5,11 @@ body {
 .bg-amarelo {
     background-color: var(--cor-amarelo);
 }
+
+.border-vermelho {
+    border: solid var(--cor-vermelho) 5px;
+}
+
+.decoration-vermelho {
+    text-decoration: var(--cor-vermelho);
+}
