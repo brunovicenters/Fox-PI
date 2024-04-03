@@ -22,7 +22,11 @@ Route::get('/entrar', function () {
 })->name('sign.index');
 
 Route::get('/fale-conosco', function () {
-    return view('fale-conosco/fale-conosco');
+    return view('fale-conosco/index');
+});
+
+Route::get('/search', function () {
+    return view('search/index');
 });
 
 Route::get('/meus-pedidos', function () {
