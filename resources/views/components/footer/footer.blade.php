@@ -5,7 +5,7 @@
             <div class="footer-logo flex items-center">
                 <div>
                     <a href="/">
-                        <img class="w-48" src="images/logo.png" alt="Logo do site">
+                        <img class="w-48" src="images/fox.svg" alt="Logo do site">
                     </a>
                 </div>
             </div>

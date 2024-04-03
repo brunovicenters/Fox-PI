@@ -4,7 +4,7 @@
 
     <div>
         <a href="/">
-            <img class="ml-12 w-48" src="images/logo.png" alt="Logo do site">
+            <img class="mt-1 ml-24 w-32" src="images/fox.svg" alt="Logo do site">
         </a>
     </div>
 
