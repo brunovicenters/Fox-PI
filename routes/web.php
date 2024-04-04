@@ -25,7 +25,7 @@ Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
 });
 
-Route::get('/search', function () {
+Route::get('/pesquisa', function () {
     return view('search/index');
 });
 
