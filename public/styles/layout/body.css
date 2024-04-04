@@ -6,6 +6,10 @@ body {
     background-color: var(--cor-amarelo);
 }
 
+.bg-verde {
+    background-color: var(--cor-verde);
+}
+
 .border-vermelho {
     border: solid var(--cor-vermelho) 5px;
 }
