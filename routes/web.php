@@ -29,6 +29,10 @@ Route::get('/pesquisa', function () {
     return view('search/index');
 });
 
+Route::get('/carrinho', function () {
+    return view('carrinho/index');
+});
+
 Route::get('/meus-pedidos', function () {
     return view('pedidos/index');
 })->name('pedidos.index');
