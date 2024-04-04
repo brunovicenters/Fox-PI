@@ -1,10 +1,10 @@
 <main class="navbar w-full h-28 relative flex gap-16">
-    <img class="absolute right-0 top-0" src="images/nav-desenho1.png" alt="Enfeite da Navbar">
-    <img class="absolute -left-1 bottom-0" src="images/nav-desenho2.png" alt="Enfeite da Navbar">
+    <img class="absolute right-0 top-0" src="\images\nav-desenho1.png" alt="Enfeite da Navbar">
+    <img class="absolute -left-1 bottom-0" src="\images\nav-desenho2.png" alt="Enfeite da Navbar">
 
     <div>
         <a href="/">
-            <img class="mt-1 ml-24 w-32" src="images/fox.svg" alt="Logo do site">
+            <img class="mt-1 ml-24 w-32" src="\images\fox.svg" alt="Logo do site">
         </a>
     </div>
 

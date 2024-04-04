@@ -15,8 +15,8 @@
         <script src="https://cdn.tailwindcss.com"></script>
 
         {{-- Style --}}
-        <link rel="stylesheet" href="main.css">
-        
+        <link rel="stylesheet" href="\main.css">
+
     </head>
     <body>
 
