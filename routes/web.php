@@ -33,6 +33,10 @@ Route::get('/carrinho', function () {
     return view('carrinho/index');
 });
 
+Route::get('carrinho/finalizar', function () {
+    return view('carrinho/create');
+});
+
 Route::get('/meus-pedidos', function () {
     return view('pedidos/index');
 })->name('pedidos.index');
