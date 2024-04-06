@@ -26,7 +26,7 @@ Route::get('/fale-conosco', function () {
 });
 
 Route::get('/pesquisa', function () {
-    return view('search/index');
+    return view('pesquisa/index');
 });
 
 Route::get('/carrinho', function () {
