@@ -45,7 +45,7 @@
                         <x-form.input-group id="nome_end" label="Nome do endereço" name="ENDERECO_NOME" placeholder="Casa, Trabalho, Casa da praia..." title="Escreva o nome do endereço"/>
                     </div>
                     <div class="w-5/12">
-                        <x-form.input-group id="complemento" label="Complemento" name="ENDERECO_COMPLEMENTO" placeholder="Bl 01, apto 01" title="Escreva o complemento do endereço"/>
+                        <x-form.input-group id="complemento" label="Complemento" name="ENDERECO_COMPLEMENTO" placeholder="Bl 01, apto 01" title="Escreva o complemento do endereço" required="{{false}}"/>
                     </div>
                 </div>
                 <div class="flex justify-between items-center my-1 ">
