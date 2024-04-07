@@ -33,7 +33,7 @@ Route::get('/carrinho', function () {
     return view('carrinho/index');
 });
 
-Route::get('/endereco', function () {
+Route::get('/carrinho/endereco', function () {
     return view('carrinho/endereco');
 });
 
