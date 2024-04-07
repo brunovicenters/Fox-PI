@@ -62,5 +62,5 @@
 
     <x-footer.footer />
 
-    <script src="\scripts\layout\carrinho.js"></script>
+    <script src="\scripts\module\cep.js"></script>
 </x-layout>
