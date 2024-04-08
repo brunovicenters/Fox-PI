@@ -3,12 +3,12 @@ const selOpen = document.querySelector(".select-open");
 const selEnd = document.querySelector("#selected-end");
 
 const select = document.querySelector("#endereco-salvo");
-const options = select.options;
 
-selOpen.addEventListener("click", () => {
-    selOptions.classList.toggle("hidden");
-});
-
+if (selOpen) {
+    selOpen.addEventListener("click", () => {
+        selOptions.classList.toggle("hidden");
+    });
+}
 // This function is on navbar.js, so it can work ->
 
 // window.onload = function () {
@@ -24,6 +24,7 @@ selOpen.addEventListener("click", () => {
 // };
 
 selectOption = (e) => {
+    const options = select.options;
     for (let i = 0; i < options.length; i++) {
         if (options[i].value == e.target.id) {
             options[i].selected = true;
