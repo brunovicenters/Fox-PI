@@ -38,7 +38,7 @@
                         @endfor
                     </div>
                 </div>
-                <div class="flex items-center justify-end mt-2">
+                <div class="flex items-center justify-end mt-3">
                     <x-form.button>
                         Continuar
                     </x-form.button>
