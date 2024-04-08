@@ -8,6 +8,11 @@
     accent-color: var(--cor-vermelho);
 }
 
+.select-option:hover {
+    background-color: var(--cor-laranja-escuro);
+    color: white;
+}
+
 @keyframes animate_input {
     0% {
         border-top: solid 3px;
