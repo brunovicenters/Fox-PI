@@ -1,6 +1,6 @@
-const selBar = document.querySelector("#select-bar");
 const selOptions = document.querySelector("#select-options");
 const selOpen = document.querySelector(".select-open");
+const selEnd = document.querySelector("#selected-end");
 
 const select = document.querySelector("#endereco-salvo");
 const options = select.options;
@@ -32,6 +32,6 @@ selectOption = (e) => {
         }
     }
 
-    selBar.innerHTML = e.target.innerHTML;
+    selEnd.innerHTML = e.target.innerHTML;
     selOptions.classList.add("hidden");
 };
