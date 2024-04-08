@@ -4,8 +4,53 @@
 
     <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Endereço de Entrega</h1>
+
+        @if (1 == 1)
         <x-card-horizontal>
-            <form action="#" method="POST w-full" class="w-full flex flex-col p1">
+            <form action="#" method="POST" class="w-full flex flex-col p-1 relative">
+                @csrf
+                <label for="ENDERECO_SALVO" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
+                    Endereços salvos:
+                </label>
+                <select name="ENDERECO_SALVO" id="endereco-salvo"
+                class="hidden"
+                >
+                    @for ($i = 0; $i < 10; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <div id="select-bar" class="select-open p-2 rounded-lg drop-shadow-md text-laranja-escuro bg-white h-12 relative flex items-center">
+                    <p id="selected-end" class=" poppins">0</p>
+                    <div class="absolute inset-y-0 right-3 flex items-center">
+                        <div id="select-arrow" class="h-full w-full absolute z-50"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#D36411" class="w-6 h-6 -rotate-90">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </div>
+                </div>
+                <div id="select-options" class="relative hidden">
+                    <div class="absolute bg-white w-full z-50 top-2 rounded-xl py-1
+                        border-laranja-escuro">
+                        @for ($i = 0; $i < 10; $i++)
+                            <p id="{{ $i }}" onclick="selectOption(event)" class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
+                                {{ $i }}
+                            </p>
+                        @endfor
+                    </div>
+                </div>
+                <div class="flex items-center justify-end mt-2">
+                    <x-form.button>
+                        Continuar
+                    </x-form.button>
+                </div>
+            </form>
+        </x-card-horizontal>
+
+        <h2 class="hanalei text-center text-azul drop-shadow-md uppercase my-2 text-4xl">OU</h2>
+        @endif
+
+        <x-card-horizontal>
+            <form action="#" method="POST" class="w-full flex flex-col p-1">
                 @csrf
                 <div class="flex justify-between">
                     <div class="w-3/12">
@@ -52,8 +97,8 @@
                     <p id="limpar" class="poppins text-azul text-xs hover:underline cursor-pointer">
                         Limpar campos
                     </p>
-                    <x-form.button href="carrinho/pagamento" text="Continuar">
-                        Finalizar
+                    <x-form.button>
+                        Continuar
                     </x-form.button>
                 </div>
             </form>
@@ -63,4 +108,5 @@
     <x-footer.footer />
 
     <script src="\scripts\module\cep.js"></script>
+    <script src="\scripts\module\select.js"></script>
 </x-layout>
