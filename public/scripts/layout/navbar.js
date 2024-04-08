@@ -11,8 +11,14 @@ window.onload = function () {
         if (e.target.id !== "menu-btn" && e.target.id !== "menu") {
             menu.classList.add("hidden");
         }
-        if (e.target.id !== "select-bar" && e.target.id !== "select-arrow") {
-            selOptions.classList.add("hidden");
+
+        if (window.location.href.includes("endereco")) {
+            if (
+                e.target.id !== "select-bar" &&
+                e.target.id !== "select-arrow"
+            ) {
+                selOptions.classList.add("hidden");
+            }
         }
     };
 };
