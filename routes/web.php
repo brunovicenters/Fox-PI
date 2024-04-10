@@ -32,3 +32,7 @@ Route::get('/meus-pedidos', function () {
 Route::get('/pedido', function () {
     return view('pedidos/show');
 })->name('pedidos.show');
+
+Route::get('/home', function () {
+    return view('tela-inicial/home');
+});
