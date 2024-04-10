@@ -16,17 +16,17 @@
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Nome:</label>
                 <p class="pl-5 values">Nome</p>
-                <input type="text" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="Nome" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">CPF:</label>
                 <p class="pl-5 values">000.000.000-00</p>
-                <input type="text" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="000.000.000-00" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Email:</label>
                 <p class="pl-5 values">E-mail</p>
-                <input type="text" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="E-mail" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Senha:</label>
