@@ -73,18 +73,106 @@
                         <p class="truncate max-w-xs text-xs">
                             Av. Alguma Coisa, 789 - 09871, Bloco 03, Apt 97
                         </p>
-                        <p class="truncate max-w-xs text-xs">
-                            Azul Entregas
+                        <p id="frete-resumo" class="truncate max-w-xs text-xs italic">
+                            Escolha uma
                         </p>
                     </div>
-                    <div class="px-3">
-                        <p>R$ <span id="precoTotal">00,00</span></p>
+                    <div class="w-2/5 flex justify-between items-center">
+                        <div class="px-3 text-vermelho text-3xl">
+                            <p>R$ <span id="preco-frete">00,00</span></p>
+                        </div>
+                        <div id="mais-frete" class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="frete-down-arrow" class="w-10 h-10 -rotate-90">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="frete-up-arrow" class="w-10 h-10 rotate-90 hidden">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                        </div>
                     </div>
-                    <button class="pointer -rotate-90 p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-10 h-10">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
+
+                    <div id="frete-desc" class="hidden w-full">
+
+                        <div class="my-3 w-full h-1 bg-verde"></div>
+
+                        <div class="flex flex-col space-y-5 mb-2">
+
+                            {{-- Azul Entregas --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center justify-between">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Azul Entregas</h2>
+                                        <p class="truncate max-w-xs">
+                                            Entrega de 2 a 5 dias
+                                        </p>
+                                    </div>
+                                    <div class="px-3 text-vermelho text-3xl">
+                                        <p>R$ <span id="azulFrete">{{ 15*0.89 }}</span></p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('azul', 15*0.89)">
+                                </div>
+                            </div>
+
+                            {{-- Viagens Express --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center justify-between">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Viagens Express</h2>
+                                        <p class="truncate max-w-xs">
+                                            Entrega de 1 a 3 dias
+                                        </p>
+                                    </div>
+                                    <div class="px-3 text-vermelho text-3xl">
+                                        <p>R$ <span id="azulFrete">{{ 15*0.97 }}</span></p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('express', 15*0.97)">
+                                </div>
+                            </div>
+
+                            {{-- Touro Ltda --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center justify-between">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Touro Ltda</h2>
+                                        <p class="truncate max-w-xs">
+                                            Entrega de 4 a 8 dias
+                                        </p>
+                                    </div>
+                                    <div class="px-3 text-vermelho text-3xl">
+                                        <p>R$ <span id="azulFrete">{{ 15*0.43 }}</span></p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('touro', 15*0.43)">
+                                </div>
+                            </div>
+
+                            {{-- Entregas Cometa --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center justify-between">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Entregas Cometa</h2>
+                                        <p class="truncate max-w-xs">
+                                            Entrega de 7 a 13 dias
+                                        </p>
+                                    </div>
+                                    <div class="px-3 text-vermelho text-3xl">
+                                        <p>R$ <span id="azulFrete">{{ 15*0.22 }}</span></p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('cometa', 15*0.22)">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </x-card-horizontal>
 
                 {{-- Método de Pagamento --}}
