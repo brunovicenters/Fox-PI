@@ -10,7 +10,7 @@
         <p>
             <span class="absolute top-1 -left-5">
                 <svg class="inline-block w-6 h-6">
-                    <circle cx="8" cy="8" r="8" fill="{{ $status == 1 ? '#EA760F' : ($status == 2 ? '#283618' : ($status == 3 ? '#B20D30' : ''))  }}"/>
+                    <circle cx="8" cy="8" r="8" class="{{ $status == 1 ? 'caminho' : ($status == 2 ? 'entregue' : ($status == 3 ? 'cancelado' : ''))  }}"/>
                 </svg>
             </span>
             <span class="{{ $status == 1 ? 'text-laranja-claro' : ($status == 2 ? 'text-verde' : ($status == 3 ? 'text-vermelho' : ''))  }} hanalei text-lg">{{ $status == 1 ? 'A caminho' : ($status == 2 ? 'Entregue' : ($status == 3 ? 'Cancelado' : ''))  }}</span>

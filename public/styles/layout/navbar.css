@@ -1,5 +1,5 @@
 .navbar {
-    background-color: var(--cor-roxo);
+    background-color: var(--cor-azul);
     transition: all 0.1s ease-in-out;
 }
 
@@ -8,7 +8,6 @@
 }
 
 .icon {
-    fill: white;
     transition: all 0.1s ease-in-out;
 }
 
@@ -47,7 +46,7 @@
 }
 
 .menu-item:hover {
-    color: var(--cor-roxo);
+    color: var(--cor-azul);
 }
 
 .categorias-container {

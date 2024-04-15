@@ -3,8 +3,8 @@
     @php
         $status = 2
     @endphp
-    <x-navbar />
-    
+    <x-navbar.navbar />
+
     <main class="max-w-5xl mx-auto mt-10 mb-3 flex gap-16">
         {{-- Pedido --}}
         <div class="w-3/4">
@@ -15,7 +15,7 @@
                     <p>
                         <span class="absolute top-2 -left-5">
                             <svg class="inline-block w-6 h-6">
-                                <circle cx="8" cy="8" r="8" fill="{{ $status == 1 ? '#EA760F' : ($status == 2 ? '#283618' : ($status == 3 ? '#B20D30' : ''))  }}"/>
+                                <circle cx="8" cy="8" r="8" class="{{ $status == 1 ? 'caminho' : ($status == 2 ? 'entregue' : ($status == 3 ? 'cancelado' : ''))  }}"/>
                             </svg>
                         </span>
                         <span class="{{ $status == 1 ? 'text-laranja-claro' : ($status == 2 ? 'text-verde' : ($status == 3 ? 'text-vermelho' : ''))  }} hanalei text-3xl">{{ $status == 1 ? 'A caminho' : ($status == 2 ? 'Entregue' : ($status == 3 ? 'Cancelado' : ''))  }}</span>
@@ -60,4 +60,6 @@
             <x-button-amarelo href="fale-conosco" text="Fale conosco" />
         </div>
     </main>
+
+    <x-footer.footer />
 </x-layout>

@@ -4,6 +4,10 @@
     animation: animate_input 0.2s ease-in-out;
 }
 
+.range-vermelho {
+    accent-color: var(--cor-vermelho);
+}
+
 @keyframes animate_input {
     0% {
         border-top: solid 3px;
