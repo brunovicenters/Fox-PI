@@ -1,0 +1,7 @@
+.bg-color-amarelo {
+    background-color: var(--cor-amarelo);
+}
+
+.color-border {
+    border: var(--cor-vermelho)
+}
