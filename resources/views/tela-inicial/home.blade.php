@@ -1,6 +1,35 @@
 <x-layout>
     <x-navbar />
-    <img src="images/Fox-Banner.png" alt="Banner do site">
+    <section class="max-w-8xl flex justify-center items-center flex-col">
+        <div class="w-5/6 mt-10 flex justify-center items-center">
+            <img src="images/Fox-Banner.png" alt="Banner do site">
+        </div>
+
+        <div class="w-5/6 mt-10 flex space-x-24 mt-14 justify-center items-center">
+            <div class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                <p>Sistema </p>
+                <p>de</p>
+                <p>Trocas</p>
+            </div>
+            <div class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                <p>Variedade</p>
+                <p>de</p>
+                <p>Frete</p>
+            </div>
+            <div class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                <p>6x</p>
+                <p>Sem Juros</p>
+            </div>
+            <div class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                <p>Diversas</p>
+                <p>Promoções</p>
+            </div>
+        </div>
+
+    </section>
+
+
+
 
     <section class="max-w-8xl flex justify-center items-center">
     <div class="w-5/6 mt-10 flex flex-col justify-center itens-center gap-8">
