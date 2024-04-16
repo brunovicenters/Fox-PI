@@ -74,7 +74,7 @@
                             Av. Alguma Coisa, 789 - 09871, Bloco 03, Apt 97
                         </p>
                         <p id="frete-resumo" class="truncate max-w-xs text-xs italic">
-                            Escolha uma
+                            Escolha uma empresa
                         </p>
                     </div>
                     <div class="w-2/5 flex justify-between items-center">
@@ -178,22 +178,77 @@
                 {{-- Método de Pagamento --}}
                 <x-card-horizontal>
                     <div class="w-3/5 px-3">
-                        <h2 class="hanalei text-laranja-escuro text-4xl">Método de Pagamento</h2>
+                        <h2 class="hanalei text-laranja-escuro text-4xl">Método de pagamento</h2>
                         <p class="truncate max-w-xs text-xs">
-                            <span id='metodo'>Pix</span> - <span id="qtdParcelas">1</span>x parcela&#40;s&#41;
-                        </p>
-                        <p id="textPagamento" class="truncate max-w-xs text-xs">
-                            O QR Code aparecerá na tela e estará funcional por 30 minutos
-                        </p>
-                        <p class="truncate max-w-xs text-xs">
-                            Juros: <span id="juros">0%</span>
+                        <p id="pagamento-resumo" class="truncate max-w-xs text-xs italic">
+                            Escolha um método
                         </p>
                     </div>
-                    <button class="pointer -rotate-90 p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-10 h-10">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
+                    <div class="w-2/5 flex justify-end items-center">
+                        <div id="mais-pagamento" class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="pagamento-down-arrow" class="w-10 h-10 -rotate-90">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="pagamento-up-arrow" class="w-10 h-10 rotate-90 hidden">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div id="pagamento-desc" class="hidden w-full">
+
+                        <div class="my-3 w-full h-1 bg-verde"></div>
+
+                        <div class="flex flex-col space-y-5 mb-2">
+
+                            {{-- Pix --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Pix</h2>
+                                        <p class="truncate max-w-xs">
+                                            O QR Code aparecerá na tela e estará disponível por 30 minutos.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setPagamento('pix')">
+                                </div>
+                            </div>
+
+                            {{-- Boleto --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Boleto</h2>
+                                        <p class="truncate max-w-xs">
+                                            O boleto aparecerá na tela e terá 3 dias para ser pago.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setPagamento('boleto')">
+                                </div>
+                            </div>
+
+                            {{-- Crédito --}}
+                            <div class="flex items-center justify-between">
+                                <div class="w-10/12 flex items-center">
+                                    <div>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">Cŕedito</h2>
+                                        <p class="truncate max-w-xs">
+                                            Até 6x sem juros e 12x com juros.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setPagamento('credito')">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </x-card-horizontal>
             </div>
 
@@ -202,20 +257,15 @@
                     <div class="w-full flex flex-col justify-between items-center space-y-2 text-lg">
                                 <div class="w-full flex justify-around items-center">
                                     <span class="hanalei text-laranja-escuro text-xl">Itens</span>
-                                        <span class="poppins text-vermelho">R$ 000,00</span>
-                                </div>
-                                <div class="w-full flex justify-around items-center relative">
-                                    <span class="absolute poppins text-azul font-bold -left-3">+</span>
-                                    <span class="hanalei text-laranja-escuro text-xl">Frete</span>
-                                    <p>
-                                        <span class="poppins text-vermelho">R$ 000,00</span>
+                                    <p class="poppins text-vermelho">
+                                        R$ <span id="itens-final">00,00</span>
                                     </p>
                                 </div>
                                 <div class="w-full flex justify-around items-center relative">
                                     <span class="absolute poppins text-azul font-bold -left-3">+</span>
-                                    <span class="hanalei text-laranja-escuro text-xl">Taxas</span>
-                                    <p>
-                                        <span class="poppins text-vermelho">R$ 000,00</span>
+                                    <span class="hanalei text-laranja-escuro text-xl">Frete</span>
+                                    <p class="poppins text-vermelho">
+                                        R$ <span id="frete-final">00,00</span>
                                     </p>
                                 </div>
 
@@ -223,7 +273,9 @@
 
                         <div class="w-full flex justify-around items-center">
                             <span class="hanalei text-laranja-escuro text-2xl">Total</span>
-                            <span class="poppins text-vermelho text-lg">R$ 000,00</span>
+                            <p class="poppins text-vermelho text-lg">
+                                R$ <span id="total-final">00,00</span>
+                            </p>
                         </div>
 
                     </div>
