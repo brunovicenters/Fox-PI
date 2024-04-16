@@ -55,7 +55,6 @@
             </div>
         </form>
     </div>
-
     <div class="flex gap-10 justify-center items-center pr-20">
         <a class="relative pointer" href="/carrinho">
             <span class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">0</span>
