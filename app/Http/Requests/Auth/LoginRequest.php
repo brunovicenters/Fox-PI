@@ -42,12 +42,13 @@ class LoginRequest extends FormRequest
     public function authenticate(): void
     {
         $user = User::where('USUARIO_EMAIL', $this->only('email'))->first();
+
         if (!$user) {
             throw ValidationException::withMessages([
                 'email' => __('auth.failed')
             ]);
         }
-        if (Hash::check($this->password, $user->USUARIO_SENHA)) {
+        if (!Hash::check($this->password, $user->USUARIO_SENHA)) {
             throw ValidationException::withMessages([
                 'email' => __('auth.failed')
             ]);
