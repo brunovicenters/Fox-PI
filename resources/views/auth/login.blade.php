@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout login="true">
 
     <main class="max-w-5xl mx-auto flex justify-center items-center h-screen">
         <section class="w-full h-4/5 drop-shadow-lg flex relative rounded-3xl container-sign">
