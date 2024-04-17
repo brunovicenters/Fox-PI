@@ -7,6 +7,8 @@
 @import "styles/layout/entrar.css";
 @import "styles/module/input.css";
 @import "styles/module/card-horizontal.css";
+@import "styles/module/fale-conosco.css";
+@import "styles/module/minha-conta.css";
 @import "styles/module/pedidos.css";
 
 * {
