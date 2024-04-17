@@ -1,8 +1,8 @@
 <x-card-horizontal>
-    <div class="pl-2">
+    <div class="pl-2 w-2/12">
         <img class="w-24 h-32" src="https://img.freepik.com/fotos-gratis/fundo_53876-32170.jpg?w=740&t=st=1710889922~exp=1710890522~hmac=7a5a91fb224ef325005348cdd768218cbc50b49696db300ff345702f6d7b06d6" alt="">
     </div>
-    <div class="w-3/4 px-3">
+    <div class="w-6/12 pr-3">
         <h2 class="hanalei text-laranja-escuro text-2xl">Nome</h2>
         <p class="text-verde uppercase text-sm">CATEGORIA</p>
         <p class="text-vermelho poppins text-xl font-semibold">R$ 000,00</p>
@@ -10,7 +10,7 @@
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil veritatis odio quasi praesentium! Voluptates distinctio veritatis nesciunt consequatur fugiat molestiae, fuga blanditiis vel hic quis commodi doloribus. Nulla, culpa necessitatibus!
         </p>
     </div>
-    <div class="flex items-center space-x-2">
+    <div class="w-3/12 flex items-center space-x-2">
         <button class="p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />

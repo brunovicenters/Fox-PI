@@ -26,11 +26,19 @@ Route::get('/fale-conosco', function () {
 });
 
 Route::get('/pesquisa', function () {
-    return view('search/index');
+    return view('pesquisa/index');
 });
 
 Route::get('/carrinho', function () {
     return view('carrinho/index');
+});
+
+Route::get('/carrinho/endereco', function () {
+    return view('carrinho/endereco');
+});
+
+Route::get('carrinho/finalizar', function () {
+    return view('carrinho/create');
 });
 
 Route::get('/meus-pedidos', function () {

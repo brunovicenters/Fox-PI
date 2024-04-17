@@ -17,3 +17,7 @@ body {
 .decoration-vermelho {
     text-decoration: var(--cor-vermelho);
 }
+
+.border-laranja-escuro {
+    border: solid var(--cor-laranja-escuro) 3px;
+}

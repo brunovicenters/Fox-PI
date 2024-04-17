@@ -2,7 +2,7 @@
 
     <main class="max-w-5xl mx-auto flex justify-center items-center h-screen">
         <section class="w-full h-4/5 drop-shadow-lg flex relative rounded-3xl container-sign">
-            
+
             {{-- Cadastrar --}}
             <div class="w-1/2 flex flex-col justify-center px-20 rounded-l-3xl">
                 <h1 class="text-6xl hanalei text-vermelho mb-5 drop-shadow-md">Cadastrar</h1>
@@ -13,7 +13,7 @@
                         label="CPF" name="cpf"
                         type="text"
                         maxlength="14"
-                        oninput="mascara(this)"
+                        oninput="mascaraCPF(this)"
                         placeholder="00000000000"
                         title="Escreva somente números"/>
                     <x-form.input-group label="E-mail" name="email" type="email" placeholder="email@email.com" title="Escreva um e-mail" />

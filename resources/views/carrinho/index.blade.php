@@ -44,7 +44,7 @@
                     </div>
                 </x-card-horizontal>
 
-                <x-button-amarelo href="carrinho/finalizar" text="Comprar" />
+                <x-button-amarelo href="carrinho/endereco" text="Comprar" />
             </div>
         </div>
     </main>
