@@ -1,4 +1,4 @@
-<x-layout :categorias="$categorias" :temHeader="true">
+<x-layout :categorias="$categorias">
     {{-- APAGAR DEPOIS --}}
     @php
         $status = 2;
@@ -66,5 +66,4 @@
         </div>
     </main>
 
-    <x-footer.footer />
 </x-layout>

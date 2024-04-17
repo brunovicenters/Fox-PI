@@ -1,3 +1,5 @@
+@props(["login" => false])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -23,11 +25,16 @@
 </head>
 
 <body>
-    @if (isset($temHeader) && $temHeader)
-        <x-navbar.navbar :categorias="$categorias ?? null" />
+    @if (!$login)
+        <x-navbar.navbar />
     @endif
 
     {{ $slot }}
+
+    @if (!$login)
+        <x-footer.footer  />
+        {{-- :categorias="$categorias ?? null" --}}
+    @endif
 
 </body>
 

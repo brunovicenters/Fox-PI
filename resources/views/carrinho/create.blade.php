@@ -1,7 +1,5 @@
 <x-layout>
 
-    <x-navbar.navbar />
-
     <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Finalizar Compra</h1>
         <div class="flex space-x-5">
@@ -286,8 +284,6 @@
         </div>
 
     </main>
-
-    <x-footer.footer />
 
     <script src="\scripts\layout\finalizar.js"></script>
 </x-layout>

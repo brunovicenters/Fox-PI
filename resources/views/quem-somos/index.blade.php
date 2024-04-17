@@ -1,5 +1,4 @@
 <x-layout>
-    <x-navbar.navbar />
 
     <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Quem Somos</h1>
@@ -32,5 +31,4 @@
         </div>
     </main>
 
-    <x-footer.footer />
 </x-layout>

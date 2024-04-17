@@ -1,4 +1,4 @@
-<x-layout :categorias="$categorias" :temHeader="true">
+<x-layout :categorias="$categorias">
 
     <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md mb-5 text-azul">
@@ -40,5 +40,4 @@
         </div>
     </main>
 
-    <x-footer.footer />
 </x-layout>

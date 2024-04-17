@@ -1,4 +1,4 @@
-<x-layout :temHeader="true">
+<x-layout>
 
     <section class="max-w-5xl mx-auto flex flex-col mb-8 mt-10 poppins">
         <main>
@@ -64,5 +64,4 @@
                 </section>
     </section>
 
-    <x-footer.footer />
 </x-layout>
