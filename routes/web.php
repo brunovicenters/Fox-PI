@@ -52,3 +52,7 @@ Route::get('/pedido', function () {
 Route::get('/minha-conta', function () {
     return view('minha-conta/minha-conta');
 });
+
+Route::get('/quem-somos', function () {
+    return view('quem-somos/index');
+});

@@ -8,10 +8,14 @@
         </a>
     </div>
 
-    <div class="w-2/4 mt-3">
+    <div class="w-3/4 mt-3">
         <nav class="flex items-center gap-3 text-white">
             <a href="/" class="hanalei uppercase menu-nav">
                 Início
+            </a>
+            |
+            <a href="/quem-somos" class="hanalei uppercase menu-nav">
+                Quem somos
             </a>
             |
             <a href="#footer-cards" class="hanalei uppercase menu-nav text-lg">
