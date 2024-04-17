@@ -1,9 +1,9 @@
 <x-layout>
-    <x-navbar />
+    <x-navbar.navbar />
 
     <section class="max-w-5xl mx-auto flex flex-col items-center h-screen mt-10 poppins  drop-shadow-md space-y-4">
         <div class="flex hanalei gap-9 ">
-            <h1 class="text-6xl text">Minha Conta</h1> 
+            <h1 class="text-6xl text">Minha Conta</h1>
             <div>
                 <button id="editar" onclick="edit()" type="submit" class=" flex items center poppins text-white rounded-lg  px-1  drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 w-11 mt-3 fields">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-11 h-11">
@@ -45,8 +45,8 @@
                 <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Editar</button>
             </div>
         </div>
-       
-        
+
+
     </section>
 
     <script src="scripts\layout/conta.js"></script>
