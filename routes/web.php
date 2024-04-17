@@ -27,22 +27,18 @@ Route::get('/pesquisa', function () {
     return view('search/index');
 });
 
-Route::get('/carrinho', function () {
-    return view('carrinho/index');
-});
 
-
-Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
-Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+    Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
+    Route::get('/carrinho', function () {
+        return view('carrinho/index');
+    });
 });
 
 require __DIR__ . '/auth.php';
