@@ -1,6 +1,4 @@
-<x-layout>
-
-    <x-navbar.navbar />
+<x-layout :temHeader="true">
 
     <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Meus pedidos</h1>

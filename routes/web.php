@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/entrar', function () {
-    return view('session/create');
-})->name('sign.index');
-
 Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
 });
@@ -29,30 +27,20 @@ Route::get('/pesquisa', function () {
     return view('pesquisa/index');
 });
 
-Route::get('/carrinho', function () {
-    return view('carrinho/index');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+    Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
+    Route::get('/carrinho', function () {
+        return view('carrinho/index');
+    });
 });
 
-Route::get('/carrinho/endereco', function () {
-    return view('carrinho/endereco');
-});
+require __DIR__ . '/auth.php';
 
-Route::get('carrinho/finalizar', function () {
-    return view('carrinho/create');
-});
 
-Route::get('/meus-pedidos', function () {
-    return view('pedidos/index');
-})->name('pedidos.index');
-
-Route::get('/pedido', function () {
-    return view('pedidos/show');
-})->name('pedidos.show');
-
-Route::get('/minha-conta', function () {
-    return view('minha-conta/minha-conta');
-});
-
-Route::get('/quem-somos', function () {
-    return view('quem-somos/index');
-});
