@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/entrar', function () {
-    return view('auth.login');
-})->name('sign.index');
-
 Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
 });
@@ -34,13 +31,9 @@ Route::get('/carrinho', function () {
     return view('carrinho/index');
 });
 
-Route::get('/meus-pedidos', function () {
-    return view('pedidos/index');
-})->name('pedidos.index');
 
-Route::get('/pedido', function () {
-    return view('pedidos/show');
-})->name('pedidos.show');
+Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
