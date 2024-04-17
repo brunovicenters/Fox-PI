@@ -1,9 +1,8 @@
-<x-layout>
+<x-layout :categorias="$categorias" :temHeader="true">
     {{-- APAGAR DEPOIS --}}
     @php
         $status = 2;
     @endphp
-    <x-navbar.navbar :categorias="$categorias" />
 
     <main class="max-w-5xl mx-auto mt-10 mb-3 flex gap-16">
         {{-- Pedido --}}

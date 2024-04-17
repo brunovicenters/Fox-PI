@@ -85,33 +85,42 @@
                     <li class="w-full h-1 bg-white"></li>
                     <li><a class="menu-item" href="/meu-perfil">Minha conta</a></li>
                     <li class="w-full h-1 bg-white"></li>
-                    <li><a href="/sair" class="menu-item">Sair</a></li>
+
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="menu-item">Sair</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </main>
-<aside class="categorias-container flex justify-between items-center">
-    <a href="#" class="pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
-            stroke="currentColor" class="w-6 h-6 arrow">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-    </a>
-    <div class="flex justify-around items-center w-full">
-        @foreach ($categorias as $categoria)
-            @if (!$loop->first)
-                <span class="text-vermelho divisor h-6 w-1"></span>
-            @endif
-            <x-navbar.categoria :categoria="$categoria" />
-        @endforeach
+@isset($categorias)
 
-    </div>
-    <a href="#" class="pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
-            stroke="currentColor" class="w-6 h-6 arrow -scale-x-100">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-    </a>
-</aside>
+    <aside class="categorias-container flex justify-between items-center">
+        <a href="#" class="pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
+                stroke="currentColor" class="w-6 h-6 arrow">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </a>
+        <div class="flex justify-around items-center w-full">
+            @foreach ($categorias as $categoria)
+                @if (!$loop->first)
+                    <span class="text-vermelho divisor h-6 w-1"></span>
+                @endif
+                <x-navbar.categoria :categoria="$categoria" />
+            @endforeach
+
+        </div>
+        <a href="#" class="pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
+                stroke="currentColor" class="w-6 h-6 arrow -scale-x-100">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </a>
+    </aside>
+@endisset
 <script src="scripts/layout/navbar.js"></script>
