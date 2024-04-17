@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/entrar', function () {
-    return view('session/create');
+    return view('auth.login');
 })->name('sign.index');
 
 Route::get('/fale-conosco', function () {
