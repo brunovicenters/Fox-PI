@@ -76,7 +76,7 @@
                 <ul class="hanalei text-xl text-white text-center w-36 flex flex-col space-y-1 px-3 py-1">
                     <li ><a class="menu-item" href="/meus-pedidos">Meus pedidos</a></li>
                     <li class="w-full h-1 bg-white"></li>
-                    <li><a class="menu-item" href="/meu-perfil">Minha conta</a></li>
+                    <li><a class="menu-item" href="/minha-conta">Minha conta</a></li>
                     <li class="w-full h-1 bg-white"></li>
                     <li><a href="/sair" class="menu-item">Sair</a></li>
                 </ul>
