@@ -1,3 +1,5 @@
+@props(['categorias'])
+
 <main class="navbar w-full h-28 relative flex gap-16">
     <img class="absolute right-0 top-0" src="\images\nav-desenho1.png" alt="Enfeite da Navbar">
     <img class="absolute -left-1 bottom-0" src="\images\nav-desenho2.png" alt="Enfeite da Navbar">
@@ -101,8 +103,8 @@
         </div>
     </div>
 </main>
-@isset($categorias)
 
+@isset($categorias)
     <aside class="categorias-container flex justify-between items-center">
         <a href="#" class="pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
@@ -127,4 +129,5 @@
         </a>
     </aside>
 @endisset
+
 <script src="scripts/layout/navbar.js"></script>

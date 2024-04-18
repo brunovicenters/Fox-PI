@@ -33,7 +33,6 @@
 
     @if (!$login)
         <x-footer.footer  />
-        {{-- :categorias="$categorias ?? null" --}}
     @endif
 
 </body>
