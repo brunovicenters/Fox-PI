@@ -1,6 +1,5 @@
 <x-layout>
 
-    <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Finalizar Compra</h1>
         <div class="flex space-x-5">
             <div class="flex flex-col space-y-4 w-9/12">
@@ -282,8 +281,6 @@
                 <x-button-amarelo href="carrinho/finalizar" text="Comprar" />
             </div>
         </div>
-
-    </main>
 
     <script src="\scripts\layout\finalizar.js"></script>
 </x-layout>

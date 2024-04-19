@@ -28,9 +28,9 @@
     @if (!$login)
         <x-navbar.navbar />
     @endif
-
-    {{ $slot }}
-
+    <main class="max-w-5xl mx-auto mt-10 mb-3">
+        {{ $slot }}
+    </main>
     @if (!$login)
         <x-footer.footer  />
     @endif

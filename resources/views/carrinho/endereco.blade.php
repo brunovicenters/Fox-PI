@@ -1,6 +1,5 @@
 <x-layout>
 
-    <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Endereço de Entrega</h1>
 
         @if (1 == 1)
@@ -101,7 +100,6 @@
                 </div>
             </form>
         </x-card-horizontal>
-    </main>
 
     <script src="\scripts\module\cep.js"></script>
     <script src="\scripts\module\select.js"></script>
