@@ -41,8 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrinho', function () {
         return view('carrinho/index');
     });
+    Route::get('/carrinho/endereco', function () {
+        return view('carrinho/endereco');
+    });
+    Route::get('/carrinho/finalizar', function () {
+        return view('carrinho/create');
+    });
 });
 
 require __DIR__ . '/auth.php';
-
-
