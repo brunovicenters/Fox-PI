@@ -1,8 +1,8 @@
 const selOptions = document.querySelector("#select-options");
 const selOpen = document.querySelector(".select-open");
-const selEnd = document.querySelector("#selected-end");
+const seled = document.querySelector("#selected");
 
-const select = document.querySelector("#endereco-salvo");
+const select = document.querySelector("#select-container");
 
 if (selOpen) {
     selOpen.addEventListener("click", () => {
@@ -33,6 +33,6 @@ selectOption = (e) => {
         }
     }
 
-    selEnd.innerHTML = e.target.innerHTML;
+    seled.innerHTML = e.target.innerHTML;
     selOptions.classList.add("hidden");
 };
