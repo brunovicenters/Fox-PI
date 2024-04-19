@@ -106,14 +106,17 @@
 
 @isset($categorias)
     <aside class="categorias-container flex justify-between items-center">
+
         <a href="#" class="pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
                 stroke="currentColor" class="w-6 h-6 arrow">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </a>
-        <div class="flex justify-around items-center w-full">
-            @foreach ($categorias as $categoria)
+
+        <div class="flex justify-around items-center w-full px-5">
+
+            @foreach ($categorias->take(7) as $categoria)
                 @if (!$loop->first)
                     <span class="text-vermelho divisor h-6 w-1"></span>
                 @endif
@@ -121,12 +124,14 @@
             @endforeach
 
         </div>
+
         <a href="#" class="pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
                 stroke="currentColor" class="w-6 h-6 arrow -scale-x-100">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
             </svg>
         </a>
+
     </aside>
 @endisset
 
