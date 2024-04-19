@@ -16,9 +16,7 @@ Route::middleware('guest')->group(function () {
         return view('auth.login');
     })->name('sign.index');
 
-    Route::get('login', function () {
-        return view('auth.login');
-    });
+    Route::redirect('/login', '/entrar');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store'])
         ->name('login');

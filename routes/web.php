@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// FALLBACK ROUTE
+Route::fallback(function () {
+    return to_route('index');
+});
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
@@ -26,8 +30,6 @@ Route::get('/fale-conosco', function () {
 Route::get('/pesquisa', function () {
     return view('pesquisa/index');
 });
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
