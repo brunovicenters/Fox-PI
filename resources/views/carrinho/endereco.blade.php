@@ -6,7 +6,7 @@
         <x-card-horizontal>
             <form action="#" method="POST" class="w-full flex flex-col p-1 relative">
                 @csrf
-                <x-form.select label="Endereços salvos"  name="ENDERECO_SALVO" endereco="true" />
+                <x-form.select label="Endereços salvos"  name="ENDERECO_SALVO" endereco="{{true}}" />
                 <div class="flex items-center justify-end mt-3">
                     <x-form.button>
                         Continuar
