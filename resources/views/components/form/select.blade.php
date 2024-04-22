@@ -9,7 +9,7 @@
     {{ $label }}:
 </label>
 <select name="{{ $name }}" id="select-container"
-    class="hidden"
+    class="hidden" required
 >
     {{-- @foreach ($options as $option)
         @if (endereco)
