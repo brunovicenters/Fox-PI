@@ -12,9 +12,8 @@
         </div>
 
         <div class="flex flex-col w-full">
-            <label class="poppins text-laranja-escuro drop-shadow-md font-semibold">Descreva o problema:</label>
-            <textarea name="desc" placeholder="Descreva o seu problema..." title="Descreva o problema"
-                class="p-2 rounded-lg drop-shadow-md text-laranja-escuro w-full h-20"></textarea>
+            <x-form.textarea label="Descreva o problema" placeholder="Descreva o seu problema..."
+                name="MENSAGEM" title="Escreva o seu problema" />
         </div>
 
         <div class="flex justify-center gap-10  w-full">
