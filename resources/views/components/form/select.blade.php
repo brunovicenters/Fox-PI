@@ -6,7 +6,7 @@
 ])
 
 <label class="poppins text-laranja-escuro drop-shadow-md font-semibold">
-    {{ $label }}:
+    {{ $label }}:*
 </label>
 <select name="{{ $name }}" id="select-container"
     class="hidden" required
