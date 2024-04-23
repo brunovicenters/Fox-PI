@@ -12,7 +12,10 @@ window.onload = function () {
             menu.classList.add("hidden");
         }
 
-        if (window.location.href.includes("endereco")) {
+        if (
+            window.location.href.includes("endereco") ||
+            window.location.href.includes("fale-conosco")
+        ) {
             if (
                 e.target.id !== "select-bar" &&
                 e.target.id !== "select-arrow"
