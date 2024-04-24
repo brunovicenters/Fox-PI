@@ -1,0 +1,11 @@
+.entregue {
+    fill: var(--cor-verde);
+}
+
+.cancelado {
+    fill: var(--cor-vermelho);
+}
+
+.caminho {
+    fill: var(--cor-laranja-claro);
+}
