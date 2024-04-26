@@ -33,7 +33,7 @@
     </div>
 </div>
 <div id="select-options" class="relative hidden">
-    <div class="absolute bg-white w-full z-50 top-2 rounded-xl py-1
+    <div class="absolute bg-white w-full z-50 top-2 rounded-xl py-1 max-h-56 overflow-y-auto
         border-laranja-escuro">
         @foreach ($options as $option)
             @if ($type == 0)
