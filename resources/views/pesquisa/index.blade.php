@@ -6,14 +6,7 @@
 
     <div class="flex space-x-12 w-full items-center mb-5">
         <div class="w-3/5">
-            <label for="categorias" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
-                Categorias:
-            </label>
-            <select name="categorias" class="p-2 rounded-lg drop-shadow-md  w-full poppins text-verde">
-                <option value="valor1">Valor 1</option>
-                <option value="valor2">Valor 2</option>
-                <option value="valor3">Valor 3</option>
-            </select>
+            <x-form.select label="Categorias"  name="categoria" type="2" :options="$categorias" />
         </div>
         <div class="w-2/5">
             <label for="limite" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
@@ -37,5 +30,7 @@
             </svg>
         </button>
     </div>
+
+    <script src="\scripts\module\select.js"></script>
 
 </x-layout>
