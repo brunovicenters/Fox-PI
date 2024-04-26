@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaleConoscoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -23,9 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Route::get('/fale-conosco', function () {
-    return view('fale-conosco/index');
-});
+Route::get('/fale-conosco', [FaleConoscoController::class, 'index'])->name('fale-conosco.index');
 
 Route::get('/pesquisa', function () {
     return view('pesquisa/index');
