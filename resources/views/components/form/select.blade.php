@@ -2,8 +2,10 @@
     'label' => '',
     'name' => '',
     'options' => [],
-    'endereco' => false,
+    'type' => 0,
 ])
+
+{{-- type: 0 = simple array, 1 = address, 2 = category --}}
 
 <label class="poppins text-laranja-escuro drop-shadow-md font-semibold">
     {{ $label }}:*
@@ -11,19 +13,18 @@
 <select name="{{ $name }}" id="select-container"
     class="hidden" required
 >
-    {{-- @foreach ($options as $option)
-        @if (endereco)
-            <option value="{{ $option->ENDERECO_ID }}">{{ $option->ENDERECO_NOME }}</option>
-        @else
+    @foreach ($options as $option)
+        @if ($type == 0)
             <option value="{{ $option }}">{{ $option }}</option>
+        @elseif ($type == 1)
+            <option value="{{ $option->ENDERECO_ID }}">{{ $option->ENDERECO_NOME }}</option>
+        @elseif ($type == 2)
+            <option value="{{ $option->CATEGORIA_ID }}">{{ $option->CATEGORIA_NOME }}</option>
         @endif
-    @endforeach --}}
-    @for ($i = 0; $i < 10; $i++)
-        <option value="{{ $i }}">{{ $i }}</option>
-    @endfor
+    @endforeach
 </select>
 <div id="select-bar" class="select-open p-2 rounded-lg drop-shadow-md text-laranja-escuro bg-white h-12 relative flex items-center">
-    <p id="selected" class=" poppins">0 {{-- {{ $endereco ? $options[0]->ENDERECO_NOME : $options[0] }} --}}</p>
+    <p id="selected" class=" poppins">{{ $type == 0 ? $options[0] : ($type == 1 ? $options[0]->ENDERECO_NOME : $options[0]->CATEGORIA_NOME) }}</p>
     <div class="absolute inset-y-0 right-3 flex items-center">
         <div id="select-arrow" class="h-full w-full absolute z-50"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#D36411" class="w-6 h-6 -rotate-90">
@@ -34,25 +35,26 @@
 <div id="select-options" class="relative hidden">
     <div class="absolute bg-white w-full z-50 top-2 rounded-xl py-1
         border-laranja-escuro">
-        {{-- @foreach ($options as $option)
-            @if (endereco)
-                <p id="{{ $option->ENDERECO_ID }}"
-                    onclick="selectOption(event)"
-                    class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
-                    {{ $option->ENDERECO_NOME }}
-                </p>
-            @else
+        @foreach ($options as $option)
+            @if ($type == 0)
                 <p id="{{ $option }}"
                 onclick="selectOption(event)"
                 class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
                     {{ $option }}
                 </p>
+            @elseif ($type == 1)
+                <p id="{{ $option->ENDERECO_ID }}"
+                    onclick="selectOption(event)"
+                    class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
+                    {{ $option->ENDERECO_NOME }}
+                </p>
+            @elseif ($type == 2)
+                <p id="{{ $option->CATEGORIA_ID }}"
+                    onclick="selectOption(event)"
+                    class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
+                    {{ $option->CATEGORIA_NOME }}
+                </p>
             @endif
-        @endforeach --}}
-        @for ($i = 0; $i < 10; $i++)
-            <p id="{{ $i }}" onclick="selectOption(event)" class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
-                {{ $i }}
-            </p>
-        @endfor
+        @endforeach
     </div>
 </div>
