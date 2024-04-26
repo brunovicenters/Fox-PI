@@ -4,7 +4,7 @@
         <h1 class="text-6xl hanalei text-azul">FALE CONOSCO</h1>
         <div class="w-full flex justify-center items-right gap-5">
             <div class="flex flex-col w-4/6">
-                <x-form.select label="Qual o assunto"  name="ASSUNTO" />
+                <x-form.select label="Qual o assunto"  name="ASSUNTO" :options="$options" />
             </div>
             <div class="flex flex-col w-2/6">
                 <x-form.input-group label="Qual o código do pedido" name="CODIGO_PEDIDO" placeholder="Código do pedido" title="Escreva o código do pedido"/>
