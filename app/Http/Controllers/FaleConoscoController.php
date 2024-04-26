@@ -8,7 +8,7 @@ class FaleConoscoController extends Controller
 {
     public function index()
     {
-        $options = [
+        $assuntos = [
             "Produto danificado",
             "Não recebi meu produto",
             "Recebi o produto errado",
@@ -18,7 +18,7 @@ class FaleConoscoController extends Controller
         ];
 
         return view('fale-conosco.index', [
-            'options' => $options
+            'assuntos' => $assuntos
         ]);
     }
 }
