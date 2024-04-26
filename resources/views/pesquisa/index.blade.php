@@ -10,9 +10,9 @@
         </div>
         <div class="w-2/5">
             <label for="limite" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
-                Até o valor de: <span class="text-vermelho" id="valor">R$ 50,00</span>
+                Até o valor de: <span class="text-vermelho" id="valor">50,00</span>
             </label>
-            <input type="range" name="limite" id="limite" min="0" max="200"
+            <input type="range" name="limiteDinheiro" id="limiteDinheiro" min="0.00" max="200"
                 class="w-full range-vermelho">
         </div>
     </div>
@@ -32,5 +32,6 @@
     </div>
 
     <script src="\scripts\module\select.js"></script>
+    <script src="\scripts\module\range.js"></script>
 
 </x-layout>
