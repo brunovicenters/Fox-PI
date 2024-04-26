@@ -13,6 +13,9 @@
 <select name="{{ $name }}" id="select-container"
     class="hidden" required
 >
+    @if ($type == 2)
+        <option value="todas">Todas</option>
+    @endif
     @foreach ($options as $option)
         @if ($type == 0)
             <option value="{{ $option }}">{{ $option }}</option>
@@ -24,7 +27,7 @@
     @endforeach
 </select>
 <div id="select-bar" class="select-open p-2 rounded-lg drop-shadow-md text-laranja-escuro bg-white h-12 relative flex items-center">
-    <p id="selected" class=" poppins">{{ $type == 0 ? $options[0] : ($type == 1 ? $options[0]->ENDERECO_NOME : $options[0]->CATEGORIA_NOME) }}</p>
+    <p id="selected" class=" poppins">{{ $type == 0 ? $options[0] : ($type == 1 ? $options[0]->ENDERECO_NOME : "Todas") }}</p>
     <div class="absolute inset-y-0 right-3 flex items-center">
         <div id="select-arrow" class="h-full w-full absolute z-50"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#D36411" class="w-6 h-6 -rotate-90">
@@ -35,6 +38,13 @@
 <div id="select-options" class="relative hidden">
     <div class="absolute bg-white w-full z-50 top-2 rounded-xl py-1 max-h-56 overflow-y-auto
         border-laranja-escuro">
+        @if ($type == 2)
+            <p id="todas"
+                onclick="selectOption(event)"
+                class="truncate px-2 poppins text-laranja-escuro select-option ease-in-out duration-150">
+                Todas
+            </p>
+        @endif
         @foreach ($options as $option)
             @if ($type == 0)
                 <p id="{{ $option }}"
