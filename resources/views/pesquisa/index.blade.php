@@ -19,16 +19,8 @@
 
     <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-4 ">
         @for ($i = 1; $i <= 8; $i++)
-            <x-card-vertical />
+            <x-produtos.card-produtos produto="2" />
         @endfor
-    </div>
-    <div class="w-full flex justify-center my-5">
-        <button class="pointer -rotate-90">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
-                stroke="#43ADDA" class="w-12 h-12">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </button>
     </div>
 
     <script src="\scripts\module\select.js"></script>
