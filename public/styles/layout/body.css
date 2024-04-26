@@ -21,3 +21,23 @@ body {
 .border-laranja-escuro {
     border: solid var(--cor-laranja-escuro) 3px;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--cor-laranja-claro);
+    border-radius: 10px;
+    animation: all 5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-laranja-escuro);
+}
