@@ -81,5 +81,5 @@
                 </div>
             </div>
         </section>
-    <main>
+    </main>
 </x-layout>

@@ -18,13 +18,10 @@ class HomeController extends Controller
     
 
     public function PageProduto(Produto $produto){
-        return view('produto/produto')->with('produto', $produto);
+        $categoria_id = $produto->CATEGORIA_ID; 
+        $produtosSemelhantes = Produto::where('CATEGORIA_ID', $categoria_id)->take(10)->get();
+        return view('produto/produto', ['produto' => $produto], ['produtosSemelhantes', $produtosSemelhantes]);
     }
 
-    // public function SemelhanteProduto(Produto $produto){
-    //     $categoria_id = $produto->CATEGORIA_ID; 
-    //     $produtosSemelhantes = Produto::where('CATEGORIA_ID', $categoria_id)->take(10)->get();
-    //     return view('produto/produto')->with('SemelhanteProduto', $produtosSemelhantes);
-    // }
-    
+
 }
