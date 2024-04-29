@@ -36,7 +36,7 @@
             <div class="w-5/6 mt-10 flex flex-col justify-center items-left gap-8">
                 <h1 class="text-6xl hanalei text-roxo text-left">Mais Vendidos</h1>
                 <div class="flex items-center justify-center gap-7">
-                @foreach($produtos as $produto)
+                @foreach($produtosMaisVendidos as $produto)
                     <div class="flex flex-col h-64 w-40 border-4 border-solid border rounded-3xl color-border">
                         <div class="h-1/2 bg-white rounded-t-3xl flex justify-center items-center">
                             @if($produto->Imagem->isNotEmpty())
@@ -61,8 +61,8 @@
             <div class="w-5/6 flex flex-col justify-center items-left gap-8">
                 <h1 class="text-6xl hanalei text-roxo text-left ">Promoção</h1>
                 <div class="flex items-center justify-center gap-7">
-                @foreach($produtos as $produto)
-                    <div class="flex flex-col h-64 w-40 border-4 border-solid border rounded-3xl color-border">
+                @foreach($produtosPromocao as $produto)
+                    <a class="flex flex-col h-64 w-40 border-4 border-solid border rounded-3xl color-border" href="{{route('page.produto', $produto->PRODUTO_ID)}}">
                         <div class="h-1/2 bg-white rounded-t-3xl flex justify-center items-center">
                             @if($produto->Imagem->isNotEmpty())
                             <img src="{{$produto->Imagem->first()->IMAGEM_URL}}" alt="imagem dos produtos" class="w-28 h-28 ">
@@ -76,7 +76,7 @@
                             <p>R$ {{$produto->PRODUTO_PRECO}}</p>
                             <p>R$ 00,00</p>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
                 </div>
             </div>

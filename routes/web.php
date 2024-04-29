@@ -46,5 +46,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+Route::get('/produto', function () {
+    return view('produto/produto');
+});
+
 Route::get('/home', [HomeController::class, 'MostrarProduto']);
-// Route::get('/home', [HomeController::class, 'MostrarProdutoComDesconto']);
+Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
+// Route::get('/home/produto/{produto}', [HomeController::class, 'SemelhanteProduto'])->name('semelhante.produto');

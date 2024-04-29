@@ -8,9 +8,23 @@ use App\Models\Produto;
 class HomeController extends Controller
 {
     public function MostrarProduto(){
-        // return view('tela-inicial/home')->with('produtos', Produto::take(5)->get());
-        return view('tela-inicial/home')->with('produtos', Produto::where('PRODUTO_DESCONTO', '>', 10)->take(5)->get());
+        $produtosMaisVendidos = Produto::take(5)->get();
+        $produtosPromocao = Produto::where('PRODUTO_DESCONTO', '>', 10)->take(5)->get();
+
+        return view('tela-inicial/home')->with('produtosMaisVendidos', $produtosMaisVendidos)->with('produtosPromocao', $produtosPromocao);
         
     }
+
+    
+
+    public function PageProduto(Produto $produto){
+        return view('produto/produto')->with('produto', $produto);
+    }
+
+    // public function SemelhanteProduto(Produto $produto){
+    //     $categoria_id = $produto->CATEGORIA_ID; 
+    //     $produtosSemelhantes = Produto::where('CATEGORIA_ID', $categoria_id)->take(10)->get();
+    //     return view('produto/produto')->with('SemelhanteProduto', $produtosSemelhantes);
+    // }
     
 }
