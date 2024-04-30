@@ -28,7 +28,7 @@
                         <h2 class=" text-3xl ">R$ 00,00</h2>
                         <p class="text-black text-xl">R$ 00,00 - Frete grátis</p>
                         <p class="text-black text-lg">Até 6x sem juros, ou 12x com juros</p>
-                        <div class="flex itens-center justify-center rounded-lg  font-bold drop-shadow-md  w-20 h-10 border-2 border-solid btn-add gap-1 text-azul gap-4">
+                        <div class="flex itens-center justify-center rounded-lg  font-bold drop-shadow-md  w-20 h-10 border-2 border-solid btn-add text-azul gap-4">
                             <button class="text-2xl">-</button>
                             <p class="mt-1 text-2xl">1</p>
                             <button class="text-2xl">+</button>
@@ -49,7 +49,7 @@
                             <button id="btnFrete" class="flex items-center justify-center rounded-lg px-10  w-1/3 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-cep h-11 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="8" stroke="currentColor" class="w-10 h-10">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>  
+                                </svg>
                             </button>
                         </div>
                         <p class="poppins text-vermelho" id="valorFrete">Frete mínimo de R$ 10,00</p>
@@ -61,7 +61,7 @@
         <div class="w-5/6 mt-10 flex flex-col justify-center itens-center gap-8">
             <h1 class="text-6xl hanalei text-roxo text-left">Produtos semelhantes</h1>
             <div class="flex items-center justify-center gap-7">
-                <div class="flex flex-col h-52 w-40 border-4 border-solid border rounded-3xl color-border">
+                <div class="flex flex-col h-52 w-40 border-4 border-solid rounded-3xl color-border">
                     <div class="h-1/2 bg-white rounded-t-3xl"></div>
                     <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
                         <h1 class="text-xl hanalei text-laranja-claro">Nome</h1>
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
         </section>
