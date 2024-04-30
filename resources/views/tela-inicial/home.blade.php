@@ -5,26 +5,26 @@
                 <img src="images/Fox-Banner.png" alt="Banner do site">
             </div>
 
-            <div class="w-5/6 mt-10 flex space-x-24 mt-14 justify-center items-center">
+            <div class="w-5/6 flex space-x-24 mt-14 justify-center items-center">
                 <div
-                    class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                    class="border-4 border-solid rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
                     <p>Sistema </p>
                     <p>de</p>
                     <p>Trocas</p>
                 </div>
                 <div
-                    class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                    class="border-4 border-solid rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
                     <p>Variedade</p>
                     <p>de</p>
                     <p>Frete</p>
                 </div>
                 <div
-                    class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                    class="border-4 border-solid rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
                     <p>6x</p>
                     <p>Sem Juros</p>
                 </div>
                 <div
-                    class="border-4 border-solid border rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
+                    class="border-4 border-solid rounded-3xl border-verde w-48 h-24 flex justify-center items-center flex-col fundo-laranja hanalei  text-vermelho text-2xl">
                     <p>Diversas</p>
                     <p>Promoções</p>
                 </div>
@@ -40,7 +40,7 @@
                 <h1 class="text-6xl hanalei text-roxo text-left">Mais Vendidos</h1>
                 <div class="flex items-center justify-center gap-7">
                     @foreach ($produtos as $produto)
-                        <div class="flex flex-col h-64 w-40 border-4 border-solid border rounded-3xl color-border">
+                        <div class="flex flex-col h-64 w-40 border-4 border-solid rounded-3xl color-border">
                             <div class="h-1/2 bg-white rounded-t-3xl flex justify-center items-center">
                                 @if ($produto->Imagem->isNotEmpty())
                                     <img src="{{ $produto->Imagem->first()->IMAGEM_URL }}" alt="imagem dos produtos"
