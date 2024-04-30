@@ -6,7 +6,7 @@
 
     <div>
         <a href="/">
-            <img class="mt-1 ml-24 w-32" src="\images\fox.svg" alt="Logo do site">
+            <img class="mt-2 ml-24 w-24" src="\images\fox.svg" alt="Logo do site">
         </a>
     </div>
 
@@ -118,7 +118,7 @@
 
             @foreach ($categorias->take(7) as $categoria)
                 @if (!$loop->first)
-                    <span class="text-vermelho divisor h-6 w-1"></span>
+                    <span class="text-vermelho bg-vermelho divisor h-6 w-1"></span>
                 @endif
                 <x-navbar.categoria :categoria="$categoria" />
             @endforeach
