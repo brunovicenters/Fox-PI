@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,28 +15,39 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// FALLBACK ROUTE
+Route::fallback(function () {
+    return to_route('index');
+});
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/entrar', function () {
-    return view('session/create');
-})->name('sign.index');
+})->name('index');
 
 Route::get('/fale-conosco', function () {
-    return view('fale-conosco/fale-conosco');
+    return view('fale-conosco/index');
 });
 
-Route::get('/meus-pedidos', function () {
-    return view('pedidos/index');
-})->name('pedidos.index');
+Route::get('/pesquisa', function () {
+    return view('pesquisa/index');
+});
 
-Route::get('/pedido', function () {
-    return view('pedidos/show');
-})->name('pedidos.show');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+    Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
+    Route::get('/carrinho', function () {
+        return view('carrinho/index');
+    });
+});
+
+require __DIR__ . '/auth.php';
+
+Route::get('/home', [HomeController::class, 'MostrarProduto']);
 
 Route::get('/produto', function () {
     return view('produto/produto');
 });
-
