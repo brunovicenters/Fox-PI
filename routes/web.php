@@ -52,4 +52,3 @@ Route::get('/produto', function () {
 
 Route::get('/home', [HomeController::class, 'MostrarProduto']);
 Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
-Route::get('/home/produto/{produto}', [HomeController::class, 'SemelhanteProduto'])->name('semelhante.produto');
