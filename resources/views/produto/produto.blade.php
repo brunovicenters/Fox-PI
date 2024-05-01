@@ -1,5 +1,5 @@
 <x-layout>
-<<<<<<< HEAD
+
     <main class="max-w-8xl mx-auto mt-10 mb-3">>
         <section class=" flex justify-center items-right ">
             <div class="w-5/6 mt-10 flex gap-8">
