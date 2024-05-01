@@ -1,4 +1,3 @@
-
 function increment() {
     var quantidadeElement = document.getElementById('quantidade');
     var quantidade = parseInt(quantidadeElement.innerText);
