@@ -15,14 +15,10 @@ class HomeController extends Controller
         
     }
 
-    
-
        public function PageProduto(Produto $produto){
         $categoria_id = $produto->CATEGORIA_ID; 
         $produtosSemelhantes = Produto::where('CATEGORIA_ID', $categoria_id)->take(10)->get();
         return view('produto.produto', compact('produto', 'produtosSemelhantes'));
     }
     
-
-
 }
