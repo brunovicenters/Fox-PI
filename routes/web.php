@@ -46,9 +46,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
+
 Route::get('/produto', function () {
     return view('produto/produto');
 });
 
 Route::get('/home', [HomeController::class, 'MostrarProduto']);
 Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
+
+
