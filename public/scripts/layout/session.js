@@ -14,7 +14,7 @@ signinBtn.onclick = function () {
     banner.classList.toggle("rounded-l-3xl");
 };
 
-function mascara(i) {
+function mascaraCPF(i) {
     let v = i.value;
 
     if (isNaN(v[v.length - 1])) {

@@ -1,0 +1,15 @@
+.bg-color-amarelo {
+    background-color: var(--cor-amarelo);
+}
+
+.color-border {
+    border: var(--cor-vermelho);
+}
+
+.border-verde {
+    border: var(--cor-verde);
+}
+
+.fundo-laranja {
+    background-color: var(--cor-laranja-claro);
+}

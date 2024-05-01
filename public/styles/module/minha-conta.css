@@ -1,0 +1,8 @@
+.text {
+    color: var(--cor-roxo);
+}
+
+.botao {
+    background-color: var(--cor-vermelho);
+
+}
