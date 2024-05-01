@@ -19,6 +19,9 @@
     {{-- Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
 
+    {{-- Flowbite --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
     {{-- Style --}}
     <link rel="stylesheet" href="\main.css">
 
@@ -35,6 +38,8 @@
         <x-footer.footer  />
     @endif
 
+    {{-- Flowbite --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>
