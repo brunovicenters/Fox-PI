@@ -4,6 +4,7 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ require __DIR__ . '/auth.php';
 Route::get('/produto', function () {
     return view('produto/produto');
 });
+
+Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 
 Route::get('/home', [HomeController::class, 'MostrarProduto']);
 Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
