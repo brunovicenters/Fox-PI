@@ -11,11 +11,11 @@
                 </button>
             </div>
         </div>
-        <div class="flex items-right flex-col w-2/5 text-laranja-escuro drop-shadow-md space-y-4">
+        <form class="flex items-right flex-col w-2/5 text-laranja-escuro drop-shadow-md space-y-4" action="{{ route('update.minha-conta') }}" method="POST">
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Nome:</label>
                 <p class="pl-5 values">Nome</p>
-                <input type="text" placeholder="Nome" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="Nome" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="USUARIO_NOME" value="{{$user->USUARIO_NOME}}">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">CPF:</label>
@@ -33,7 +33,7 @@
                 <input type="text" placeholder="Senha" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
             </div>
 
-        </div>
+        
         <div class="flex justify-end w-2/5 drop-shadow-md gap-3 ">
             <div>
                 <p class="values"><p>
@@ -41,9 +41,10 @@
             </div>
             <div>
                 <p class="values"><p>
-                <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Editar</button>
+                <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2" type="submit">Editar</button>
             </div>
         </div>
+        </form>
     </section>
 
     <script src="scripts\layout/conta.js"></script>

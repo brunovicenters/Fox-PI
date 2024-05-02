@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\MinhaContaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,12 @@ Route::get('/produto', function () {
     return view('produto/produto');
 });
 
+
 Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 
 Route::get('/home', [HomeController::class, 'MostrarProduto']);
 Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
 
+Route::get('/minha-conta', [MinhaContaController::class, 'PageMinhaConta'])->name('page.minha-conta');
+Route::post('/minha-conta/update', [MinhaContaController::class, 'update'])->name('update.minha-conta');
 
