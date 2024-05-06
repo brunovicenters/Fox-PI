@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PesquisaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,7 @@ Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
 });
 
-Route::get('/pesquisa', function () {
-    return view('pesquisa/index');
-});
+Route::get('/pesquisa', [PesquisaController::class, 'index'])->name('pesquisa.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
