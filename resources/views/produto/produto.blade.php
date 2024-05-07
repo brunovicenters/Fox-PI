@@ -11,7 +11,7 @@
                     </button>
                         @foreach($produto->Imagem as $img)
                             <div class="h-56 w-44 bg-white rounded-lg drop-shadow-md">
-                                <img src="{{$img -> IMAGEM_URL}}" alt="">
+                                <img class="h-56 w-44" src="{{$img->IMAGEM_URL}}" alt="">
                             </div>
                         @endforeach
                     <button class="ml-20 w-16">
@@ -21,7 +21,7 @@
                     </button>
                 </div>
                     <div class="w-3/6 h-5/6 mt-8 bg-white rounded-lg drop-shadow-md">
-                        <img src="" alt="">
+                        <img class=" w-3/6 h-5/6"src="" alt="">
                     </div>
 
 
@@ -31,10 +31,10 @@
                         <h2 class=" text-3xl ">R${{$produto->PRODUTO_PRECO}}</h2>
                         <p class="text-black text-xl">R$ 00,00 - Frete grátis</p>
                         <p class="text-black text-lg">Até 6x sem juros, ou 12x com juros</p>
-                        <div class="flex items-center justify-center rounded-lg font-bold drop-shadow-md w-20 h-10 border-2 border-solid btn-add gap-1 text-azul gap-4">
-                            <button class="text-2xl" onclick="decrement()">-</button>
-                            <p id="quantidade" class="mt-1 text-2xl">1</p>
-                            <button class="text-2xl" onclick="increment()">+</button>
+                        <div class="flex items-center justify-between rounded-lg font-bold drop-shadow-md w-24 h-10 border-2 border-solid btn-add text-azul px-2">
+                            <button class="text-2xl max-w-1/5" onclick="decrement()">-</button>
+                            <p id="quantidade" class="mt-1 text-center text-2xl max-w-3/5">1</p>
+                            <button class="text-2xl max-w-1/5" onclick="increment()">+</button>
                         </div>
                         <div class="flex gap-3 relative">
                                 <span class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">+</span>
@@ -85,6 +85,6 @@
             </div>
         </section>
     </main>
-    <script src="{{ asset('js/layout/produto.js') }}"></script>
+    <script src="{{ asset('scripts/layout/produto.js') }}"></script>
 
 </x-layout>
