@@ -36,7 +36,10 @@
                             <p id="quantidade" class="mt-1 text-center text-2xl max-w-3/5">1</p>
                             <button class="text-2xl max-w-1/5" onclick="increment()">+</button>
                         </div>
-                        <div class="flex gap-3 relative">
+                        <form class="flex gap-3 relative" action="{{route('produto.carrinho')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="produto" value="{{$produto->PRODUTO_ID}}">
+                            <input type="hidden" name="qtd" value="1">
                                 <span class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">+</span>
                                 <button class="flex itens-center justify-center text-white rounded-lg px-10 py-2 w-1/2 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-car text-x h-11">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 -scale-x-100">
@@ -45,7 +48,7 @@
                                 </button>
 
                             <button type="submit" class="flex itens-center justify-center text-laranja-escuro rounded-lg px-10 py-2 w-1/2 poppins drop-shadow-md  hover:scale-105 hover:drop-shadow-lg h-11 text-xl btn-buy">Comprar</button>
-                        </div>
+                        </form>
                         <div class="flex gap-2">
                         <input name="cep" type="number" placeholder="CEP" title="CEP" ></input>
                             <button class="flex itens-center justify-center rounded-lg px-10 py-2 w-1/3 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-cep h-11 ">

@@ -14,8 +14,10 @@ class ProdutoController extends Controller
     {
         $user = Auth::user()->USUARIO_ID;
         $itemCarrinho = ['USUARIO_ID' => (int) $user, 'PRODUTO_ID' => (int) $request->produto, 'ITEM_QTD' => (int) $request->qtd];
-
-        Carrinho::create($itemCarrinho);
+        
+        // Não podemos permitir adição de um mesmo produto no carinho
+         
+        // Carrinho::create($itemCarrinho);
         return redirect()->route('page.produto', $request->produto);
     }
 }

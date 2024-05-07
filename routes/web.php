@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrinho', function () {
         return view('carrinho/index');
     });
+    Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 });
 
 require __DIR__ . '/auth.php';
@@ -54,7 +55,6 @@ Route::get('/produto', function () {
 });
 
 
-Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 
 Route::get('/home', [HomeController::class, 'MostrarProduto']);
 Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
