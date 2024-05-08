@@ -60,5 +60,5 @@ Route::get('/home', [HomeController::class, 'MostrarProduto']);
 Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
 
 Route::get('/minha-conta', [MinhaContaController::class, 'PageMinhaConta'])->name('page.minha-conta');
-Route::post('/minha-conta/update', [MinhaContaController::class, 'update'])->name('update.minha-conta');
+Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
 
