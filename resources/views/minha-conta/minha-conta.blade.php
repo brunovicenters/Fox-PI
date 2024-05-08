@@ -35,19 +35,15 @@
                 <p class="pl-5 values">Senha</p>
                 <input type="password" placeholder="Senha" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="USUARIO_SENHA" >
             </div>
-
-        
-            <div class="flex justify-end w-2/5 drop-shadow-md gap-3 ">
-                <div>
-                    <p class="values"><p>
-                    <button onclick="edit()" class="hidden fields botao poppins text-white rounded-lg px-3 py-2 uppercase font-bold drop-shadow-md hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Cancelar</button>
-                </div>
-                <div>
-                    <p class="values"><p>
-                    <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2" type="submit">Editar</button>
-                </div>
+            <div class=" flex justify-end">
+                <p class="values"><p>
+                <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2" type="submit">Editar</button>
             </div>
         </form>
+        <div class=" btn-cancelar w-2/5 drop-shadow-md">
+            <p class="values"><p>
+            <button onclick="edit()" class="hidden fields botao poppins text-white rounded-lg px-3 py-2 uppercase font-bold drop-shadow-md hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Cancelar</button>
+        </div>
     </section>
 
     <script src="scripts\layout\conta.js"></script>

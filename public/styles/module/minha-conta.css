@@ -6,3 +6,7 @@
     background-color: var(--cor-vermelho);
 
 }
+
+.btn-cancelar {
+    position: absolute;
+}
