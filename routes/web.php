@@ -22,9 +22,8 @@ Route::fallback(function () {
     return to_route('index');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/home', [HomeController::class, 'MostrarProduto']);
+Route::get('/home/produto/{produto}', [HomeController::class, 'index'])->name('page.produto');
 
 Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
@@ -56,9 +55,7 @@ Route::get('/produto', function () {
 
 
 
-Route::get('/home', [HomeController::class, 'MostrarProduto']);
-Route::get('/home/produto/{produto}', [HomeController::class, 'PageProduto'])->name('page.produto');
 
-Route::get('/minha-conta', [MinhaContaController::class, 'PageMinhaConta'])->name('page.minha-conta');
+Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
 Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
 

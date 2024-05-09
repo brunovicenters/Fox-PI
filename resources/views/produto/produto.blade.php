@@ -1,8 +1,8 @@
 <x-layout>
 
-    <main class="max-w-8xl mx-auto mt-10 mb-3">>
+    <main class="max-w-8xl mx-auto mb-3">>
         <section class=" flex justify-center items-right ">
-            <div class="w-5/6 mt-10 flex gap-8">
+            <div class="w-5/6 mb-10 flex gap-8">
                 <div class="flex flex-col gap-2">
                     <button class="ml-20 w-16">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -20,13 +20,13 @@
                         </svg>
                     </button>
                 </div>
-                    <div class="w-3/6 h-5/6 mt-8 bg-white rounded-lg drop-shadow-md">
-                        <img class=" w-3/6 h-5/6"src="" alt="">
+                    <div class="w-5/6 h-5/6 mt-8 bg-white rounded-lg drop-shadow-md">
+                        <img class=" w-full h-full rounded-lg"src="" alt="">
                     </div>
 
 
-                    <div class="flex flex-col gap-3 mt-8 ml-24 poppins  text-vermelho">
-                        <h1 class="text-6xl hanalei text-laranja-claro">{{$produto->PRODUTO_NOME}}</h1>
+                    <div class="flex flex-col gap-3 mt-8 ml-24 poppins  text-vermelho w-1/2 ">
+                        <h1 class="text-5xl hanalei text-laranja-claro">{{$produto->PRODUTO_NOME}}</h1>
                         <p class=" text-lg ">{{$produto->Categoria->CATEGORIA_NOME}}</p>
                         <h2 class=" text-3xl ">R${{$produto->PRODUTO_PRECO}}</h2>
                         <p class="text-black text-xl">R$ 00,00 - Frete grátis</p>
@@ -50,12 +50,18 @@
                             <button type="submit" class="flex itens-center justify-center text-laranja-escuro rounded-lg px-10 py-2 w-1/2 poppins drop-shadow-md  hover:scale-105 hover:drop-shadow-lg h-11 text-xl btn-buy">Comprar</button>
                         </form>
                         <div class="flex gap-2">
-                        <input name="cep" type="number" placeholder="CEP" title="CEP" ></input>
-                            <button class="flex itens-center justify-center rounded-lg px-10 py-2 w-1/3 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-cep h-11 ">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </button>
+                            <x-form.input-group label="CEP" name="cep" id="cep"
+                                type="text"
+                                maxlength="9"
+                                oninput="mascaraCEP(this)"
+                                placeholder="00000-000"
+                                title="Escreva somente números"/>
+                                <button class="flex itens-center justify-center rounded-lg px-10 py-2 w-1/3 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-cep h-11 mt-6 ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </button>
+
                         </div>
                         <p class="poppins text-vermelho">Frete mínimo de R$ 15,00</p>
                     </div>
@@ -88,6 +94,7 @@
             </div>
         </section>
     </main>
+    <script src="\scripts\module\cep.js"></script>
     <script src="{{ asset('scripts/layout/produto.js') }}"></script>
 
 </x-layout>

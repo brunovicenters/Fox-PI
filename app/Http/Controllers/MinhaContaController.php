@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class MinhaContaController extends Controller
 {
-    public function PageMinhaConta()
+    public function index()
     {
         $user = Auth::user();
         return view('minha-conta.minha-conta', compact('user'));
