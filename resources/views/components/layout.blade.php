@@ -30,11 +30,11 @@
 <body>
     @if (!$login)
         <x-navbar.navbar />
+        <main class="max-w-5xl mx-auto mt-10 mb-3">
     @endif
-    <main class="max-w-5xl mx-auto mt-10 mb-3">
         {{ $slot }}
-    </main>
     @if (!$login)
+        </main>
         <x-footer.footer  />
     @endif
 
