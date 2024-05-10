@@ -8,12 +8,12 @@
                 <h1 class="text-6xl hanalei text-vermelho mb-5 drop-shadow-md">Cadastrar</h1>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <x-form.input-group label="Nome" name="name" placeholder="Nome" title="Escreva seu nome" />
-                    <x-form.input-group label="CPF" name="cpf" type="text" maxlength="14"
+                    <x-form.input-group label="Nome" name="name_register" placeholder="Nome" title="Escreva seu nome" />
+                    <x-form.input-group label="CPF" name="cpf_register" type="text" maxlength="14"
                         oninput="mascaraCPF(this)" placeholder="000.000.000-00" title="Escreva somente números" />
-                    <x-form.input-group label="E-mail" name="email" type="email" placeholder="email@email.com"
+                    <x-form.input-group label="E-mail" name="email_register" type="email" placeholder="email@email.com"
                         title="Escreva um e-mail" />
-                    <x-form.input-group label="Senha" name="password" type="password" placeholder="Senha"
+                    <x-form.input-group label="Senha" name="password_register" type="password" placeholder="Senha"
                         title="Escreva uma senha segura e anote-a" />
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
@@ -23,7 +23,7 @@
                         <x-form.button>Cadastrar</x-form.button>
                     </div>
                 </form>
-                @if ($errors->any())
+                @if ($errors->any() && str_contains($errors->all()[0], "register"))
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -51,7 +51,7 @@
                         <x-form.button>Entrar</x-form.button>
                     </div>
                 </form>
-                @if ($errors->any())
+                @if ($errors->any() && !str_contains($errors->all()[0], "register"))
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -63,7 +63,7 @@
             </div>
 
             {{-- Slider's Image --}}
-            <div class="banner-sign absolute w-1/2 h-full z-50 rounded-l-3xl">
+            <div class="banner-sign {{ ($errors->any() && str_contains($errors->all()[0], "register")) ? 'slide' : '' }} absolute w-1/2 h-full z-50 rounded-l-3xl">
 
             </div>
         </section>
