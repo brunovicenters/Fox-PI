@@ -31,20 +31,20 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         // Remove pontuação do CPF
-        $request->cpf = str_replace(['.', '-'], '', $request->cpf);
+        $request->cpf_register = str_replace(['.', '-'], '', $request->cpf_register);
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'cpf' => ['required', 'string', 'max:14'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class . ',USUARIO_EMAIL'],
-            'password' => ['required', Rules\Password::defaults()],
+            'name_register' => ['required', 'string', 'max:255'],
+            'cpf_register' => ['required', 'string', 'max:14'],
+            'email_register' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class . ',USUARIO_EMAIL'],
+            'password_register' => ['required', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'USUARIO_NOME' => $request->name,
-            'USUARIO_CPF' => $request->cpf,
-            'USUARIO_EMAIL' => $request->email,
-            'USUARIO_SENHA' => Hash::make($request->password),
+            'USUARIO_NOME' => $request->name_register,
+            'USUARIO_CPF' => $request->cpf_register,
+            'USUARIO_EMAIL' => $request->email_register,
+            'USUARIO_SENHA' => Hash::make($request->password_register),
         ]);
 
         Auth::login($user);
