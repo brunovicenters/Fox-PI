@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarrinhoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
@@ -39,9 +40,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
     Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
-    Route::get('/carrinho', function () {
-        return view('carrinho/index');
-    })->name('carrinho.index');
+
+    Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+
     Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 });
 
