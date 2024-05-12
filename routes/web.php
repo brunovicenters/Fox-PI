@@ -5,6 +5,8 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PesquisaController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\MinhaContaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +20,11 @@ use App\Http\Controllers\PesquisaController;
 */
 // FALLBACK ROUTE
 Route::fallback(function () {
-    return to_route('index');
+    return to_route('home');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/home', [HomeController::class, 'MostrarProduto'])->name('home');
+Route::get('/home/produto/{produto}', [HomeController::class, 'index'])->name('page.produto');
 
 Route::get('/fale-conosco', function () {
     return view('fale-conosco/index');
@@ -41,12 +42,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrinho', function () {
         return view('carrinho/index');
     });
+    Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 });
 
 require __DIR__ . '/auth.php';
 
-Route::get('/home', [HomeController::class, 'MostrarProduto']);
 
 Route::get('/produto', function () {
     return view('produto/produto');
 });
+
+
+
+
+Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
+Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
+

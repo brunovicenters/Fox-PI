@@ -27,6 +27,7 @@ class User extends Authenticatable
         'USUARIO_CPF',
         'USUARIO_EMAIL',
         'USUARIO_SENHA',
+        'USUARIO_ID'
     ];
 
     /**

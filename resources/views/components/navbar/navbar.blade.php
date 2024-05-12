@@ -5,7 +5,7 @@
     <img class="absolute -left-1 bottom-0" src="\images\nav-desenho2.png" alt="Enfeite da Navbar">
 
     <div>
-        <a href="/">
+        <a href="{{ route('home') }}">
             <img class="mt-1 ml-24 w-32" src="\images\fox.svg" alt="Logo do site">
         </a>
     </div>
