@@ -30,7 +30,8 @@ class PesquisaController extends Controller
 
         $query->orderBy('PRODUTO_PRECO', 'desc');
 
-        $produtos = $query->get(['PRODUTO_NOME', 'PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESC', 'CATEGORIA_ID']);
+        $produtos = $query->paginate(1, ['PRODUTO_NOME', 'PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESC', 'CATEGORIA_ID']);
+        $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
 
         if (!$produtos->isEmpty()) {
             $precoMax = $produtos->first()->PRODUTO_PRECO;

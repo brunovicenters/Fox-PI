@@ -39,6 +39,8 @@
                 @endforeach
             </div>
 
+            {{ $produtos->links() }}
+
             <div class="w-full flex justify-center my-5">
                 <button class="pointer -rotate-90">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
