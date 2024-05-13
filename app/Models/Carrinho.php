@@ -20,4 +20,9 @@ class Carrinho extends Model
     public $timestamps = false;
     protected $guarded = [];
     public $incrementing = false;
+
+    public function Produto()
+    {
+        return $this->hasOne(Produto::class, 'PRODUTO_ID', 'PRODUTO_ID');
+    }
 }
