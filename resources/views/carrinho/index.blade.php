@@ -48,5 +48,6 @@
             </div>
         </div>
     </main>
+    <script src="{{ asset('scripts/layout/carrinho.js') }}"></script>
 
 </x-layout>
