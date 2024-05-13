@@ -16,7 +16,7 @@ class CarrinhoController extends Controller
         $valorTotal = 0;
 
         foreach ($itens as $item) {
-            $valorTotal += $item->Produto->PRODUTO_PRECO;
+            $valorTotal += ($item->Produto->PRODUTO_PRECO) * $item->ITEM_QTD;
         }
 
         return view('carrinho/index')->with(['itens' => $itens, 'valorTotal' => $valorTotal]);
