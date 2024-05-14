@@ -146,5 +146,3 @@
         </div>
     </aside>
 @endisset
-
-<script src="scripts/layout/navbar.js"></script>
