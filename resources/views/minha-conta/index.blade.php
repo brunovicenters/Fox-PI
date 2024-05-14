@@ -15,38 +15,38 @@
                 </button>
             </div>
         </div>
-        <div class="flex items-right flex-col w-2/5 text-laranja-escuro drop-shadow-md space-y-4">
+        <form class="flex items-right flex-col w-2/5 text-laranja-escuro drop-shadow-md space-y-4" action="{{ route('update.minha-conta') }}" method="POST">
+            @csrf
+            @method('PUT')
+
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Nome:</label>
                 <p class="pl-5 values">Nome</p>
-                <input type="text" placeholder="Nome" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="Nome" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="USUARIO_NOME" required value="{{$user->USUARIO_NOME}}">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">CPF:</label>
                 <p class="pl-5 values">000.000.000-00</p>
-                <input type="text" placeholder="000.000.000-00" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="000.000.000-00" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="USUARIO_CPF"  value="{{$user->USUARIO_CPF}}">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Email:</label>
                 <p class="pl-5 values">E-mail</p>
-                <input type="text" placeholder="E-mail" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="text" placeholder="E-mail" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="USUARIO_EMAIL"  value="{{$user->USUARIO_EMAIL}}">
             </div>
             <div class="flex flex-col gap-3">
                 <label class="font-bold">Senha:</label>
                 <p class="pl-5 values">Senha</p>
-                <input type="text" placeholder="Senha" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="" id="">
+                <input type="password" placeholder="Senha" class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form hidden fields" name="USUARIO_SENHA" >
             </div>
-
-        </div>
-        <div class="flex justify-end w-2/5 drop-shadow-md gap-3 ">
-            <div>
+            <div class=" flex justify-end">
                 <p class="values"><p>
-                <button  onclick="edit()" class="hidden fields botao poppins text-white rounded-lg px-3 py-2 uppercase font-bold drop-shadow-md hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Cancelar</button>
+                <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2" type="submit">Editar</button>
             </div>
-            <div>
-                <p class="values"><p>
-                <button class="hidden fields poppins text-white rounded-lg px-7 py-2 uppercase font-bold drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Editar</button>
-            </div>
+        </form>
+        <div class=" btn-cancelar w-2/5 drop-shadow-md">
+            <p class="values"><p>
+            <button onclick="edit()" class="hidden fields botao poppins text-white rounded-lg px-3 py-2 uppercase font-bold drop-shadow-md hover:scale-105 hover:drop-shadow-lg ease-linear h-11 mt-2">Cancelar</button>
         </div>
     </section>
 

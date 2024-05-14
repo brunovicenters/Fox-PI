@@ -5,8 +5,8 @@
     <img class="absolute -left-1 bottom-0" src="\images\nav-desenho2.png" alt="Enfeite da Navbar">
 
     <div>
-        <a href="/">
-            <img class="mt-2 ml-24 w-24" src="\images\fox.svg" alt="Logo do site">
+        <a href="{{ route('home') }}">
+            <img class="mt-1 ml-24 w-32" src="\images\fox.svg" alt="Logo do site">
         </a>
     </div>
 
@@ -48,10 +48,10 @@
             </div>
         </nav>
 
-        <form action="#" method="get" class="mt-3 relative">
+        <form action="{{ route('pesquisa.index') }}" method="GET" class="mt-3 relative">
             <div class="w-full relative">
 
-                <input type="text" name="search" id="search"
+                <input type="text" name="termoPesquisa" id="search"
                     class="w-full h-10 rounded-full input-form pl-3 pr-10 py-2 drop-shadow-md text-laranja-escuro">
                 <button type="submit" class="absolute right-3 top-1 rotate-90 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
