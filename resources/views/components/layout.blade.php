@@ -11,6 +11,7 @@
 
     @yield('script')
     <script src="\main.js" defer></script>
+    <script src="\scripts\layout\navbar.js" defer></script>
 
     {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
