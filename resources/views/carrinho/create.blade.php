@@ -1,3 +1,7 @@
+@section('script')
+    <script src="\scripts\layout\finalizar.js" defer></script>
+@endsection
+
 <x-layout>
 
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Finalizar Compra</h1>
@@ -282,5 +286,4 @@
             </div>
         </div>
 
-    <script src="\scripts\layout\finalizar.js"></script>
 </x-layout>

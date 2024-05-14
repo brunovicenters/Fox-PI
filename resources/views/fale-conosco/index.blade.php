@@ -1,3 +1,8 @@
+@section('script')
+    <script src="\scripts\module\select.js" defer></script>
+    <script src="\scripts\module\input-file.js" defer></script>
+@endsection
+
 <x-layout>
 
     <form class="flex flex-col space-y-2" enctype="multipart/form-data" action="#" method="GET">
@@ -43,9 +48,5 @@
                     receber reembolso? </strong> Sim, basta nos enviar uma mensagem acima com fotos </p>
         </div>
     </section>
-
-
-    <script src="\scripts\module\select.js"></script>
-    <script src="\scripts\module\input-file.js"></script>
 
 </x-layout>

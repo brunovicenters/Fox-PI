@@ -1,3 +1,7 @@
+@section('script')
+    <script src="\scripts\layout\conta.js" defer></script>
+@endsection
+
 <x-layout>
 
     <section class="max-w-5xl mx-auto flex flex-col items-center h-screen mt-10 poppins  drop-shadow-md space-y-4">
@@ -46,5 +50,4 @@
         </div>
     </section>
 
-    <script src="scripts\layout/conta.js"></script>
 </x-layout>

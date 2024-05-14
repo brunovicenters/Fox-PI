@@ -1,3 +1,8 @@
+@section('script')
+    <script src="\scripts\module\cep.js" defer></script>
+    <script src="\scripts\module\select.js" defer></script>
+@endsection
+
 <x-layout>
 
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Endereço de Entrega</h1>
@@ -73,6 +78,4 @@
             </form>
         </x-card-horizontal>
 
-    <script src="\scripts\module\cep.js"></script>
-    <script src="\scripts\module\select.js"></script>
 </x-layout>

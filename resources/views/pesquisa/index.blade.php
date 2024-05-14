@@ -1,3 +1,8 @@
+@section('script')
+    <script src="\scripts\module\select.js" defer></script>
+    <script src="\scripts\module\range.js" defer></script>
+@endsection
+
 <x-layout :categorias="$categorias">
 
     <h1 class="hanalei text-6xl drop-shadow-md mb-5 text-azul">
@@ -22,8 +27,5 @@
             <x-produtos.card-produtos produto="2" />
         @endfor
     </div>
-
-    <script src="\scripts\module\select.js"></script>
-    <script src="\scripts\module\range.js"></script>
 
 </x-layout>
