@@ -6,7 +6,7 @@
 
     <div>
         <a href="{{ route('home') }}">
-            <img class="mt-1 ml-24 w-32" src="\images\fox.svg" alt="Logo do site">
+            <img class="mt-2 ml-24 w-24" src="\images\fox.svg" alt="Logo do site">
         </a>
     </div>
 

@@ -21,7 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $categorias = Categoria::orderBy('CATEGORIA_NOME')->get();
 
-        View::share('categorias', Categoria::orderBy('CATEGORIA_NOME')->get());
+        View::share([
+            'categorias' => $categorias,
+            'carouselCategorias' => $categorias->chunk(7),
+        ]);
     }
 }
