@@ -1,0 +1,19 @@
+@keyframes flash {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.toasts {
+    animation: 3.5s ease-in-out flash;
+    opacity: 0;
+}

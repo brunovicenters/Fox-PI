@@ -1,3 +1,7 @@
+@section('script')
+    <script src="scripts/layout/session.js" defer></script>
+@endsection
+
 <x-layout login="true">
 
     <main class="max-w-5xl mx-auto flex justify-center items-center h-screen">
@@ -23,15 +27,6 @@
                         <x-form.button>Cadastrar</x-form.button>
                     </div>
                 </form>
-                @if ($errors->any() && str_contains($errors->all()[0], "register"))
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
             </div>
 
             {{-- Entrar --}}
@@ -51,23 +46,14 @@
                         <x-form.button>Entrar</x-form.button>
                     </div>
                 </form>
-                @if ($errors->any() && !str_contains($errors->all()[0], "register"))
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
             </div>
 
             {{-- Slider's Image --}}
-            <div class="banner-sign {{ ($errors->any() && str_contains($errors->all()[0], "register")) ? 'slide' : '' }} absolute w-1/2 h-full z-50 rounded-l-3xl">
+            <div class="banner-sign {{ ($errors->any() && str_contains($errors->all()[0], "register")) ? 'slide rounded-r-3xl' : 'rounded-l-3xl' }} absolute w-1/2 h-full z-50">
 
             </div>
         </section>
     </main>
 
-    <script src="scripts/layout/session.js"></script>
+
 </x-layout>

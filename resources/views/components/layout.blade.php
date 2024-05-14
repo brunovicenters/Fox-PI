@@ -9,6 +9,8 @@
 
     <title>Fox</title>
 
+    @yield('script')
+
     {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +39,14 @@
         </main>
         <x-footer.footer  />
     @endif
+
+    @if ($errors->any())
+
+        <x-toast type="error" message="{{$errors->all()[0]}}" />
+
+    @endif
+
+    <script src="\main.js"></script>
 
     {{-- Flowbite --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
