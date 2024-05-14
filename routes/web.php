@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaleConoscoController;
 use App\Http\Controllers\CarrinhoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
@@ -27,9 +28,7 @@ Route::fallback(function () {
 Route::get('/home', [HomeController::class, 'MostrarProduto'])->name('home');
 Route::get('/home/produto/{produto}', [HomeController::class, 'index'])->name('page.produto');
 
-Route::get('/fale-conosco', function () {
-    return view('fale-conosco/index');
-});
+Route::get('/fale-conosco', [FaleConoscoController::class, 'index'])->name('fale-conosco.index');
 
 Route::get('/pesquisa', [PesquisaController::class, 'index'])->name('pesquisa.index');
 
@@ -54,9 +53,5 @@ Route::get('/produto', function () {
     return view('produto/produto');
 });
 
-
-
-
 Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
 Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
-

@@ -105,34 +105,44 @@
 </main>
 
 @isset($categorias)
-    <aside class="categorias-container flex justify-between items-center">
+    <aside class="categorias-container">
 
-        <a href="#" class="pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
-                stroke="currentColor" class="w-6 h-6 arrow">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </a>
+        <div id="controls-carousel" class="relative w-full" data-carousel="static">
 
-        <div class="flex justify-around items-center w-full px-5">
+            <div class="relative overflow-hidden rounded-lg h-8">
+                @foreach ($carouselCategorias as $i => $chunk)
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : ''}}>
 
-            @foreach ($categorias->take(7) as $categoria)
-                @if (!$loop->first)
-                    <span class="text-vermelho divisor h-6 w-1"></span>
-                @endif
-                <x-navbar.categoria :categoria="$categoria" />
-            @endforeach
+                        <div class="flex justify-around items-center w-full px-5">
+                            @foreach ($chunk as $j => $categoria)
+                                @if ($j != 0 && $j % 7 != 0)
+                                    <span id="{{ $j }}" class="text-vermelho bg-vermelho divisor h-6 w-1"></span>
+                                @endif
+                                <x-navbar.categoria :categoria="$categoria" />
+                            @endforeach
 
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-0.5 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full group-hover:bg-orange-500/50 group-focus:ring-2 group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Anterior</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-0.5 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full group-hover:bg-orange-500/50 group-focus:ring-2 group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Próximo</span>
+                </span>
+            </button>
         </div>
-
-        <a href="#" class="pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="5"
-                stroke="currentColor" class="w-6 h-6 arrow -scale-x-100">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </a>
-
     </aside>
 @endisset
-
-<script src="scripts/layout/navbar.js"></script>

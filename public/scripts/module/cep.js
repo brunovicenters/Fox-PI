@@ -28,10 +28,11 @@ limpar.addEventListener("click", limparCampos);
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById("rua").value = conteudo.logradouro;
-        document.getElementById("bairro").value = conteudo.bairro;
-        document.getElementById("cidade").value = conteudo.localidade;
-        document.getElementById("estado").value = conteudo.uf;
+        document.getElementById("ENDERECO_LOGRADOURO").value =
+            conteudo.logradouro;
+        document.getElementById("ENDERECO_BAIRRO").value = conteudo.bairro;
+        document.getElementById("ENDERECO_CIDADE").value = conteudo.localidade;
+        document.getElementById("ENDERECO_ESTADO").value = conteudo.uf;
     } else {
         limparCampos();
         alert("CEP não encontrado.");
@@ -44,10 +45,10 @@ function pesquisacep(valor) {
     if (cep != "") {
         let validacep = /^[0-9]{8}$/;
         if (validacep.test(cep)) {
-            document.getElementById("rua").value = "...";
-            document.getElementById("bairro").value = "...";
-            document.getElementById("cidade").value = "...";
-            document.getElementById("estado").value = "...";
+            document.getElementById("ENDERECO_LOGRADOURO").value = "...";
+            document.getElementById("ENDERECO_BAIRRO").value = "...";
+            document.getElementById("ENDERECO_CIDADE").value = "...";
+            document.getElementById("ENDERECO_ESTADO").value = "...";
 
             let script = document.createElement("script");
 

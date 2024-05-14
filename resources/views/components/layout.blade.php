@@ -9,6 +9,10 @@
 
     <title>Fox</title>
 
+    @yield('script')
+    <script src="\main.js" defer></script>
+    <script src="\scripts\layout\navbar.js" defer></script>
+
     {{-- Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +23,9 @@
     {{-- Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
 
+    {{-- Flowbite --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
     {{-- Style --}}
     <link rel="stylesheet" href="\main.css">
 
@@ -27,14 +34,22 @@
 <body>
     @if (!$login)
         <x-navbar.navbar />
+        <main class="max-w-5xl mx-auto mt-10 mb-3">
     @endif
-
-    {{ $slot }}
-
+        {{ $slot }}
     @if (!$login)
+        </main>
         <x-footer.footer  />
     @endif
 
+    @if ($errors->any())
+
+        <x-toast type="error" message="{{$errors->all()[0]}}" />
+
+    @endif
+
+    {{-- Flowbite --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 
 </html>

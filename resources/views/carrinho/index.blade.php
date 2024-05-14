@@ -1,6 +1,9 @@
+@section('script')
+    <script src="{{ asset('scripts/layout/carrinho.js') }}"></script>
+@endsection
+
 <x-layout>
 
-    <main class="max-w-5xl mx-auto mt-10 mb-3">
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Lista de Compras</h1>
         <div class="flex space-x-5">
             <div class="flex flex-col space-y-4 w-9/12">
@@ -48,6 +51,5 @@
             </div>
         </div>
     </main>
-    <script src="{{ asset('scripts/layout/carrinho.js') }}"></script>
 
 </x-layout>

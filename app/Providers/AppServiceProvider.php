@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
         View::share('categorias', Categoria::orderBy('CATEGORIA_NOME')->get());
     }
 }
