@@ -67,7 +67,13 @@
     <div class="flex gap-10 justify-center items-center pr-20">
         <a class="relative pointer" href="/carrinho">
             <span
-                class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">{{$qtdProdutosCarrinho}}</span>
+                class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">
+                @auth
+                    {{ App\Models\Carrinho::where('USUARIO_ID', '=', Auth::user()->USUARIO_ID)->count() }}
+                @else
+                    0
+                @endauth
+            </span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white"
                 class="w-16 h-16 -scale-x-100 icon-stroke">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -87,17 +93,25 @@
 
             <div id="menu" class="absolute z-50 top-50 -right-10 rounded-lg hidden menu">
                 <ul class="hanalei text-xl text-white text-center w-36 flex flex-col space-y-1 px-3 py-1">
-                    <li><a class="menu-item" href="/meus-pedidos">Meus pedidos</a></li>
-                    <li class="w-full h-1 bg-white"></li>
-                    <li><a class="menu-item" href="/minha-conta">Minha conta</a></li>
-                    <li class="w-full h-1 bg-white"></li>
+                    @auth
 
-                    <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="menu-item">Sair</button>
-                        </form>
-                    </li>
+                        <li><a class="menu-item" href="/meus-pedidos">Meus pedidos</a></li>
+                        <li class="w-full h-1 bg-white"></li>
+                        <li><a class="menu-item" href="/minha-conta">Minha conta</a></li>
+                        <li class="w-full h-1 bg-white"></li>
+
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="menu-item">Sair</button>
+                            </form>
+                        </li>
+                    @else
+                        <li><a class="menu-item" href="{{ route('sign.index') }}">Entrar</a></li>
+                        <li class="w-full h-1 bg-white"></li>
+                        <li><a class="menu-item" href="{{ route('sign.index', ['cadastrar' => 'true']) }}">Criar conta</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -111,12 +125,13 @@
 
             <div class="relative overflow-hidden rounded-lg h-8">
                 @foreach ($carouselCategorias as $i => $chunk)
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : ''}}>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : '' }}>
 
                         <div class="flex justify-around items-center w-full px-5">
                             @foreach ($chunk as $j => $categoria)
                                 @if ($j != 0 && $j % 7 != 0)
-                                    <span id="{{ $j }}" class="text-vermelho bg-vermelho divisor h-6 w-1"></span>
+                                    <span id="{{ $j }}"
+                                        class="text-vermelho bg-vermelho divisor h-6 w-1"></span>
                                 @endif
                                 <x-navbar.categoria :categoria="$categoria" />
                             @endforeach
@@ -127,18 +142,28 @@
             </div>
 
             <!-- Slider controls -->
-            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-0.5 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full group-hover:bg-orange-500/50 group-focus:ring-2 group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            <button type="button"
+                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-0.5 cursor-pointer group focus:outline-none"
+                data-carousel-prev>
+                <span
+                    class="inline-flex items-center justify-center w-7 h-7 rounded-full group-hover:bg-orange-500/50 group-focus:ring-2 group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 1 1 5l4 4" />
                     </svg>
                     <span class="sr-only">Anterior</span>
                 </span>
             </button>
-            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-0.5 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full group-hover:bg-orange-500/50 group-focus:ring-2 group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            <button type="button"
+                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-0.5 cursor-pointer group focus:outline-none"
+                data-carousel-next>
+                <span
+                    class="inline-flex items-center justify-center w-7 h-7 rounded-full group-hover:bg-orange-500/50 group-focus:ring-2 group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
                     </svg>
                     <span class="sr-only">Próximo</span>
                 </span>
