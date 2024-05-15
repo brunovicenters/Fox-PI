@@ -67,7 +67,7 @@
     <div class="flex gap-10 justify-center items-center pr-20">
         <a class="relative pointer" href="/carrinho">
             <span
-                class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">0</span>
+                class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">{{$qtdProdutosCarrinho}}</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white"
                 class="w-16 h-16 -scale-x-100 icon-stroke">
                 <path stroke-linecap="round" stroke-linejoin="round"

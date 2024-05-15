@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-@props(['href'])
-
-<a href="#" class="border-vermelho rounded-xl bg-amarelo w-44 ease-in-out duration-200 hover:scale-105">
+<a href="{{ route('page.produto', $produto->PRODUTO_ID) }}"
+    class="border-vermelho rounded-xl bg-amarelo w-44 ease-in-out duration-200 hover:scale-105">
     <div class="w-full h-3/5">
         @isset($produto->Imagem->first()->IMAGEM_URL)
             <img class="w-full h-full rounded-t-xl" src="{{ $produto->Imagem->first()->IMAGEM_URL }}"
