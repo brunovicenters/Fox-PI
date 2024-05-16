@@ -1,7 +1,7 @@
 <x-layout>
-    <main class="max-w-8xl mx-auto mb-3">>
+    <main class="max-w-8xl mx-auto mb-3">
         <section class=" flex justify-center items-right ">
-            <div class="w-5/6 mb-10 flex gap-8">
+            <div class="w-full mb-10 flex gap-8">
                 <div class="flex flex-col gap-2">
                     <button class="ml-20 w-16">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -10,8 +10,8 @@
                         </svg>
                     </button>
                     @foreach ($produto->Imagem as $img)
-                        <div class="h-56 w-44 bg-white rounded-lg drop-shadow-md">
-                            <img class="h-56 w-44" src="{{ $img->IMAGEM_URL }}" alt="">
+                        <div class="bg-white rounded-lg drop-shadow-md h-44 w-44">
+                            <img class="h-full w-full object-contain" src="{{ $img->IMAGEM_URL }}" alt="">
                         </div>
                     @endforeach
                     <button class="ml-20 w-16">
@@ -21,12 +21,13 @@
                         </svg>
                     </button>
                 </div>
+
                 <div class="w-5/6 h-5/6 mt-8 bg-white rounded-lg drop-shadow-md">
                     <img class=" w-full h-full rounded-lg"src="" alt="">
                 </div>
 
 
-                <div class="flex flex-col gap-3 mt-8 ml-24 poppins  text-vermelho w-1/2 ">
+                <div class="flex flex-col gap-3 mt-8 poppins  text-vermelho w-1/2 ">
                     <h1 class="text-5xl hanalei text-laranja-claro">{{ $produto->PRODUTO_NOME }}</h1>
                     <p class=" text-lg ">{{ $produto->Categoria->CATEGORIA_NOME }}</p>
                     <h2 class=" text-3xl ">R${{ $produto->PRODUTO_PRECO }}</h2>
