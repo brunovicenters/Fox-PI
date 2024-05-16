@@ -27,11 +27,11 @@
                 </div>
 
 
-                <div class="flex flex-col gap-3 mt-8 poppins  text-vermelho w-1/2 ">
+                <div class="flex flex-col gap-2 mt-8 poppins  text-vermelho w-1/2 ">
                     <h1 class="text-5xl hanalei text-laranja-claro">{{ $produto->PRODUTO_NOME }}</h1>
                     <p class=" text-lg ">{{ $produto->Categoria->CATEGORIA_NOME }}</p>
-                    <h2 class=" text-3xl ">R${{ $produto->PRODUTO_PRECO }}</h2>
-                    <p class="text-black text-xl">R$ 00,00 - Frete grátis</p>
+                    <h2 class=" text-3xl ">R${{ $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO }}</h2>
+                    <p class="text-black text-xl line-through">R${{ $produto->PRODUTO_PRECO }}</p>
                     <p class="text-black text-lg">Até 6x sem juros, ou 12x com juros</p>
                     <div
                         class="flex items-center justify-between rounded-lg font-bold drop-shadow-md w-24 h-10 border-2 border-solid btn-add text-azul px-2">
@@ -46,7 +46,7 @@
                         <input type="hidden" name="qtd" value="1" id="qtd">
                         <input type="hidden" name="acao" value="0" id="acao">
                         <span
-                            class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">+</span>
+                            class="absolute top-1 left-14 text-xl rounded-full flex justify-center items-center w-4 h-4 p-1 z-50 text-amarelo shopcart-icon-number">+</span>
                         <button
                             class="flex itens-center justify-center text-white rounded-lg px-10 py-2 w-1/2 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-car text-x h-11">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -56,55 +56,59 @@
                             </svg>
                         </button>
 
-                        <button id="btnComprar"
-                            class="flex itens-center justify-center text-laranja-escuro rounded-lg px-10 py-2 w-1/2 poppins drop-shadow-md  hover:scale-105 hover:drop-shadow-lg h-11 text-xl btn-buy">Comprar</button>
+                        <button id="btnComprar" class="flex itens-center justify-center text-laranja-escuro rounded-lg px-10 py-2 w-1/2 poppins drop-shadow-md  hover:scale-105 hover:drop-shadow-lg h-11 text-xl btn-buy">Comprar</button>
                     </form>
-                    <div class="flex gap-2">
+                    <div class="flex gap-1">
                         <x-form.input-group label="CEP" name="cep" id="cep" type="text" maxlength="9"
-                            oninput="mascaraCEP(this)" placeholder="00000-000" title="Escreva somente números" />
-                        <button
-                            class="flex itens-center justify-center rounded-lg px-10 py-2 w-1/3 font-bold drop-shadow-md  hover:scale-105 hover:drop-shadow-lg btn-cep h-11 mt-6 ">
+                                            oninput="mascaraCEP(this)" placeholder="00000-000" title="Escreva somente números" />
+                        <button id="cepButton" class="flex items-center justify-center rounded-lg px-10 py-2 w-1/3 font-bold drop-shadow-md hover:scale-105 hover:drop-shadow-lg btn-cep h-11 mt-6 ">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                stroke-width="9" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                             </svg>
                         </button>
-
                     </div>
-                    <p class="poppins text-vermelho">Frete mínimo de R$ 15,00</p>
-                </div>
+                    <p id="cepMessage" class="text-vermelho" 
+                    data-preco-min="{{ number_format($produto->PRODUTO_PRECO * 0.22, 2, '.') }}" 
+                    data-preco-max="{{ number_format($produto->PRODUTO_PRECO * 0.97, 2, ',') }}">
+                    Frete mínimo de 15 reias
+                    </p>
+
             </div>
         </section>
 
         <section class="max-w-8xl flex justify-center items-center">
-            <div class="w-5/6 mt-10 flex flex-col justify-center itens-center gap-8">
+            <div class="w-full mt-10 flex flex-col gap-8">
                 <h1 class="text-6xl hanalei text-roxo text-left">Produtos semelhantes</h1>
-                <div class="flex items-center justify-center gap-7 flex-wrap ml-10 mr-10">
-                    @foreach ($produtosSemelhantes as $produtoSemelhante)
-                        @if ($produtoSemelhante->PRODUTO_ID !== $produto->PRODUTO_ID)
-                            <a href="{{ route('page.produto', ['produto' => $produtoSemelhante->PRODUTO_ID]) }}"
-                                class="flex flex-col h-52 w-40 border-4 border-solid border rounded-3xl color-border">
-                                <div class="h-1/2 bg-white rounded-t-3xl ">
-                                    @if ($produtoSemelhante->Imagem->isNotEmpty())
-                                        <img src="{{ $produtoSemelhante->Imagem->first()->IMAGEM_URL }}"
-                                            alt="imagem dos produtos" class="w-28 h-28 ">
-                                    @else
-                                        <img src="..." alt="Imagem Padrão">
-                                    @endif
-                                </div>
-                                <div
-                                    class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
-                                    <h1 class="text-xl hanalei text-laranja-claro">
-                                        {{ $produtoSemelhante->PRODUTO_NOME }}</h1>
-                                    <p>{{ $produtoSemelhante->Categoria->CATEGORIA_NOME }}</p>
-                                    <p>R${{ $produtoSemelhante->PRODUTO_PRECO }}</p>
-                                </div>
-                            </a>
-                        @endif
-                    @endforeach
+                <div class="flex justify-center">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7">
+                        @foreach ($produtosSemelhantes as $produtoSemelhante)
+                            @if ($produtoSemelhante->PRODUTO_ID !== $produto->PRODUTO_ID)
+                                <a href="{{ route('page.produto', ['produto' => $produtoSemelhante->PRODUTO_ID]) }}"
+                                    class="flex flex-col h-52 w-40 border-4 border-solid border rounded-3xl color-border">
+                                    <div class="h-1/2 bg-white rounded-t-3xl">
+                                        @if ($produtoSemelhante->Imagem->isNotEmpty())
+                                            <img src="{{ $produtoSemelhante->Imagem->first()->IMAGEM_URL }}"
+                                                alt="imagem dos produtos" class="w-28 h-28">
+                                        @else
+                                            <img src="..." alt="Imagem Padrão">
+                                        @endif
+                                    </div>
+                                    <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
+                                        <h1 class="text-xl hanalei text-laranja-claro">
+                                            {{ $produtoSemelhante->PRODUTO_NOME }}</h1>
+                                        <p>{{ $produtoSemelhante->Categoria->CATEGORIA_NOME }}</p>
+                                        <p>R${{ $produtoSemelhante->PRODUTO_PRECO }}</p>
+                                    </div>
+                                </a>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </section>
+
+
     </main>
     <script src="\scripts\module\cep.js"></script>
     <script src="{{ asset('scripts/layout/produto.js') }}"></script>
