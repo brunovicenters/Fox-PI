@@ -48,10 +48,13 @@
 
     @endif
 
+
     @if (session("success"))
-        <x-toast type="success" message="{{ session("success") }}" />
+        <x-toast type="success" message="{{session('success')}}" />
     @elseif (session("alert"))
-        @dd(2)
+        <x-toast type="alert" message="{{session('alert')}}" />
+    @elseif (session("error"))
+        <x-toast type="error" message="{{session('error')}}" />
     @endif
 
     {{-- Flowbite --}}
