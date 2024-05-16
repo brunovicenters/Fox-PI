@@ -13,15 +13,14 @@
             <form class="flex space-x-12 w-full items-center mb-5" action="{{ route('pesquisa.index') }}" method="GET">
                 <input type="hidden" name="termoPesquisa" value="{{ $termoPesquisa }}">
                 <div class="w-3/5">
-                    {{-- @dd($categorias) --}}
                     <x-form.select label="Categorias" required="{{false}}" name="categoria" type="2" :options="$categorias" />
                 </div>
                 <div class="w-2/5">
                     <label for="limite" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
-                        Até o valor de: <span class="text-vermelho" id="valor">R$ {{ number_format($precoMin, 2, ',', '.') }}</span>
+                        Até o valor de: <span class="text-vermelho" id="valor">R$ {{ number_format((($precoMax - $precoMin) / 2) + $precoMin, 2, ',', '.') }}</span>
                     </label>
                     <input type="range" name="limite" id="limite" min="{{ $precoMin }}"
-                        max="{{ $precoMax }}" value="{{$precoMin}}" class="w-full range-vermelho">
+                        max="{{ $precoMax }}" value="{{ (($precoMax - $precoMin) / 2) + $precoMin }}" class="w-full range-vermelho">
                 </div>
             </form>
 
