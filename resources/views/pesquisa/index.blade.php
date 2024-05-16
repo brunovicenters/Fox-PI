@@ -18,7 +18,7 @@
                 </div>
                 <div class="w-2/5">
                     <label for="limite" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
-                        Até o valor de: <span class="text-vermelho" id="valor">R$ {{ $precoMin }}</span>
+                        Até o valor de: <span class="text-vermelho" id="valor">R$ {{ number_format($precoMin, 2, ',', '.') }}</span>
                     </label>
                     <input type="range" name="limite" id="limite" min="{{ $precoMin }}"
                         max="{{ $precoMax }}" value="{{$precoMin}}" class="w-full range-vermelho">
