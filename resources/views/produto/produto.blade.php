@@ -28,7 +28,7 @@
 
 
                 <div class="flex flex-col gap-2 mt-8 poppins  text-vermelho w-1/2 ">
-                    <h1 class="text-5xl hanalei text-laranja-claro">{{ $produto->PRODUTO_NOME }}</h1>
+                    <h1 class="text-5xl hanalei text-laranja-claro line-clamp-3">{{ $produto->PRODUTO_NOME }}</h1>
                     <p class=" text-lg ">{{ $produto->Categoria->CATEGORIA_NOME }}</p>
                     <h2 class=" text-3xl ">R${{ $produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO }}</h2>
                     <p class="text-black text-xl line-through">R${{ $produto->PRODUTO_PRECO }}</p>
