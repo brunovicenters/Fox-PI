@@ -30,7 +30,9 @@ class PesquisaController extends Controller
 
         $query->orderBy('PRODUTO_PRECO', 'desc');
 
-        $produtos = $query->paginate(1, ['PRODUTO_NOME', 'PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESC', 'CATEGORIA_ID']);
+        $produtosCount = Produto::count();
+
+        $produtos = $query->paginate(8, ['PRODUTO_NOME', 'PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESC', 'CATEGORIA_ID']);
         $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
 
         if (!$produtos->isEmpty()) {
@@ -40,6 +42,7 @@ class PesquisaController extends Controller
 
         return view('pesquisa.index', [
             'produtos' => $produtos,
+            'produtosCount' => $produtosCount,
             'termoPesquisa' => $termoPesquisa,
             'categoriaRequest' => $categoria,
             'precoMax' => $precoMax ?? 0,
