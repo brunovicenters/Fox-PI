@@ -28,8 +28,6 @@ Route::fallback(function () {
 Route::get('/home', [HomeController::class, 'MostrarProduto'])->name('home');
 Route::get('/home/produto/{produto}', [HomeController::class, 'index'])->name('page.produto');
 
-Route::get('/fale-conosco', [FaleConoscoController::class, 'index'])->name('fale-conosco.index');
-
 Route::get('/pesquisa', [PesquisaController::class, 'index'])->name('pesquisa.index');
 
 Route::get('/produto', function () {
@@ -39,6 +37,9 @@ Route::get('/produto', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
     Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
+
+    Route::get('/fale-conosco', [FaleConoscoController::class, 'create'])->name('fale-conosco.create');
+    Route::post('/fale-conosco', [FaleConoscoController::class, 'store'])->name('fale-conosco.store');
 
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
     Route::get('/carrinho/finalizar', [CarrinhoController::class, 'create'])->name('carrinho.create');

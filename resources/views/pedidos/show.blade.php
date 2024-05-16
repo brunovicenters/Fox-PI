@@ -62,7 +62,7 @@
         {{-- Fale Conosco --}}
         <div class="w-1/4 flex flex-col items-center">
             <p class="poppins text-vermelho text-xs">Enfrentando algum problema?</p>
-            <x-button-amarelo href="fale-conosco" text="Fale conosco" />
+            <x-button-amarelo href="{{ route('fale-conosco.create') }}" text="Fale conosco" />
         </div>
     </main>
 

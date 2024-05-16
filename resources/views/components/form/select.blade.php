@@ -28,7 +28,7 @@
     @endforeach
 </select>
 <div id="select-bar" class="select-open p-2 rounded-lg drop-shadow-md text-laranja-escuro bg-white h-12 relative flex items-center">
-    <p id="selected" class=" poppins">{{ $type == 0 ? $options[0] : ($type == 1 ? $options[0]->ENDERECO_NOME : "Todas") }}</p>
+    <p id="selected" class="{{ $type == 0 ? 'text-gray-400' : '' }} poppins">{{ $type == 0 ? 'Selecione um assunto' : ($type == 1 ? $options[0]->ENDERECO_NOME : "Todas") }}</p>
     <div class="absolute inset-y-0 right-3 flex items-center">
         <div id="select-arrow" class="h-full w-full absolute z-50"></div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#D36411" class="w-6 h-6 -rotate-90">

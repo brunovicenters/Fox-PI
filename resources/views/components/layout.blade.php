@@ -48,6 +48,12 @@
 
     @endif
 
+    @if (session("success"))
+        <x-toast type="success" message="{{ session("success") }}" />
+    @elseif (session("alert"))
+        @dd(2)
+    @endif
+
     {{-- Flowbite --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
