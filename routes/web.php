@@ -32,27 +32,26 @@ Route::get('/fale-conosco', [FaleConoscoController::class, 'index'])->name('fale
 
 Route::get('/pesquisa', [PesquisaController::class, 'index'])->name('pesquisa.index');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
-    Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
-
-    Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
-    Route::get('/carrinho/endereco', [CarrinhoController::class, 'endereco'])->name('carrinho.endereco');
-    Route::put('/carrinho/{produto}', [CarrinhoController::class, 'update'])->name('carrinho.update');
-    Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
-
-});
-
-require __DIR__ . '/auth.php';
-
-
 Route::get('/produto', function () {
     return view('produto/produto');
 });
 
-Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
-Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
+Route::middleware('auth')->group(function () {
+    Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+    Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
+
+    Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+    Route::get('/carrinho/finalizar', [CarrinhoController::class, 'create'])->name('carrinho.create');
+
+    Route::get('/carrinho/endereco', [CarrinhoController::class, 'endereco'])->name('carrinho.endereco');
+    Route::post('/carrinho/endereco', [CarrinhoController::class, 'addEndereco'])->name('carrinho.store');
+
+    Route::put('/carrinho/{produto}', [CarrinhoController::class, 'update'])->name('carrinho.update');
+
+    Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
+
+    Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
+    Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
+});
+
+require __DIR__ . '/auth.php';

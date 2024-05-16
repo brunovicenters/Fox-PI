@@ -40,7 +40,7 @@
                     <div class="w-full h-1 bg-verde"></div>
 
                     <div class="w-full flex justify-around items-center">
-                        <span class="hanalei text-laranja-escuro text-2xl">Total</span>
+                        <span class="hanalei text-laranja-escuro text-2xl">Subtotal</span>
                         <span class="poppins text-vermelho text-lg">R$ {{ $valorTotal }}</span>
                     </div>
 
