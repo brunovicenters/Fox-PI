@@ -5,7 +5,9 @@
 
 <x-layout>
 
-    <form class="flex flex-col space-y-2" enctype="multipart/form-data" action="#" method="GET">
+    <form class="flex flex-col space-y-2" enctype="multipart/form-data" action="{{ route('fale-conosco.store') }}" method="POST">
+        @csrf
+
         <h1 class="text-6xl hanalei text-azul">FALE CONOSCO</h1>
         <div class="w-full flex justify-center items-right gap-5">
             <div class="flex flex-col w-4/6">

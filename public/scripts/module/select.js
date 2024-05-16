@@ -33,6 +33,7 @@ selectOption = (e) => {
         }
     }
 
+    seled.classList.remove("text-gray-400");
     seled.innerHTML = e.target.innerHTML;
     selOptions.classList.add("hidden");
 };

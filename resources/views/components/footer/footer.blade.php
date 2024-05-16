@@ -84,7 +84,7 @@
                             </svg>
                         </div>
                         <div class="footer-card-text flex flex-col">
-                            <a href="/fale-conosco" class="hanalei text-vermelho hover:underline">Fale Conosco</a>
+                            <a href="{{ route('fale-conosco.create') }}" class="hanalei text-vermelho hover:underline">Fale Conosco</a>
                             <p class="text-verde poppins text-xs">+55 11 5839-7006</p>
                             <p class="text-verde poppins uppercase text-xs">Seg a Sex - 08h a 18h</p>
                             <p class="text-verde poppins text-xs uppercase">&#40;Exceto feriado e emenda de feriado&#41;

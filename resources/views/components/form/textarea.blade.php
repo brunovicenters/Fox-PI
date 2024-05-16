@@ -6,7 +6,7 @@
         name="{{ $name }}"
         id="{{ $id }}"
         placeholder="{{ $placeholder }}"
-        class="p-2 rounded-lg drop-shadow-md text-laranja-escuro input-form w-full h-20"
+        class="p-2 rounded-lg drop-shadow-md bg-white border-0 text-laranja-escuro input-form w-full h-20"
         {{$required ? 'required' : ''}}
         {{ $attributes(['value' => old($name)]) }}></textarea>
 </div>
