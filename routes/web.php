@@ -41,9 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
 
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
+    Route::get('/carrinho/endereco', [CarrinhoController::class, 'endereco'])->name('carrinho.endereco');
     Route::put('/carrinho/{produto}', [CarrinhoController::class, 'update'])->name('carrinho.update');
-
     Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
+
 });
 
 require __DIR__ . '/auth.php';
