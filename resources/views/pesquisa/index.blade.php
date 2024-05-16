@@ -14,7 +14,7 @@
                 <input type="hidden" name="termoPesquisa" value="{{ $termoPesquisa }}">
                 <div class="w-3/5">
                     {{-- @dd($categorias) --}}
-                    <x-form.select label="Categorias"  name="categoria" type="2" :options="$categorias" />
+                    <x-form.select label="Categorias" required="{{false}}" name="categoria" type="2" :options="$categorias" />
                 </div>
                 <div class="w-2/5">
                     <label for="limite" class="poppins text-laranja-escuro drop-shadow-md font-semibold">

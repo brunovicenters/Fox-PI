@@ -3,15 +3,16 @@
     'name' => '',
     'options' => [],
     'type' => 0,
+    'required' => true,
 ])
 
 {{-- type: 0 = simple array, 1 = address, 2 = category --}}
 
 <label class="poppins text-laranja-escuro drop-shadow-md font-semibold">
-    {{ $label }}:*
+    {{ $label }}:{{$required ? '*' : ''}}
 </label>
 <select name="{{ $name }}" id="select-container"
-    class="hidden" required
+    class="hidden" {{$required ? 'required' : ''}}
 >
     @if ($type == 2)
         <option value="todas">Todas</option>
