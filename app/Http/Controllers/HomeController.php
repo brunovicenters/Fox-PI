@@ -10,16 +10,23 @@ class HomeController extends Controller
     public function MostrarProduto()
     {
         $produtosMaisVendidos = Produto::take(5)->get();
-        $produtosPromocao = Produto::where('PRODUTO_DESCONTO', '>', 10)->take(5)->get();
+        $produtosPromocao = Produto::with('Imagem', 'Categoria')->get();
 
-        return view('tela-inicial/home')->with('produtosMaisVendidos', $produtosMaisVendidos)->with('produtosPromocao', $produtosPromocao);
+
+        return view('tela-inicial.home', [
+            'produtosMaisVendidos' => $produtosMaisVendidos,
+            'carouselprodutosPromocao' => $produtosPromocao->chunk(4),
+        ]);
     }
 
     public function index(Produto $produto)
     {
-        $categoria_id = $produto->CATEGORIA_ID;
-        $produtosSemelhantes = Produto::where('CATEGORIA_ID', $categoria_id)->paginate(8);
-        return view('produto.produto', compact('produto', 'produtosSemelhantes'));
-    }
+        $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->paginate(10);
 
+
+        return view('produto.produto', [
+            'produto' => $produto,
+            'carouselProdutosSemelhantes' => $produtosSemelhantes,
+        ]);
+    }
 }

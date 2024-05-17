@@ -37,10 +37,10 @@
 
         <section class="max-w-8xl flex justify-center items-center">
             <div class="w-5/6 mt-10 flex flex-col justify-center items-left gap-8">
-                <h1 class="text-6xl hanalei text-roxo text-left">Mais Vendidos</h1>
+                <h1 class="text-6xl hanalei text-azul text-left">Mais Vendidos</h1>
                 <div class="flex items-center justify-center gap-7">
                     @foreach ($produtosMaisVendidos as $produto)
-                        <div class="flex flex-col h-64 w-40 border-4 border-solid border rounded-3xl color-border">
+                        <div class="flex flex-col h-64 w-40 border-4 border-solid rounded-3xl color-border">
                             <div class="h-1/2 bg-white rounded-t-3xl flex justify-center items-center">
                                 @if ($produto->Imagem->isNotEmpty())
                                     <img src="{{ $produto->Imagem->first()->IMAGEM_URL }}" alt="imagem dos produtos"
@@ -62,19 +62,19 @@
         </section>
 
         <section class=" flex justify-center items-center mt-10">
-            <div class="w-5/6 flex flex-col justify-center items-left gap-8">
-                <h1 class="text-6xl hanalei text-roxo text-left">Promoção</h1>
-                @isset($produtosPromocao)
+            <div class="w-5/6 flex flex-col justify-center items-left space-y-2">
+                <h1 class="text-6xl hanalei text-azul text-left">Promoção</h1>
+                @empty(!$carouselprodutosPromocao)
                     <div id="controls-carousel" class="relative w-full" data-carousel="static">
-                        <div class="relative overflow-hidden rounded-lg h-96">
+                        <div class="relative overflow-hidden rounded-lg h-72 flex items-center">
                             @foreach ($carouselprodutosPromocao as $i => $chunk)
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : '' }}>
-                                <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
-                                    @foreach ($chunk as $produto)
-                                        <x-card-vertical :produto="$produto" />
-                                    @endforeach
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : '' }}>
+                                    <div class="max-w-4xl mx-auto h-full flex items-center justify-center gap-4">
+                                        @foreach ($chunk as $produto)
+                                            <x-card-vertical :produto="$produto" />
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
                         <button type="button" class="absolute top-32 start-0 z-30 flex items-center justify-center px-0.5 cursor-pointer group " data-carousel-prev>
@@ -88,7 +88,7 @@
                                 </svg>
                         </button>
                     </div>
-                @endisset
+                @endempty
             </div>
         </section>
 
