@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $categorias = Categoria::orderBy('CATEGORIA_NOME')->get();
 
-        $produtosMaisVendidosFooter = Produto::withCount("PedidosItem")->orderBy('pedidos_item_count', 'desc')->having('pedidos_item_count', '>', '0')->take(5)->get();
+        $produtosMaisVendidosFooter = Produto::withCount("PedidosItem")->orderBy('pedidos_item_count', 'desc')->having('pedidos_item_count', '>', '0')->get();
 
         View::share([
             'categorias' => $categorias,
