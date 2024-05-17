@@ -1,7 +1,5 @@
 let cpf_input = document.querySelector("#USUARIO_CPF");
 
-console.log(cpf_input);
-
 function inputCPF(e) {
     let valor = e.value;
 
