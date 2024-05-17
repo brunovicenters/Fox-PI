@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User; // Certifique-se de importar o modelo User corretamente
+use App\Models\Endereco;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +13,9 @@ class MinhaContaController extends Controller
     {
         $user = Auth::user();
 
-        return view('minha-conta.index', compact('user'));
+        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID);
+
+        return view('minha-conta.index', ['user' => $user, 'enderecos' => $enderecos]);
     }
 
     public function update(Request $request)
