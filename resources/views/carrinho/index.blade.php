@@ -3,6 +3,7 @@
 @endsection
 
 <x-layout>
+    @if ($itens->count() > 0)
 
     <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Lista de Compras</h1>
     <div class="flex space-x-5">
@@ -50,4 +51,10 @@
             <x-button-amarelo href="carrinho/endereco" text="Comprar" />
         </div>
     </div>
+
+    @else
+
+        <p class="hanalei text-vermelho text-2xl text-center my-10">Nenhum produto inserido</p>
+
+    @endif
 </x-layout>

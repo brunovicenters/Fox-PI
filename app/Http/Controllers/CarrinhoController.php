@@ -15,7 +15,7 @@ class CarrinhoController extends Controller
     public function index()
     {
         $user = Auth::user()->USUARIO_ID;
-        $itens = Carrinho::where('USUARIO_ID', '=', $user)->get();
+        $itens = Carrinho::where('USUARIO_ID', '=', $user)->where('ITEM_QTD', '>', 0)->get();
         $valorTotal = 0;
 
         foreach ($itens as $item) {
@@ -65,6 +65,5 @@ class CarrinhoController extends Controller
 
     public function create()
     {
-
     }
 }
