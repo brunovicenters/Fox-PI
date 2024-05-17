@@ -13,7 +13,7 @@ class MinhaContaController extends Controller
     {
         $user = Auth::user();
 
-        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID);
+        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID)->where("ENDERECO_APAGADO", "=", 0);
 
         return view('minha-conta.index', ['user' => $user, 'enderecos' => $enderecos]);
     }
