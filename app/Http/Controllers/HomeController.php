@@ -21,7 +21,7 @@ class HomeController extends Controller
 
     public function index(Produto $produto)
     {
-        $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->paginate(10);
+        $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->paginate(8);
 
 
         return view('produto.produto', [
