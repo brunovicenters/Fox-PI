@@ -61,31 +61,36 @@
             </div>
         </section>
 
-        <section class="max-w-8xl flex justify-center items-center mt-10">
+        <section class=" flex justify-center items-center mt-10">
             <div class="w-5/6 flex flex-col justify-center items-left gap-8">
-                <h1 class="text-6xl hanalei text-roxo text-left ">Promoção</h1>
-                <div class="flex items-center justify-center gap-7">
-                    @foreach ($produtosPromocao as $produto)
-                        <a class="flex flex-col h-64 w-40 border-4 border-solid border rounded-3xl color-border"
-                            href="{{ route('page.produto', $produto->PRODUTO_ID) }}">
-                            <div class="h-1/2 bg-white rounded-t-3xl flex justify-center items-center">
-                                @if ($produto->Imagem->isNotEmpty())
-                                    <img src="{{ $produto->Imagem->first()->IMAGEM_URL }}" alt="imagem dos produtos"
-                                        class="w-28 h-28 ">
-                                @else
-                                    <img src="..." alt="Imagem Padrão">
-                                @endif
+                <h1 class="text-6xl hanalei text-roxo text-left">Promoção</h1>
+                @isset($produtosPromocao)
+                    <div id="controls-carousel" class="relative w-full" data-carousel="static">
+                        <div class="relative overflow-hidden rounded-lg h-96">
+                            @foreach ($carouselprodutosPromocao as $i => $chunk)
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : '' }}>
+                                <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+                                    @foreach ($chunk as $produto)
+                                        <x-card-vertical :produto="$produto" />
+                                    @endforeach
+                                </div>
                             </div>
-                            <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
-                                <h1 class="text-xl hanalei text-laranja-claro">{{ $produto->PRODUTO_NOME }}</h1>
-                                <p>{{ $produto->Categoria->CATEGORIA_NOME }}</p>
-                                <p>R$ {{ $produto->PRODUTO_PRECO }}</p>
-                                <p>R$ 00,00</p>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
+                            @endforeach
+                        </div>
+                        <button type="button" class="absolute top-32 start-0 z-30 flex items-center justify-center px-0.5 cursor-pointer group " data-carousel-prev>
+                                <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                </svg>
+                        </button>
+                        <button type="button" class="absolute top-32 end-0 z-30 flex items-center justify-center px-0.5 cursor-pointer group " data-carousel-next>
+                                <svg class="w-5 h-5 text-vermelho rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                </svg>
+                        </button>
+                    </div>
+                @endisset
             </div>
         </section>
+
     </main>
 </x-layout>

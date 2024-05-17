@@ -77,37 +77,38 @@
             </div>
         </section>
 
-        <section class="max-w-8xl flex justify-center items-center">
-            <div class="w-full mt-10 flex flex-col gap-8">
-                <h1 class="text-6xl hanalei text-roxo text-left">Produtos semelhantes</h1>
-                <div class="flex justify-center">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7">
-                        @foreach ($produtosSemelhantes as $produtoSemelhante)
-                            @if ($produtoSemelhante->PRODUTO_ID !== $produto->PRODUTO_ID)
-                                <a href="{{ route('page.produto', ['produto' => $produtoSemelhante->PRODUTO_ID]) }}"
-                                    class="flex flex-col h-52 w-40 border-4 border-solid border rounded-3xl color-border">
-                                    <div class="h-1/2 bg-white rounded-t-3xl">
-                                        @if ($produtoSemelhante->Imagem->isNotEmpty())
-                                            <img src="{{ $produtoSemelhante->Imagem->first()->IMAGEM_URL }}"
-                                                alt="imagem dos produtos" class="w-28 h-28">
-                                        @else
-                                            <img src="..." alt="Imagem Padrão">
-                                        @endif
+        @isset($carouselProdutosSemelhantes)
+            <section class="max-w-8xl flex justify-center items-center">
+                <div class="w-full mt-10 flex flex-col gap-8">
+                    <h1 class="text-6xl hanalei text-roxo text-left">Produtos semelhantes</h1>
+                    <div id="controls-carousel-produtos" class="relative w-full" data-carousel="static">
+                        <div class="relative overflow-hidden rounded-lg h-96">
+                            @foreach ($carouselProdutosSemelhantes as $i => $chunk)
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : '' }}>
+                                    <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                                        @foreach ($chunk as $produtoSemelhante)
+                                            @if ($produtoSemelhante->PRODUTO_ID !== $produto->PRODUTO_ID)
+                                                <x-card-vertical :produto="$produtoSemelhante" />
+                                            @endif
+                                        @endforeach
                                     </div>
-                                    <div class="h-1/2 bg-color-amarelo rounded-b-3xl flex flex-col justify-center items-center">
-                                        <h1 class="text-xl hanalei text-laranja-claro">
-                                            {{ $produtoSemelhante->PRODUTO_NOME }}</h1>
-                                        <p>{{ $produtoSemelhante->Categoria->CATEGORIA_NOME }}</p>
-                                        <p>R${{ $produtoSemelhante->PRODUTO_PRECO }}</p>
-                                    </div>
-                                </a>
-                            @endif
-                        @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                        <button type="button" class="absolute top-1/2  z-30 flex items-center justify-center h-10 px-4 cursor-pointer group" data-carousel-prev>
+                            <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="absolute top-1/2 -translate-y-1/2 right-4 z-30 flex items-center justify-center h-10 px-4 cursor-pointer group" data-carousel-next>
+                            <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        @endisset
 
     </main>
     <script src="\scripts\module\cep.js"></script>
