@@ -12,13 +12,20 @@ class Produto extends Model
     protected $primaryKey = "PRODUTO_ID";
     public $timestamps = false;
 
-    public $fillable = ['PRODUTO_NOME' , 'PRODUTO_DESC', 'PRODUTO_PRECO', 'PRODUTO_DESCONTO'];
+    public $fillable = ['PRODUTO_NOME', 'PRODUTO_DESC', 'PRODUTO_PRECO', 'PRODUTO_DESCONTO'];
 
-    public function Imagem(){
+    public function Imagem()
+    {
         return $this->hasMany(Imagem::class, 'PRODUTO_ID', 'PRODUTO_ID');
     }
-    
-    public function Categoria(){
+
+    public function Categoria()
+    {
         return $this->belongsTo(Categoria::class, 'CATEGORIA_ID', 'CATEGORIA_ID');
+    }
+
+    public function PedidosItem()
+    {
+        return $this->hasMany(Pedido_Item::class, 'PRODUTO_ID', 'PRODUTO_ID');
     }
 }

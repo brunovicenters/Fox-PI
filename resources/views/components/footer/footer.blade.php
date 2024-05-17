@@ -14,41 +14,33 @@
                 {{-- Carrinho / Minha Conta / Meus Pedidos --}}
                 <h3 class="text-laranja-claro text-2xl hanalei">Minha conta</h3>
                 <ul>
-                    <li class="poppins text-verde">
-                        <a href="/minha-conta" class="hover:underline">Minha conta</a>
-                    </li>
-                    <li class="poppins text-verde">
-                        <a href="/carrinho" class="hover:underline">Meu carrinho</a>
-                    </li>
-                    <li class="poppins text-verde">
-                        <a href="/meus-pedidos" class="hover:underline">Meus pedidos</a>
-                    </li>
-                    <li class="poppins text-verde">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="hover:text-decoration-underline hover:text-black">Sair</button>
-                        </form>
-                    </li>
+                    @auth
+                        <li class="poppins text-verde hover:font-bold"><a class="w-full inline-block" href="{{ route('pedidos.index') }}">Meus pedidos</a></li>
+                        <li class="poppins text-verde hover:font-bold"><a class="w-full inline-block" href="{{ route('page.minha-conta') }}">Minha conta</a></li>
+                        <li class="poppins text-verde hover:font-bold"><a class="w-full inline-block" href="{{ route('carrinho.index') }}">Meu carrinho</a></li>
+                        <li class="poppins text-verde hover:font-bold cursor-pointer">
+                            <form action="{{ route('logout') }}" class="w-full" method="POST">
+                                @csrf
+                                <button class="w-full text-start">Sair</button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="poppins text-verde hover:font-bold"><a class="w-full inline-block" href="{{ route('sign.index') }}">Entrar</a></li>
+                        <li class="poppins text-verde hover:font-bold"><a class="w-full inline-block" href="{{ route('sign.index', ['cadastrar' => 'true']) }}">Criar conta</a></li>
+                    @endauth
                 </ul>
             </div>
 
-            {{-- <div class="footer-mais-vendidos">
+            <div class="footer-mais-vendidos">
                 <h3 class="text-laranja-claro text-2xl hanalei">Mais vendidos</h3>
                 <ul>
-                    <li class="poppins text-verde">
-                        <a href="/minha-conta" class="hover:underline">Categoria</a>
+                    @foreach ($produtosMaisVendidosFooter->take(5) as $produto)
+                    <li class="poppins text-verde truncate max-w-40 hover:font-bold" title="{{ $produto->PRODUTO_NOME }}">
+                        <a class="w-full inline-block truncate max-w-full" href="{{ route('page.produto', $produto->PRODUTO_ID) }}" class="hover:underline">{{ $produto->PRODUTO_NOME }}</a>
                     </li>
-                    <li class="poppins text-verde">
-                        <a href="/carrinho" class="hover:underline">Categoria</a>
-                    </li>
-                    <li class="poppins text-verde">
-                        <a href="/meus-pedidos" class="hover:underline">Categoria</a>
-                    </li>
-                    <li class="poppins text-verde">
-                        <a href="/meus-pedidos" class="hover:underline">Categoria</a>
-                    </li>
+                    @endforeach
                 </ul>
-            </div> --}}
+            </div>
             <div class="span"></div>
 
             <div id="footer-cards" class="footer-cards flex flex-col space-y-5">
