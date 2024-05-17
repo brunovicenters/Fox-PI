@@ -69,7 +69,7 @@
             <span
                 class="absolute -top-3 -left-2 text-xl rounded-full flex justify-center items-center w-8 h-8 p-1 z-50 text-amarelo shopcart-icon-number">
                 @auth
-                    {{ App\Models\Carrinho::where('USUARIO_ID', '=', Auth::user()->USUARIO_ID)->count() }}
+                    {{ App\Models\Carrinho::where('USUARIO_ID', '=', Auth::user()->USUARIO_ID)->where('ITEM_QTD', '>', 0)->count() }}
                 @else
                     0
                 @endauth
