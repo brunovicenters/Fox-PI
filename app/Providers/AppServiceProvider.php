@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\Categoria;
+use App\Models\Produto;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,9 +24,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $categorias = Categoria::orderBy('CATEGORIA_NOME')->get();
 
+        $produtosMaisVendidosFooter = Produto::withCount("PedidosItem")->orderBy('pedidos_item_count', 'desc')->having('pedidos_item_count', '>', '0')->take(5)->get();
+
         View::share([
             'categorias' => $categorias,
             'carouselCategorias' => $categorias->chunk(7),
+            'produtosMaisVendidosFooter' => $produtosMaisVendidosFooter,
         ]);
     }
 }
