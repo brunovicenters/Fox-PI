@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FaleConoscoController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\EnderecoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProfileController;
@@ -53,6 +54,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
     Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
+
+    Route::get('/endereco/criar', [EnderecoController::class, 'create'])->name('endereco.create');
+    Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
+    Route::get('/endereco/{endereco}', [EnderecoController::class, 'edit'])->name('endereco.edit');
+    Route::put('/endereco/{endereco}', [EnderecoController::class, 'update'])->name('endereco.update');
+    Route::post('/endereco/{endereco}', [EnderecoController::class, 'destroy'])->name('endereco.destroy');
 });
 
 require __DIR__ . '/auth.php';
