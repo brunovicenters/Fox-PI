@@ -24,7 +24,7 @@
     @endif
 
     <x-card-horizontal>
-        <form action="{{ route('carrinho.store') }}" method="POST" class="w-full flex flex-col p-1">
+        <form action="{{ route('carrinho.addEndereco') }}" method="POST" class="w-full flex flex-col p-1">
             @csrf
             <div class="flex justify-between">
                 <div class="w-3/12">
