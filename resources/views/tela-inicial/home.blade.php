@@ -2,7 +2,7 @@
     <main class="max-w-5xl mx-auto mt-10 mb-3">
         <section class="max-w-8xl flex justify-center items-center flex-col">
             <div class="w-5/6 mt-10 flex justify-center items-center">
-                <img src="images/Fox-Banner.png" alt="Banner do site">
+                <img src="\images\Fox-Banner.png" alt="Banner do site">
             </div>
 
             <div class="w-5/6 flex space-x-24 mt-14 justify-center items-center">
