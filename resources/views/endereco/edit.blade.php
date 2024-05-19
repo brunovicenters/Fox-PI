@@ -21,7 +21,7 @@
             <div class="flex justify-between">
                 <div class="w-3/12">
                     <x-form.input-group label="CEP" name="ENDERECO_CEP" type="text" maxlength="9"
-                        value="{{ $endereco->ENDERECO_CEP }}"
+                        value="{{ substr($endereco->ENDERECO_CEP, 0, 5) . '-' . substr($endereco->ENDERECO_CEP, 5, 3) }}"
                         oninput="mascaraCEP(this)" placeholder="00000-000" title="Escreva somente números"
                         onblur="pesquisacep(this.value);" />
                 </div>
