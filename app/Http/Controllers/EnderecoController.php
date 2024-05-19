@@ -15,7 +15,7 @@ class EnderecoController extends Controller
 
             if ($screen === 'carrinho') {
                 $user = Auth::user()->USUARIO_ID;
-                $enderecos = Endereco::where('USUARIO_ID', '=', $user)->get();
+                $enderecos = Endereco::where('USUARIO_ID', '=', $user)->where('ENDERECO_APAGADO', '<', '1')->get();
                 return view('endereco.create', ['enderecos' => $enderecos, 'screen' => $screen]);
             } else {
                 return view("endereco.create", ['screen' => $screen]);
