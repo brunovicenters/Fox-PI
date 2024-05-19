@@ -3,17 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Endereco;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class EnderecoController extends Controller
 {
-    public function create()
+    public function create($screen)
     {
-        return view("endereco.create");
+        if ($screen === 'minha-conta' || $screen === 'carrinho') {
+
+            if ($screen === 'carrinho') {
+                $user = Auth::user()->USUARIO_ID;
+                $enderecos = Endereco::where('USUARIO_ID', '=', $user)->get();
+                return view('endereco.create', ['enderecos' => $enderecos, 'screen' => $screen]);
+            } else {
+                return view("endereco.create", ['screen' => $screen]);
+            }
+        } else {
+            session()->flash("alert", "Esta página não existe!");
+
+            return redirect()->route('home');
+        }
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $screen)
     {
         $user = Auth::user();
 
@@ -33,16 +47,18 @@ class EnderecoController extends Controller
             'ENDERECO_APAGADO' => ['required']
         ]);
 
-        Endereco::create($endereco);
-
         session()->flash("success", "Endereço adicionado com sucesso");
 
-        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID)->where("ENDERECO_APAGADO", "=", 0);
+        if ($screen === "minha-conta") {
 
-        return view('minha-conta.index', [
-            'user' => $user,
-            'enderecos' => $enderecos
-        ]);
+            Endereco::create($endereco);
+
+            return redirect()->route('page.minha-conta');
+        } else {
+            $instancia = Endereco::create($endereco);
+
+            return redirect()->route('carrinho.create', $instancia);;
+        }
     }
 
     public function edit(Endereco $endereco)
@@ -72,12 +88,7 @@ class EnderecoController extends Controller
 
         session()->flash("success", "Endereço atualizado com sucesso");
 
-        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID)->where("ENDERECO_APAGADO", "=", 0);
-
-        return view('minha-conta.index', [
-            'user' => $user,
-            'enderecos' => $enderecos
-        ]);
+        return redirect()->route('page.minha-conta');
     }
 
     public function destroy(Endereco $endereco)
@@ -86,15 +97,8 @@ class EnderecoController extends Controller
 
         $endereco->save();
 
-        $user = Auth::user();
-
-        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID)->where("ENDERECO_APAGADO", "=", 0);
-
         session()->flash("alert", "Endereço deletado com sucesso");
 
-        return view('minha-conta.index', [
-            'user' => $user,
-            'enderecos' => $enderecos
-        ]);
+        return redirect()->route('page.minha-conta');
     }
 }

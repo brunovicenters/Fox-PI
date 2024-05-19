@@ -55,11 +55,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/minha-conta', [MinhaContaController::class, 'index'])->name('page.minha-conta');
     Route::put('/minha-conta', [MinhaContaController::class, 'update'])->name('update.minha-conta');
 
-    Route::get('/endereco/criar', [EnderecoController::class, 'create'])->name('endereco.create');
-    Route::post('/endereco', [EnderecoController::class, 'store'])->name('endereco.store');
+    // Depending on the screen that is doing the request, it will show different things -
+    // carrinho - show existing enderecos
+    // minha-conta - only the form for a new endereco
+    Route::get('/endereco/criar/{screen}', [EnderecoController::class, 'create'])->name('endereco.create');
+    Route::post('/endereco/{screen}', [EnderecoController::class, 'store'])->name('endereco.store');
     Route::get('/endereco/{endereco}', [EnderecoController::class, 'edit'])->name('endereco.edit');
     Route::put('/endereco/{endereco}', [EnderecoController::class, 'update'])->name('endereco.update');
-    Route::post('/endereco/{endereco}', [EnderecoController::class, 'destroy'])->name('endereco.destroy');
+    Route::delete('/endereco/{endereco}', [EnderecoController::class, 'destroy'])->name('endereco.destroy');
 });
 
 require __DIR__ . '/auth.php';

@@ -3,6 +3,13 @@
 @endsection
 
 <x-layout>
+    <div class="flex w-full">
+        <a href="{{ route('endereco.create', 'carrinho') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </a>
+    </div>
 
         <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Finalizar Compra</h1>
         <div class="flex space-x-5">

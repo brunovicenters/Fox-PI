@@ -5,16 +5,45 @@
 
 <x-layout>
 
-    <div class="flex">
-        <a href="{{ route('page.minha-conta') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-        </a>
-    </div>
+    @if ($screen === 'minha-conta')
+        <div class="flex">
+            <a href="{{ route('page.minha-conta') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </a>
+        </div>
+    @elseif ($screen === 'carrinho')
+        <div class="flex w-full">
+            <a href="{{ route('carrinho.index') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            </a>
+        </div>
+
+        <h1 class="hanalei text-6xl drop-shadow-md uppercase mb-5 text-azul">Endereço de Entrega</h1>
+
+        @if ($enderecos && $enderecos->count())
+            <x-card-horizontal>
+                <form action="#" method="POST" class="w-full flex flex-col p-1 relative">
+                    @csrf
+                    <x-form.select label="Endereços salvos" name="ENDERECO_SALVO" :options="$enderecos" type="1" />
+                    <div class="flex items-center justify-end mt-3">
+                        <x-form.button>
+                            Continuar
+                        </x-form.button>
+                    </div>
+                </form>
+            </x-card-horizontal>
+
+            <h2 class="hanalei text-center text-azul drop-shadow-md uppercase my-2 text-4xl">OU</h2>
+        @endif
+
+    @endif
 
     <x-card-horizontal>
-        <form action="{{ route('endereco.store') }}" method="POST" class="w-full flex flex-col p-1">
+        <form action="{{ route('endereco.store', $screen) }}" method="POST" class="w-full flex flex-col p-1">
             @csrf
 
             <div class="flex justify-between">

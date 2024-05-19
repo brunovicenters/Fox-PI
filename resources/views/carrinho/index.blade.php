@@ -48,7 +48,7 @@
                 </div>
             </x-card-horizontal>
 
-            <x-button-amarelo href="carrinho/endereco" text="Comprar" />
+            <x-button-amarelo href="{{ route('endereco.create', 'carrinho') }}" text="Comprar" />
         </div>
     </div>
 

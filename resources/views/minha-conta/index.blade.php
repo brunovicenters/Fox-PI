@@ -87,6 +87,7 @@
                                     </a>
                                     <form method="POST" action="{{ route('endereco.destroy', $endereco->ENDERECO_ID) }}">
                                         @csrf
+                                        @method('DELETE')
 
                                         <button class="hover:scale-110">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#B20D30" class="w-9 h-9">
@@ -98,7 +99,7 @@
                             </div>
                             <div class="w-full flex flex-wrap text-azul">
                                 <p class="w-2/3 truncate">{{ $endereco->ENDERECO_LOGRADOURO }}, {{ $endereco->ENDERECO_NUMERO }}{{ $endereco->ENDERECO_COMPLEMENTO ? ", ". $endereco->ENDERECO_COMPLEMENTO : ''}}</p>
-                                <p class="w-1/3 text-end">{{ $endereco->ENDERECO_CIDADE }}, {{ $endereco->ENDERECO_ESTADO }}</p>
+                                <p class="w-1/3 text-end truncate">{{ $endereco->ENDERECO_CIDADE }}, {{ $endereco->ENDERECO_ESTADO }}</p>
                                 <p class="w-2/3">- {{ substr($endereco->ENDERECO_CEP, 0, 5) . '-' . substr($endereco->ENDERECO_CEP, 5, 3) }}</p>
                             </div>
                         </div>
