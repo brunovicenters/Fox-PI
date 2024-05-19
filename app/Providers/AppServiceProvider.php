@@ -26,12 +26,12 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-        $produtosMaisVendidosFooter = Produto::withCount("PedidosItem")->orderBy('pedidos_item_count', 'desc')->having('pedidos_item_count', '>', '0')->get();
+        $produtosMaisVendidos = Produto::withCount("PedidosItem")->orderBy('pedidos_item_count', 'desc')->having('pedidos_item_count', '>', '0')->get();
 
         View::share([
             'categorias' => $categorias,
             'carouselCategorias' => $categorias->chunk(7),
-            'produtosMaisVendidosFooter' => $produtosMaisVendidosFooter,
+            'produtosMaisVendidos' => $produtosMaisVendidos,
         ]);
     }
 }

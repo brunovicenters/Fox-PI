@@ -31,11 +31,11 @@
                 </ul>
             </div>
 
-            @if ($produtosMaisVendidosFooter->count() > 0)
+            @if ($produtosMaisVendidos->count() > 0)
                 <div class="footer-mais-vendidos">
                     <h3 class="text-laranja-claro text-2xl hanalei">Mais vendidos</h3>
                     <ul>
-                        @foreach ($produtosMaisVendidosFooter->take(5) as $produto)
+                        @foreach ($produtosMaisVendidos->take(5) as $produto)
                         <li class="poppins text-verde truncate max-w-40 hover:font-bold" title="{{ $produto->PRODUTO_NOME }}">
                             <a class="w-full inline-block truncate max-w-full" href="{{ route('page.produto', $produto->PRODUTO_ID) }}" class="hover:underline">{{ $produto->PRODUTO_NOME }}</a>
                         </li>

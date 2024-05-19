@@ -9,12 +9,10 @@ class HomeController extends Controller
 {
     public function MostrarProduto()
     {
-        $produtosMaisVendidos = Produto::take(5)->get();
         $produtosPromocao = Produto::with('Imagem', 'Categoria')->get();
 
 
         return view('tela-inicial.home', [
-            'produtosMaisVendidos' => $produtosMaisVendidos,
             'carouselprodutosPromocao' => $produtosPromocao->chunk(4),
         ]);
     }
