@@ -78,7 +78,7 @@
                         @endif
                         <div class="flex flex-col w-full py-2 space-y-1">
                             <div class="flex justify-between w-full">
-                                <h3 class="text-vermelho hanalei text-4xl">{{ $endereco->ENDERECO_NOME }}</h3>
+                                <h3 class="text-vermelho hanalei text-4xl truncate">{{ $endereco->ENDERECO_NOME }}</h3>
                                 <div class="flex space-x-2">
                                     <a href="{{ route('endereco.edit', $endereco->ENDERECO_ID) }}" class="cursor-pointer hover:scale-110">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#F9A80C" class="w-9 h-9">
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="w-full flex flex-wrap text-azul">
-                                <p class="w-2/3">{{ $endereco->ENDERECO_LOGRADOURO }}, {{ $endereco->ENDERECO_NUMERO }}{{ $endereco->ENDERECO_COMPLEMENTO ? ", ". $endereco->ENDERECO_COMPLEMENTO : ''}}</p>
+                                <p class="w-2/3 truncate">{{ $endereco->ENDERECO_LOGRADOURO }}, {{ $endereco->ENDERECO_NUMERO }}{{ $endereco->ENDERECO_COMPLEMENTO ? ", ". $endereco->ENDERECO_COMPLEMENTO : ''}}</p>
                                 <p class="w-1/3 text-end">{{ $endereco->ENDERECO_CIDADE }}, {{ $endereco->ENDERECO_ESTADO }}</p>
                                 <p class="w-2/3">- {{ substr($endereco->ENDERECO_CEP, 0, 5) . '-' . substr($endereco->ENDERECO_CEP, 5, 3) }}</p>
                             </div>
