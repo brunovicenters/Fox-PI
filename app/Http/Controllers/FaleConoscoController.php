@@ -25,15 +25,6 @@ class FaleConoscoController extends Controller
 
     public function store(Request $request)
     {
-        $assuntos = [
-            "Produto danificado",
-            "Não recebi meu produto",
-            "Recebi o produto errado",
-            "Troca de produto",
-            "Não consigo achar o produto que quero",
-            "Outro"
-        ];
-
         $msg = $request->validate([
             'ASSUNTO' => ['string', 'required', 'max:255'],
             'MENSAGEM' => ['string', 'required']
@@ -43,6 +34,6 @@ class FaleConoscoController extends Controller
 
         session()->flash("success", "Mensagem enviada com sucesso!");
 
-        return view('fale-conosco.create', ['assuntos' => $assuntos]);
+        return redirect()->route('fale-conosco.store');
     }
 }
