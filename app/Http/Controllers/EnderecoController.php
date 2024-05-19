@@ -45,12 +45,14 @@ class EnderecoController extends Controller
         ]);
     }
 
-    public function edit()
+    public function edit(Endereco $endereco)
     {
+        return view('endereco.edit', ['endereco' => $endereco]);
     }
 
-    public function update()
+    public function update(Endereco $endereco)
     {
+        dd(2);
     }
 
     public function destroy(Endereco $endereco)
