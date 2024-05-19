@@ -6,10 +6,10 @@
     <div class="flex w-full justify-between">
 
         <div class="w-2/5">
-            <div class="flex justify-between">
-                <h2 class="hanalei text-5xl drop-shadow-md mb-5 text-azul">Minha Conta</h2>
-                <button id="editar" onclick="edit()" type="submit" class=" flex items center poppins text-white rounded-lg  px-1  drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 w-11 mt-3 fields">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-11 h-11">
+            <div class="flex justify-between items-center mb-5">
+                <h2 class="hanalei text-5xl drop-shadow-md text-azul">Minha Conta</h2>
+                <button id="editar" onclick="edit()" type="submit" class="flex items-center text-white rounded-lg  px-1 drop-shadow-md bg-btn-sign hover:scale-105 hover:drop-shadow-lg ease-linear h-11 w-11 fields">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                     </svg>
                 </button>
@@ -63,8 +63,8 @@
             <div class="flex w-full justify-between items-center mb-5">
                 <h2 class="hanalei text-5xl drop-shadow-md text-azul">Meus endereços</h2>
 
-                <a title="Adicione um endereço" href="{{ route("endereco.create") }}" class="bg-green-600 rounded-lg p-1 hover:bg-green-800 hover:scale-105">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-6 h-6">
+                <a title="Adicione um endereço" href="{{ route("endereco.create") }}" class="rounded-lg p-1 drop-shadow-md bg-green-700 hover:bg-green-900 hover:scale-105 hover:drop-shadow-lg ease-linear">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                 </a>
@@ -80,7 +80,7 @@
                             <div class="flex justify-between w-full">
                                 <h3 class="text-vermelho hanalei text-4xl">{{ $endereco->ENDERECO_NOME }}</h3>
                                 <div class="flex space-x-2">
-                                    <a class="cursor-pointer hover:scale-110">
+                                    <a href="{{ route('endereco.edit', $endereco->ENDERECO_ID) }}" class="cursor-pointer hover:scale-110">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#F9A80C" class="w-9 h-9">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                         </svg>
