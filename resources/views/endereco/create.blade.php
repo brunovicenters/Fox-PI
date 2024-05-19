@@ -33,15 +33,11 @@
                 </div>
             </div>
             <div class="flex justify-between">
-                <div class="w-4/12">
-                    <x-form.input-group label="Bairro" name="ENDERECO_BAIRRO" placeholder="Bairro"
-                        title="Escreva o seu bairro" />
-                </div>
-                <div class="w-5/12">
+                <div class="w-8/12">
                     <x-form.input-group label="Cidade" name="ENDERECO_CIDADE" placeholder="Cidade"
                         title="Escreva a sua cidade" />
                 </div>
-                <div class="w-2/12">
+                <div class="w-3/12">
                     <x-form.input-group label="Estado" name="ENDERECO_ESTADO"
                         onkeydown="return /[A-Z]/i.test(event.key)" oninput="this.value = this.value.toUpperCase()"
                         maxlength="2" placeholder="Estado" title="Escreva o seu estado" />

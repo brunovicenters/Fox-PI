@@ -14,7 +14,6 @@ function limparCampos() {
     document.querySelector("#cep").value = "";
     document.querySelector("#rua").value = "";
     document.querySelector("#numero").value = "";
-    document.querySelector("#bairro").value = "";
     document.querySelector("#cidade").value = "";
     document.querySelector("#estado").value = "";
     document.querySelector("#nome_end").value = "";
@@ -30,7 +29,6 @@ function meu_callback(conteudo) {
         //Atualiza os campos com os valores.
         document.getElementById("ENDERECO_LOGRADOURO").value =
             conteudo.logradouro;
-        document.getElementById("ENDERECO_BAIRRO").value = conteudo.bairro;
         document.getElementById("ENDERECO_CIDADE").value = conteudo.localidade;
         document.getElementById("ENDERECO_ESTADO").value = conteudo.uf;
     } else {
@@ -46,7 +44,6 @@ function pesquisacep(valor) {
         let validacep = /^[0-9]{8}$/;
         if (validacep.test(cep)) {
             document.getElementById("ENDERECO_LOGRADOURO").value = "...";
-            document.getElementById("ENDERECO_BAIRRO").value = "...";
             document.getElementById("ENDERECO_CIDADE").value = "...";
             document.getElementById("ENDERECO_ESTADO").value = "...";
 
