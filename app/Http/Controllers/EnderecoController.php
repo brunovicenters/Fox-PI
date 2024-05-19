@@ -26,7 +26,7 @@ class EnderecoController extends Controller
             'ENDERECO_NOME' => ['required', 'string', 'max:255'],
             'ENDERECO_LOGRADOURO' => ['required', 'string', 'max:255'],
             'ENDERECO_NUMERO' => ['required', 'numeric'],
-            'ENDERECO_COMPLEMENTO' => ['required', 'string', 'max:255'],
+            'ENDERECO_COMPLEMENTO' => ['max:255'],
             'ENDERECO_CEP' => ['required', 'max:8'],
             'ENDERECO_CIDADE' => ['required', 'string', 'max:255'],
             'ENDERECO_ESTADO' => ['required', 'string', 'max:2'],
@@ -50,9 +50,34 @@ class EnderecoController extends Controller
         return view('endereco.edit', ['endereco' => $endereco]);
     }
 
-    public function update(Endereco $endereco)
+    public function update(Request $request, Endereco $endereco)
     {
-        dd(2);
+        $user = Auth::user();
+
+        $request['USUARIO_ID'] = $user->USUARIO_ID;
+        $request['ENDERECO_CEP'] = str_replace('-', '', $request->ENDERECO_CEP);
+
+        $new_endereco = $request->validate([
+            'USUARIO_ID' => ['required'],
+            'ENDERECO_NOME' => ['required', 'string', 'max:255'],
+            'ENDERECO_LOGRADOURO' => ['required', 'string', 'max:255'],
+            'ENDERECO_NUMERO' => ['required', 'numeric'],
+            'ENDERECO_COMPLEMENTO' => ['max:255'],
+            'ENDERECO_CEP' => ['required', 'max:8'],
+            'ENDERECO_CIDADE' => ['required', 'string', 'max:255'],
+            'ENDERECO_ESTADO' => ['required', 'string', 'max:2'],
+        ]);
+
+        $endereco->update($new_endereco);
+
+        session()->flash("success", "Endereço atualizado com sucesso");
+
+        $enderecos = Endereco::get()->where('USUARIO_ID', '=', $user->USUARIO_ID)->where("ENDERECO_APAGADO", "=", 0);
+
+        return view('minha-conta.index', [
+            'user' => $user,
+            'enderecos' => $enderecos
+        ]);
     }
 
     public function destroy(Endereco $endereco)
