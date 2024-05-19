@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="w-full flex flex-wrap text-azul">
-                                <p class="w-2/3">{{ $endereco->ENDERECO_LOGRADOURO }}, {{ $endereco->ENDERECO_NUMERO }} {{ $endereco->ENDERECO_COMPLEMENTO ? ",". $endereco->ENDERECO_COMPLEMENTO : ''}}</p>
+                                <p class="w-2/3">{{ $endereco->ENDERECO_LOGRADOURO }}, {{ $endereco->ENDERECO_NUMERO }}{{ $endereco->ENDERECO_COMPLEMENTO ? ", ". $endereco->ENDERECO_COMPLEMENTO : ''}}</p>
                                 <p class="w-1/3 text-end">{{ $endereco->ENDERECO_CIDADE }}, {{ $endereco->ENDERECO_ESTADO }}</p>
                                 <p class="w-2/3">- {{ substr($endereco->ENDERECO_CEP, 0, 5) . '-' . substr($endereco->ENDERECO_CEP, 5, 3) }}</p>
                             </div>
