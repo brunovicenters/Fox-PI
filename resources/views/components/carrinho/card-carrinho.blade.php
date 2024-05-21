@@ -9,8 +9,8 @@
         @endisset
     </div>
     <div class="w-6/12 pr-3">
-        <h2 class="hanalei text-laranja-escuro text-2xl">{{ $item->Produto->PRODUTO_NOME }}</h2>
-        <p class="text-verde uppercase text-sm">{{ $item->Produto->Categoria->CATEGORIA_NOMEE }}</p>
+        <h2 class="hanalei text-laranja-escuro text-2xl"><a href="{{ route('page.produto', $item->Produto->PRODUTO_ID) }}">{{ $item->Produto->PRODUTO_NOME }}</a></h2>
+        <p class="text-verde uppercase text-sm">{{ $item->Produto->Categoria->CATEGORIA_NOME }}</p>
         <p class="text-vermelho poppins text-xl font-semibold">R$ {{ $item->Produto->PRODUTO_PRECO }}</p>
         <p class="truncate max-w-xs">{{ $item->Produto->PRODUTO_DESC }}</p>
     </div>
