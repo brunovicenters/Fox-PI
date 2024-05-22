@@ -11,38 +11,30 @@
             <div class="w-2/4 h-96 p-3 flex justify-between">
 
                 {{-- Carrossel --}}
-                <div class="w-2/6 h-full relative bg-yellow-500">
+                <div class="w-2/6 h-full relative flex flex-col items-center">
 
-                    <div class="w-full h-full relative px-4 flex flex-col items-center space-y-4 overflow-y-auto carousel-slide">
+                    {{-- Seta de cima --}}
+                    <div onclick="carouselPrev()" class="absolute flex items-center justify-center -top-10 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                        </svg>
+                    </div>
+
+                    {{-- Imagens do carrossel --}}
+                    <div id="carousel-images" class="w-full h-full relative px-4 py-2 flex flex-col items-center space-y-4 overflow-y-auto carousel-slide">
                         @foreach ($carouselImagens as $loop => $img)
-                            <img src="{{ $img->IMAGEM_URL }}" class=" cursor-pointer box-border box-shadow {{ $loop->first ? 'border-2 border-blue-400' : '' }}" alt="{{ $produto->PRODUTO_NOME }}">
+                            <div id="{{ $img->IMAGEM_ID }}_div" onclick="changeImage({{ $img->IMAGEM_ID }})" class="w-full h-24 box-shadow hover:scale-105 {{ $loop->first ? 'border-solid border-4 border-blue-400' : '' }}">
+                                <img id="{{ $img->IMAGEM_ID }}" src="{{ $img->IMAGEM_URL }}" class="cursor-pointer box-border object-cover img-carousel" alt="{{ $produto->PRODUTO_NOME }}">
+                            </div>
                         @endforeach
                     </div>
 
-                    {{-- <div id="controls-carousel" class="relative top-0 w-96 h-48 rotate-90" data-carousel="static">
-                        <!-- Carousel wrapper -->
-                        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-
-
-                        </div>
-                        <!-- Slider controls -->
-                        <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                                </svg>
-                                <span class="sr-only">Previous</span>
-                            </span>
-                        </button>
-                        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                                </svg>
-                                <span class="sr-only">Next</span>
-                            </span>
-                        </button>
-                    </div> --}}
+                    {{-- Seta de baixo --}}
+                    <div onclick="carouselNext()" class="absolute flex items-center justify-center -bottom-12 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-8 h-8 rotate-180">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                        </svg>
+                    </div>
 
                 </div>
 
@@ -120,7 +112,7 @@
                 </div>
             </div>
 
-            <p class="w-full mt-2 p-3 poppins text-verde">
+            <p class="w-full mt-8 p-3 poppins text-verde">
                 {{ $produto->PRODUTO_DESC }}
             </p>
 
