@@ -20,10 +20,9 @@ class HomeController extends Controller
 
     public function index(Produto $produto)
     {
-        $qtdEstoque = Produto_Estoque::where('PRODUTO_ID', $produto->PRODUTO_ID)->get();
+        $qtdEstoque = Produto_Estoque::where('PRODUTO_ID', $produto->PRODUTO_ID)->get()->first()->PRODUTO_QTD;
 
         $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->take(8)->get();
-
 
         return view('produto.produto', [
             'produto' => $produto,

@@ -1,11 +1,16 @@
 const inputQtd = document.querySelector("input#qtd");
 const btnCompra = document.querySelector("button#btnComprar");
 
-function increment() {
+function increment(qtdMaxima) {
     let quantidadeElement = document.getElementById("quantidade");
     let quantidade = parseInt(quantidadeElement.innerText);
-    quantidadeElement.innerText = quantidade + 1;
-    inputQtd.value++;
+    console.log(quantidade, qtdMaxima);
+    if (quantidade < qtdMaxima) {
+        quantidadeElement.innerText = quantidade + 1;
+        inputQtd.value++;
+    } else {
+        alert("Quantidade máxima alcançada");
+    }
 }
 
 function decrement() {
@@ -30,21 +35,26 @@ btnCompra.addEventListener("click", (e) => {
     form.submit();
 });
 
-
-document.getElementById('cepButton').addEventListener('click', function () {
-    const cepInput = document.getElementById('cep').value;
-    const cepMessage = document.getElementById('cepMessage');
+document.getElementById("cepButton").addEventListener("click", function () {
+    const cepInput = document.getElementById("cep").value;
+    const cepMessage = document.getElementById("cepMessage");
 
     if (cepInput.length === 9) {
-        const precoMin = parseFloat(cepMessage.getAttribute('data-preco-min'));
-        const precoMax = parseFloat(cepMessage.getAttribute('data-preco-max').replace(',', '.'));
+        const precoMin = parseFloat(cepMessage.getAttribute("data-preco-min"));
+        const precoMax = parseFloat(
+            cepMessage.getAttribute("data-preco-max").replace(",", ".")
+        );
 
-        cepMessage.textContent = `Frete de R$ ${precoMin.toFixed(2).replace('.', ',')} até R$ ${precoMax.toFixed(2).replace('.', ',')}`;
-        cepMessage.classList.remove('text-vermelho');
-        cepMessage.classList.add('text-verde');
+        cepMessage.textContent = `Frete de R$ ${precoMin
+            .toFixed(2)
+            .replace(".", ",")} até R$ ${precoMax
+            .toFixed(2)
+            .replace(".", ",")}`;
+        cepMessage.classList.remove("text-vermelho");
+        cepMessage.classList.add("text-verde");
     } else {
         cepMessage.textContent = "CEP inválido";
-        cepMessage.classList.remove('text-verde');
-        cepMessage.classList.add('text-vermelho');
+        cepMessage.classList.remove("text-verde");
+        cepMessage.classList.add("text-vermelho");
     }
 });

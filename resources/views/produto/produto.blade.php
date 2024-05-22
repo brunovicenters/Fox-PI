@@ -114,14 +114,14 @@
                 >
                     <button class="text-3xl max-w-1/5" onclick="decrement()">-</button>
                     <p id="quantidade" class="mt-1 text-center text-2xl max-w-3/5">1</p>
-                    <button class="text-3xl max-w-1/5" onclick="increment()">+</button>
+                    <button class="text-3xl max-w-1/5" onclick="increment({{$qtdEstoque}})">+</button>
                 </div>
 
                 <form class="flex justify-between w-3/4 relative" action="{{ route('produto.carrinho') }}" method="POST"
                     id="form">
                     @csrf
                     <input type="hidden" name="produto" value="{{ $produto->PRODUTO_ID }}">
-                    <input type="hidden" name="qtd" value="1" id="qtd">
+                    <input type="hidden" name="qtd" value="1" id="qtd" max="{{ $qtdEstoque }}" >
                     <input type="hidden" name="acao" value="0" id="acao">
 
                     <button
