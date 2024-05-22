@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function MostrarProduto()
     {
-        $produtosPromocao = Produto::with('Imagem', 'Categoria')->get();
+        $produtosPromocao = Produto::with('Imagem', 'Categoria')->where("PRODUTO_DESCONTO", '>', '0')->get();
 
 
         return view('tela-inicial.home', [
@@ -22,10 +22,11 @@ class HomeController extends Controller
     {
         $qtdEstoque = Produto_Estoque::where('PRODUTO_ID', $produto->PRODUTO_ID)->get()->first()->PRODUTO_QTD;
 
-        $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->take(8)->get();
+        $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->where("PRODUTO_ID", '!=', $produto->PRODUTO_ID)->take(8)->get();
 
         return view('produto.produto', [
             'produto' => $produto,
+            'carouselImagens' => $produto->Imagem,
             'carouselProdutosSemelhantes' => $produtosSemelhantes,
             'qtdEstoque' => $qtdEstoque
         ]);
