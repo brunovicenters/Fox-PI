@@ -8,5 +8,5 @@
         id="{{ $id }}"
         placeholder="{{ $placeholder }}"
         {{$required ? 'required' : ''}}
-        {{ $attributes(['value' => old($name), 'class' => "p-2 rounded-lg drop-shadow-md bg-white border-0 text-laranja-escuro input-form"]) }}>
+        {{ $attributes(['value' => old($name), 'class' => "p-2 rounded-lg drop-shadow-md bg-white text-laranja-escuro input-form"]) }}>
 </div>

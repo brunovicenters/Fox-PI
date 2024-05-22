@@ -1,7 +1,11 @@
+.input-form {
+    border: solid white 3px;
+}
+
 .input-form:focus {
     outline: none;
     border: var(--cor-laranja-escuro) solid 3px;
-    animation: animate_input 0.2s ease-in-out;
+    animation: animate_input 0.3s ease-in-out;
 }
 
 .range-vermelho {
@@ -16,21 +20,21 @@
 @keyframes animate_input {
     0% {
         border-top: solid 3px;
-        border-right: solid 0px;
-        border-bottom: solid 0px;
-        border-left: solid 0px;
+        border-right: solid 3px white;
+        border-bottom: solid 3px white;
+        border-left: solid 3px white;
     }
     33%{
         border-top: solid 3px;
         border-right: solid 3px;
-        border-bottom: solid 0px;
-        border-left: solid 0px;
+        border-bottom: solid 3px white;
+        border-left: solid 3px white;
     }
     66% {
         border-top: solid 3px;
         border-right: solid 3px;
         border-bottom: solid 3px;
-        border-left: solid 0px;
+        border-left: solid 3px white;
     }
     100% {
         border-top: solid 3px;
