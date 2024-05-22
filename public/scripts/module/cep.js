@@ -22,7 +22,9 @@ function limparCampos() {
 
 const limpar = document.querySelector("#limpar");
 
-limpar.addEventListener("click", limparCampos);
+if (limpar) {
+    limpar.addEventListener("click", limparCampos);
+}
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
