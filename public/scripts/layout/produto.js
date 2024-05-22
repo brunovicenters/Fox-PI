@@ -4,7 +4,6 @@ const btnCompra = document.querySelector("button#btnComprar");
 function increment(qtdMaxima) {
     let quantidadeElement = document.getElementById("quantidade");
     let quantidade = parseInt(quantidadeElement.innerText);
-    console.log(quantidade, qtdMaxima);
     if (quantidade < qtdMaxima) {
         quantidadeElement.innerText = quantidade + 1;
         inputQtd.value++;
