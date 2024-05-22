@@ -24,3 +24,12 @@
 .color-border {
     border: var(--cor-vermelho)
 }
+
+.carousel-slide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.carousel-slide::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
