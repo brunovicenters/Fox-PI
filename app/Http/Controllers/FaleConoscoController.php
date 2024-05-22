@@ -27,7 +27,8 @@ class FaleConoscoController extends Controller
     {
         $msg = $request->validate([
             'ASSUNTO' => ['string', 'required', 'max:255'],
-            'MENSAGEM' => ['string', 'required']
+            'MENSAGEM' => ['string', 'required'],
+            'CODIGO_PEDIDO' => ['numeric', 'required'],
         ]);
 
         $msg['USUARIO_ID'] = Auth::user()->USUARIO_ID;
