@@ -30,7 +30,7 @@ class PesquisaController extends Controller
 
         $query->orderBy('PRODUTO_PRECO', 'desc');
 
-        $produtosCount = Produto::count();
+        $produtosCount = $query->count();
 
         $produtos = $query->paginate(8, ['PRODUTO_NOME', 'PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESCONTO', 'PRODUTO_DESC', 'CATEGORIA_ID']);
         $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
