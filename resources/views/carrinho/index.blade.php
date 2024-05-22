@@ -18,7 +18,7 @@
                     @foreach ($itens as $item)
                         @if ($loop->index < 2)
                             <div class="w-full flex justify-around items-center">
-                                <span class="hanalei text-laranja-escuro">{{ $item->Produto->PRODUTO_NOME }}</span>
+                                <span class="hanalei text-laranja-escuro truncate">{{ $item->Produto->PRODUTO_NOME }}</span>
                                 <p>
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
                                     <span class="poppins text-vermelho">R$ {{ $item->Produto->PRODUTO_PRECO }}</span>
