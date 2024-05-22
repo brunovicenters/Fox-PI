@@ -31,6 +31,10 @@ Route::get('/home/produto/{produto}', [HomeController::class, 'index'])->name('p
 
 Route::get('/pesquisa', [PesquisaController::class, 'index'])->name('pesquisa.index');
 
+Route::get("/quem-somos", function () {
+    return view('quem-somos.index');
+});
+
 Route::get('/produto', function () {
     return view('produto/produto');
 });
