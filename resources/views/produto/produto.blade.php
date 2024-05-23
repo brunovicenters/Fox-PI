@@ -1,5 +1,5 @@
 @section('script')
-    <script src="\scripts\module\cep.js" defer"></script>
+    <script src="\scripts\module\cep.js" defer></script>
     <script src="{{ asset('scripts/layout/produto.js') }}" defer></script>
 @endsection
 
@@ -14,14 +14,14 @@
                 <div class="w-2/6 h-full relative flex flex-col items-center">
 
                     {{-- Seta de cima --}}
-                    <div onclick="carouselPrev()" class="absolute flex items-center justify-center -top-10 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
+                    <div id="up-arrow" onclick="carouselPrev()" class="hidden absolute flex items-center justify-center -top-10 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-8 h-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                         </svg>
                     </div>
 
                     {{-- Imagens do carrossel --}}
-                    <div id="carousel-images" class="w-full h-full relative px-4 py-2 flex flex-col items-center space-y-4 overflow-y-auto carousel-slide">
+                    <div id="carousel-container" class="w-full h-full relative px-4 py-2 flex flex-col items-center space-y-4 overflow-y-auto carousel-slide">
                         @foreach ($carouselImagens as $loop => $img)
                             <div id="{{ $img->IMAGEM_ID }}_div" onclick="changeImage({{ $img->IMAGEM_ID }})" class="w-3/4 aspect-square box-shadow hover:scale-105 {{ $loop->first ? 'border-solid border-4 border-blue-400' : '' }}">
                                 <img id="{{ $img->IMAGEM_ID }}" src="{{ $img->IMAGEM_URL }}" class="cursor-pointer box-border object-cover aspect-square img-carousel" alt="{{ $produto->PRODUTO_NOME }}">
@@ -30,7 +30,7 @@
                     </div>
 
                     {{-- Seta de baixo --}}
-                    <div onclick="carouselNext()" class="absolute flex items-center justify-center -bottom-12 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
+                    <div id="down-arrow" onclick="carouselNext()" class="absolute flex items-center justify-center -bottom-12 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-8 h-8 rotate-180">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                         </svg>
@@ -118,7 +118,7 @@
 
         </section>
 
-        @empty(!$carouselProdutosSemelhantes)
+        @if($carouselProdutosSemelhantes->count() > 0)
             <section class="flex justify-center items-center">
                 <div class="w-full mt-1 flex flex-col gap-8">
                     <h1 class="text-6xl hanalei text-azul text-left">Produtos semelhantes</h1>
@@ -131,6 +131,6 @@
 
                 </div>
             </section>
-        @endempty
+        @endif
 
 </x-layout>

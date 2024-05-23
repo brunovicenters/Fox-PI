@@ -57,3 +57,40 @@ document.getElementById("cepButton").addEventListener("click", function () {
         cepMessage.classList.add("text-vermelho");
     }
 });
+
+const carouselContainer = document.querySelector("#carousel-container");
+const arrowUp = document.querySelector("#up-arrow");
+const arrowDown = document.querySelector("#down-arrow");
+
+if ((carouselContainer.scrollHeight = carouselContainer.clientHeight)) {
+    arrowDown.classList.add("hidden");
+}
+
+carouselContainer.addEventListener("scroll", () => {
+    let scrollabeArea =
+        carouselContainer.scrollHeight - carouselContainer.clientHeight;
+    if (carouselContainer.scrollTop < scrollabeArea * 0.01) {
+        arrowUp.classList.add("hidden");
+    } else {
+        arrowUp.classList.remove("hidden");
+    }
+    if (carouselContainer.scrollTop > scrollabeArea * 0.98) {
+        arrowDown.classList.add("hidden");
+    } else {
+        arrowDown.classList.remove("hidden");
+    }
+});
+
+const carouselPrev = () => {
+    let scrollabeArea =
+        carouselContainer.scrollHeight - carouselContainer.clientHeight;
+
+    carouselContainer.scrollTop -= scrollabeArea * 0.33;
+};
+
+const carouselNext = () => {
+    let scrollabeArea =
+        carouselContainer.scrollHeight - carouselContainer.clientHeight;
+
+    carouselContainer.scrollTop += scrollabeArea * 0.33;
+};
