@@ -16,10 +16,10 @@
             <x-card-horizontal>
                 <div class="w-full flex flex-col justify-between items-center space-y-2 text-lg">
                     @foreach ($itens as $item)
-                        @if ($loop->index < 2)
+                        @if ($loop->index < 1)
                             <div class="w-full flex justify-around items-center">
-                                <span class="hanalei text-laranja-escuro truncate">{{ $item->Produto->PRODUTO_NOME }}</span>
-                                <p>
+                                <span class="hanalei text-laranja-escuro truncate w-1/2" title="{{ $item->Produto->PRODUTO_NOME }}">{{ $item->Produto->PRODUTO_NOME }}</span>
+                                <p class="w-1/2 flex items-center text-base">
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
                                     <span class="poppins text-vermelho">R$ {{ $item->Produto->PRODUTO_PRECO }}</span>
                                 </p>
@@ -27,8 +27,8 @@
                         @else
                             <div class="w-full flex justify-around items-center relative">
                                 <span class="absolute poppins text-azul font-bold -left-3">+</span>
-                                <span class="hanalei text-laranja-escuro">{{ $item->Produto->PRODUTO_NOME }}</span>
-                                <p>
+                                <span class="hanalei text-laranja-escuro truncate w-1/2" title="">{{ $item->Produto->PRODUTO_NOME }}</span>
+                                <p class="w-1/2 flex items-center text-base">
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
                                     <span class="poppins text-vermelho">
                                         R$ {{ $item->Produto->PRODUTO_PRECO }}
