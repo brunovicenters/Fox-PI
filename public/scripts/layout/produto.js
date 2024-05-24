@@ -62,9 +62,17 @@ const carouselContainer = document.querySelector("#carousel-container");
 const arrowUp = document.querySelector("#up-arrow");
 const arrowDown = document.querySelector("#down-arrow");
 
-if ((carouselContainer.scrollHeight = carouselContainer.clientHeight)) {
+if (carouselContainer.scrollHeight == carouselContainer.clientHeight) {
     arrowDown.classList.add("hidden");
 }
+
+carouselContainer.addEventListener(
+    "wheel",
+    (event) => {
+        event.preventDefault();
+    },
+    { passive: false }
+);
 
 carouselContainer.addEventListener("scroll", () => {
     let scrollabeArea =
@@ -93,4 +101,27 @@ const carouselNext = () => {
         carouselContainer.scrollHeight - carouselContainer.clientHeight;
 
     carouselContainer.scrollTop += scrollabeArea * 0.33;
+};
+
+const changeImage = (img_id) => {
+    const imgsContainer = document.querySelectorAll(".img-container");
+
+    imgsContainer.forEach((img) => {
+        img.classList.remove("border-solid");
+        img.classList.remove("border-4");
+        img.classList.remove("border-blue-400");
+    });
+
+    const activeImgContainer = document.getElementById(`${img_id}_div`);
+
+    console.log(activeImgContainer.scrollTop);
+
+    activeImgContainer.classList.add("border-solid");
+    activeImgContainer.classList.add("border-4");
+    activeImgContainer.classList.add("border-blue-400");
+
+    const activeImg = document.getElementById(`${img_id}`);
+    const imgPrincipal = document.querySelector("#img-principal");
+
+    imgPrincipal.src = activeImg.src;
 };

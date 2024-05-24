@@ -23,8 +23,8 @@
                     {{-- Imagens do carrossel --}}
                     <div id="carousel-container" class="w-full h-full relative px-4 py-2 flex flex-col items-center space-y-4 overflow-y-auto carousel-slide">
                         @foreach ($carouselImagens as $loop => $img)
-                            <div id="{{ $img->IMAGEM_ID }}_div" onclick="changeImage({{ $img->IMAGEM_ID }})" class="w-3/4 aspect-square box-shadow hover:scale-105 {{ $loop->first ? 'border-solid border-4 border-blue-400' : '' }}">
-                                <img id="{{ $img->IMAGEM_ID }}" src="{{ $img->IMAGEM_URL }}" class="cursor-pointer box-border object-cover aspect-square img-carousel" alt="{{ $produto->PRODUTO_NOME }}">
+                            <div id="{{ $img->IMAGEM_ID }}_div" onclick="changeImage({{ $img->IMAGEM_ID }})" class="w-3/4 aspect-square box-shadow hover:scale-105 {{ $loop->first ? 'border-solid border-4 border-blue-400' : '' }} img-container">
+                                <img id="{{ $img->IMAGEM_ID }}" src="{{ $img->IMAGEM_URL }}" class="cursor-pointer box-border object-cover aspect-square" alt="{{ $produto->PRODUTO_NOME }}">
                             </div>
                         @endforeach
                     </div>
@@ -40,7 +40,7 @@
 
                 {{-- Imagem principal --}}
                 <div class="h-full w-3/5 drop-shadow-lg">
-                    <img class="w-full h-full object-cover rounded-lg" src="{{ $produto->Imagem[0]->IMAGEM_URL }}" alt="{{ $produto->PRODUTO_DESC }}">
+                    <img id="img-principal" class="w-full h-full object-cover rounded-lg" src="{{ $produto->Imagem[0]->IMAGEM_URL }}" alt="{{ $produto->PRODUTO_DESC }}">
                 </div>
 
             </div>
