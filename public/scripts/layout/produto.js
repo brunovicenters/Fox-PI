@@ -90,17 +90,11 @@ carouselContainer.addEventListener("scroll", () => {
 });
 
 const carouselPrev = () => {
-    let scrollabeArea =
-        carouselContainer.scrollHeight - carouselContainer.clientHeight;
-
-    carouselContainer.scrollTop -= scrollabeArea * 0.33;
+    carouselContainer.scrollTop -= carouselContainer.clientHeight * 0.33;
 };
 
 const carouselNext = () => {
-    let scrollabeArea =
-        carouselContainer.scrollHeight - carouselContainer.clientHeight;
-
-    carouselContainer.scrollTop += scrollabeArea * 0.33;
+    carouselContainer.scrollTop += carouselContainer.clientHeight * 0.33;
 };
 
 const changeImage = (img_id) => {
