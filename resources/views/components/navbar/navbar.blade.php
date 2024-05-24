@@ -128,9 +128,9 @@
                     <div class="hidden duration-700 ease-in-out" data-carousel-item{{ $i == 0 ? ' active' : '' }}>
 
                         <div class="flex justify-around items-center w-full px-5">
-                            @foreach ($chunk as $j => $categoria)
-                                @if ($j != 0 && $j % 7 != 0)
-                                    <span id="{{ $j }}"
+                            @foreach ($chunk as $loop => $categoria)
+                                @if ($loop->index != 0)
+                                    <span id="{{ $loop->index }}_{{ $i }}"
                                         class="text-vermelho bg-vermelho divisor h-6 w-1"></span>
                                 @endif
                                 <x-navbar.categoria :categoria="$categoria" />
