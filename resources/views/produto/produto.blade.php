@@ -55,7 +55,10 @@
 
             <div class="w-2/4 h-96 p-3 flex flex-col items-end">
                 <h1 class="text-4xl w-3/4 hanalei text-laranja-claro line-clamp-1 drop-shadow-lg" title="{{ $produto->PRODUTO_NOME }}">{{ $produto->PRODUTO_NOME }}</h1>
-                <p class="text-lg w-3/4 poppins text-verde uppercase">{{ $produto->Categoria->CATEGORIA_NOME }}</p>
+                <div class="flex items-center w-3/4">
+                    <p class="text-lg w-8/12 poppins text-verde uppercase truncate">{{ $produto->Categoria->CATEGORIA_NOME }}</p>
+                    <p class="text-xs w-4/12 poppins text-verde truncate text-end">{{ $qtdEstoque }}x un.</p>
+                </div>
                 <h2 class="text-3xl w-3/4 poppins text-vermelho font-bold drop-shadow-lg">
                     R$ {{ $produto->PRODUTO_DESCONTO>0 ? number_format($produto->PRODUTO_PRECO - $produto->PRODUTO_DESCONTO, 2, ',', '.') : number_format($produto->PRODUTO_PRECO, 2, ',', '.') }}
                 </h2>
