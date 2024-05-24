@@ -21,7 +21,7 @@
                                 <span class="hanalei text-laranja-escuro truncate w-1/2" title="{{ $item->Produto->PRODUTO_NOME }}">{{ $item->Produto->PRODUTO_NOME }}</span>
                                 <p class="w-1/2 flex items-center text-base">
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
-                                    <span class="poppins text-vermelho">R$ {{ $item->Produto->PRODUTO_PRECO }}</span>
+                                    <span class="poppins text-vermelho">R$ {{ number_format($item->Produto->PRODUTO_PRECO, 2, ',', '.') }}</span>
                                 </p>
                             </div>
                         @else
@@ -31,7 +31,7 @@
                                 <p class="w-1/2 flex items-center text-base">
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
                                     <span class="poppins text-vermelho">
-                                        R$ {{ $item->Produto->PRODUTO_PRECO }}
+                                        R$ {{ number_format($item->Produto->PRODUTO_PRECO, 2, ',', '.') }}
                                     </span>
                                 </p>
                             </div>
@@ -42,7 +42,7 @@
 
                     <div class="w-full flex justify-around items-center">
                         <span class="hanalei text-laranja-escuro text-2xl">Subtotal</span>
-                        <span class="poppins text-vermelho text-lg">R$ {{ $valorTotal }}</span>
+                        <span class="poppins text-vermelho text-lg">R$ {{ number_format($valorTotal, 2, ',', '.') }}</span>
                     </div>
 
                 </div>
