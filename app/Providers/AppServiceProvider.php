@@ -22,11 +22,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $categorias = Categoria::orderBy('CATEGORIA_NOME')->get();
+        $categorias = Categoria::orderBy('CATEGORIA_NOME')->get()->where('CATEGORIA_ATIVO', '=', 1);
 
 
 
-        $produtosMaisVendidos = Produto::withCount("PedidosItem")->orderBy('pedidos_item_count', 'desc')->having('pedidos_item_count', '>', '0')->get();
+        $produtosMaisVendidos = Produto::withCount("PedidosItem")
+            ->orderBy('pedidos_item_count', 'desc')
+            ->having('pedidos_item_count', '>', '0')
+            ->where('PRODUTO_ATIVO', '=', 1)
+            ->join('CATEGORIA', 'PRODUTO.CATEGORIA_ID', '=', 'CATEGORIA.CATEGORIA_ID')
+            ->where('CATEGORIA_ATIVO', '=', 1)
+            ->get();
 
         View::share([
             'categorias' => $categorias,
