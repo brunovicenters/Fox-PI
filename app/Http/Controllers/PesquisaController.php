@@ -36,8 +36,8 @@ class PesquisaController extends Controller
         $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
 
         if (!$produtos->isEmpty()) {
-            $precoMax = $produtos->first()->PRODUTO_PRECO;
-            $precoMin = $produtos->last()->PRODUTO_PRECO;
+            $precoMax = $produtos->first()->PRODUTO_PRECO - $produtos->first()->PRODUTO_DESCONTO;
+            $precoMin = $produtos->last()->PRODUTO_PRECO - $produtos->last()->PRODUTO_DESCONTO;
         }
 
         return view('pesquisa.index', [
