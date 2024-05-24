@@ -31,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
             ->having('pedidos_item_count', '>', '0')
             ->where('PRODUTO_ATIVO', '=', 1)
             ->join('CATEGORIA', 'PRODUTO.CATEGORIA_ID', '=', 'CATEGORIA.CATEGORIA_ID')
+            ->join('PRODUTO_ESTOQUE', 'PRODUTO_ESTOQUE.PRODUTO_ID', '=', 'PRODUTO.PRODUTO_ID')
+            ->where('PRODUTO_ESTOQUE.PRODUTO_QTD', '>', 0)
             ->where('CATEGORIA_ATIVO', '=', 1)
             ->get();
 

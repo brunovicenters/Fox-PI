@@ -18,7 +18,12 @@ class PesquisaController extends Controller
         $termoPesquisa = $request->termoPesquisa;
 
         $query = Produto::query();
-        $query->where('PRODUTO_NOME', 'like', '%' . $termoPesquisa . '%');
+        $query->where('PRODUTO_NOME', 'like', '%' . $termoPesquisa . '%')
+            ->where('PRODUTO_ATIVO', '=', 1)
+            ->join('PRODUTO_ESTOQUE', 'PRODUTO_ESTOQUE.PRODUTO_ID', '=', 'PRODUTO.PRODUTO_ID')
+            ->join('CATEGORIA', 'CATEGORIA.CATEGORIA_ID', '=', 'PRODUTO.CATEGORIA_ID')
+            ->where('PRODUTO_ESTOQUE.PRODUTO_QTD', '>', 0)
+            ->where('CATEGORIA_ATIVO', '=', 1);
 
         if ($categoria) {
             $query->where('CATEGORIA_ID', '=', $categoria);
@@ -32,7 +37,7 @@ class PesquisaController extends Controller
 
         $produtosCount = $query->count();
 
-        $produtos = $query->paginate(8, ['PRODUTO_NOME', 'PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESCONTO', 'PRODUTO_DESC', 'CATEGORIA_ID']);
+        $produtos = $query->paginate(8, ['PRODUTO_NOME', 'PRODUTO.PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESCONTO', 'PRODUTO_DESC', 'PRODUTO.CATEGORIA_ID']);
         $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
 
         if (!$produtos->isEmpty()) {

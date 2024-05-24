@@ -10,7 +10,14 @@ class HomeController extends Controller
 {
     public function MostrarProduto()
     {
-        $produtosPromocao = Produto::with('Imagem', 'Categoria')->where("PRODUTO_DESCONTO", '>', '0')->get();
+        $produtosPromocao = Produto::with('Imagem', 'Categoria')
+            ->where("PRODUTO_DESCONTO", '>', '0')
+            ->where("PRODUTO_ATIVO", '=', 1)
+            ->join('CATEGORIA', 'PRODUTO.CATEGORIA_ID', '=', 'CATEGORIA.CATEGORIA_ID')
+            ->join('PRODUTO_ESTOQUE', 'PRODUTO_ESTOQUE.PRODUTO_ID', '=', 'PRODUTO.PRODUTO_ID')
+            ->where('PRODUTO_ESTOQUE.PRODUTO_QTD', '>', 0)
+            ->where('CATEGORIA_ATIVO', '=', 1)
+            ->get();
 
 
         return view('tela-inicial.home', [
@@ -20,13 +27,19 @@ class HomeController extends Controller
 
     public function index(Produto $produto)
     {
-        $qtdEstoque = Produto_Estoque::where('PRODUTO_ID', $produto->PRODUTO_ID)->get()->first()->PRODUTO_QTD;
+        $qtdEstoque = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
 
         $produtosSemelhantes = Produto::with('Imagem', 'Categoria')->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)->where("PRODUTO_ID", '!=', $produto->PRODUTO_ID)->take(8)->get();
 
+        $produtoImagem = $produto->Imagem;
+
+        if ($qtdEstoque == 0 || $produto->PRODUTO_ATIVO == 0 || $produto->Categoria->CATEGORIA_ATIVO == 0) {
+            $produto = null;
+        }
+
         return view('produto.produto', [
             'produto' => $produto,
-            'carouselImagens' => $produto->Imagem,
+            'carouselImagens' => $produtoImagem,
             'carouselProdutosSemelhantes' => $produtosSemelhantes,
             'qtdEstoque' => $qtdEstoque
         ]);
