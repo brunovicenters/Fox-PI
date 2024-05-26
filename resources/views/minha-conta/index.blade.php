@@ -1,5 +1,6 @@
 @section('script')
     <script src="\scripts\layout\conta.js" defer></script>
+    <script src="scripts/layout/session.js" defer></script>
 @endsection
 
 <x-layout>
@@ -43,12 +44,19 @@
                 </div>
                 <div class="flex justify-between">
                     <div class="flex flex-col w-2/5">
-                        <x-form.input-group class="hidden fields" type="password" label="Senha" name="USUARIO_SENHA" placeholder="********" title="Escreva a sua senha" />
-
+                        <div class="relative">
+                            <x-form.input-group class="hidden fields" type="password" label="Senha" name="USUARIO_SENHA" placeholder="********" title="Escreva a sua senha" />
+                            <span onclick="showPassword('eye_old_password', 'USUARIO_SENHA')" class="hidden fields absolute right-3 bottom-6 cursor-pointer">
+                                <img id="eye_old_password" class="w-6" src="\images\eye-open.svg" alt="Icon of open eye">
+                            </span>
+                        </div>
                         <p class="pl-5 values">******</p>
                     </div>
-                    <div class="hidden new-password w-2/5">
+                    <div class="hidden new-password w-2/5 relative">
                         <x-form.input-group class="hidden fields" required="{{false}}" type="password" label="Nova senha" name="NOVA_SENHA" placeholder="********" title="Escreva a sua nova senha" />
+                        <span onclick="showPassword('eye_new_password', 'NOVA_SENHA')" class="absolute right-3 bottom-6 cursor-pointer">
+                            <img id="eye_new_password" class="w-6" src="\images\eye-open.svg" alt="Icon of open eye">
+                        </span>
                     </div>
                 </div>
                 <div class="w-full justify-end space-x-3 flex drop-shadow-md">
