@@ -1,6 +1,7 @@
 @section('script')
     <script src="\scripts\module\select.js" defer></script>
     <script src="\scripts\module\range.js" defer></script>
+    <script src="\scripts\layout\pesquisa.js" defer></script>
 @endsection
 
 <x-layout>
@@ -10,8 +11,9 @@
             {{ $produtosCount }} resultados encontrados:
         </h1>
 
-        <form class="flex space-x-12 w-full items-center mb-5" action="{{ route('pesquisa.index') }}" method="GET">
-            <input type="hidden" name="termoPesquisa" value="{{ $termoPesquisa }}">
+        <form class="pesquisa flex space-x-12 w-full items-center mb-5" action="{{ route('pesquisa.index') }}"
+            method="GET">
+            <input type="hidden" name="termoPesquisa" value="{{ $termoPesquisa }}" id="search-hidden">
             <div class="w-3/5">
                 <x-form.select label="Categorias" required="{{ false }}" name="categoria" type="2"
                     :options="$categorias" />
@@ -38,14 +40,15 @@
             0 resultados encontrados:
         </h1>
 
-        <form class="flex space-x-12 w-full items-center mb-5" action="{{ route('pesquisa.index') }}" method="GET">
-            <input type="hidden" name="termoPesquisa" value="{{ $termoPesquisa }}">
+        <form class="pesquisa flex space-x-12 w-full items-center mb-5" action="{{ route('pesquisa.index') }}"
+            method="GET">
+            <input type="hidden" name="termoPesquisa" value="{{ $termoPesquisa }}" id="search-hidden">
             <div class="w-3/5">
                 <label for="categoria" class="poppins text-laranja-escuro drop-shadow-md font-semibold">
                     Categorias:
                 </label>
                 <select name="categoria" class="p-2 rounded-lg drop-shadow-md  w-full poppins text-verde">
-                    <option selected disabled>Selecione uma
+                    <option selected value="">Selecione uma
                         categoria</option>
                     @foreach ($categorias as $categoria)
                         <option value="{{ $categoria->CATEGORIA_ID }}"

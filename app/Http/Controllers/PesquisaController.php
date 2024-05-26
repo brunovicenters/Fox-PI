@@ -26,18 +26,18 @@ class PesquisaController extends Controller
             ->where('CATEGORIA_ATIVO', '=', 1);
 
         if ($categoria) {
-            $query->where('CATEGORIA_ID', '=', $categoria);
+            $query->where('CATEGORIA.CATEGORIA_ID', '=', $categoria);
         }
 
         if ($limite) {
             $query->where('PRODUTO_PRECO', '<=', $limite);
         }
 
-        $query->orderBy('PRODUTO_PRECO', 'desc');
+        $query->orderBy('PRODUTO.PRODUTO_PRECO', 'desc');
 
         $produtosCount = $query->count();
 
-        $produtos = $query->paginate(8, ['PRODUTO_NOME', 'PRODUTO.PRODUTO_ID', 'PRODUTO_PRECO', 'PRODUTO_DESCONTO', 'PRODUTO_DESC', 'PRODUTO.CATEGORIA_ID']);
+        $produtos = $query->paginate(8, ['PRODUTO.PRODUTO_NOME', 'PRODUTO.PRODUTO_ID', 'PRODUTO.PRODUTO_PRECO', 'PRODUTO.PRODUTO_DESCONTO', 'PRODUTO.PRODUTO_DESC', 'PRODUTO.CATEGORIA_ID']);
         $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
 
         if (!$produtos->isEmpty()) {
