@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/carrinho/endereco', [CarrinhoController::class, 'addEndereco'])->name('carrinho.addEndereco');
 
     Route::put('/carrinho/{produto}', [CarrinhoController::class, 'update'])->name('carrinho.update');
+    Route::delete('/carrinho/{produto}', [CarrinhoController::class, 'delete'])->name('carrinho.delete');
 
     Route::post('/produto/carrinho', [ProdutoController::class, 'addToCarrinho'])->name('produto.carrinho');
 

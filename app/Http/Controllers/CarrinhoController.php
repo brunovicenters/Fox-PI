@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
-use App\Models\Endereco;
+use App\Models\Produto_Estoque;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,14 +28,29 @@ class CarrinhoController extends Controller
     public function update(Produto $produto, Request $request)
     {
         $user = Auth::user()->USUARIO_ID;
+        $qtdEstoque = Produto_Estoque::where('PRODUTO_ID', '=', $produto->PRODUTO_ID)->get()->first()->PRODUTO_QTD;
         $item = Carrinho::where('USUARIO_ID', '=', $user)->where('PRODUTO_ID', '=', $produto->PRODUTO_ID)->get()->first();
 
-        $item->ITEM_QTD = $request->qtd;
-        $item->save();
+        if ($request->qtd <= $qtdEstoque) {
+            $item->ITEM_QTD = $request->qtd;
+            $item->save();
+        } else {
+            session()->flash("alert", "Quantidade indisponível em estoque");
+        }
+
         return redirect()->back();
     }
 
     public function create()
     {
+    }
+
+    public function delete(Produto $produto)
+    {
+        $user = Auth::user()->USUARIO_ID;
+        $item = Carrinho::where('USUARIO_ID', '=', $user)->where('PRODUTO_ID', '=', $produto->PRODUTO_ID)->get()->first();
+        $item->ITEM_QTD = 0;
+        $item->save();
+        return redirect()->back();
     }
 }
