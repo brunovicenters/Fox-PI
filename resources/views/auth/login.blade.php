@@ -17,8 +17,14 @@
                         oninput="mascaraCPF(this)" placeholder="000.000.000-00" title="Escreva somente números" />
                     <x-form.input-group label="E-mail" name="email_register" type="email"
                         placeholder="email@email.com" title="Escreva um e-mail" />
-                    <x-form.input-group label="Senha" name="password_register" type="password" placeholder="Senha"
-                        title="Escreva uma senha segura e anote-a" />
+                    <div class="relative">
+                        <x-form.input-group label="Senha" name="password_register" type="password" placeholder="Senha"
+                            title="Escreva uma senha segura e anote-a" />
+
+                        <span onclick="showPassword('eye_register', 'password_register')" class="absolute right-3 top-1/2 cursor-pointer">
+                            <img id="eye_register" class="w-6" src="\images\eye-open.svg" alt="Icon of open eye">
+                        </span>
+                    </div>
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
                             Já possui uma conta?
@@ -36,8 +42,14 @@
                     @csrf
                     <x-form.input-group label="E-mail" name="email" type="email" placeholder="email@email.com"
                         title="Escreva um e-mail" />
-                    <x-form.input-group label="Senha" name="password" type="password" placeholder="Senha"
-                        title="Escreva sua senha" />
+                    <div class="relative">
+                        <x-form.input-group label="Senha" name="password" type="password" placeholder="Senha"
+                            class="pr-10" title="Escreva sua senha" />
+
+                        <span onclick="showPassword('eye', 'password')" class="absolute right-3 top-1/2 cursor-pointer">
+                            <img id="eye" class="w-6" src="\images\eye-open.svg" alt="Icon of open eye">
+                        </span>
+                    </div>
                     <div class="flex items-center justify-between">
                         <p class="poppins text-xs">
                             Não possui uma conta?
