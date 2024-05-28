@@ -35,9 +35,9 @@
 
 
 
-        <section class="max-w-8xl flex justify-center items-center">
-            <div class="w-5/6 mt-10 flex flex-col justify-center items-left gap-8">
-                @if($produtosMaisVendidos->count() > 0)
+        @if($produtosMaisVendidos->count() > 0)
+            <section class="max-w-8xl flex justify-center items-center">
+                <div class="w-5/6 mt-10 flex flex-col justify-center items-left gap-8">
                     <h1 class="text-6xl hanalei text-azul text-left">Mais Vendidos</h1>
                     <div id="controls-carousel" class="relative w-full" data-carousel="static">
                         <div class="relative overflow-hidden rounded-lg h-72 flex items-center">
@@ -62,14 +62,14 @@
                                 </svg>
                         </button>
                     </div>
-                @endif
-            </div>
-        </section>
+                </div>
+            </section>
+        @endif
 
-        <section class=" flex justify-center items-center mt-10">
-            <div class="w-5/6 flex flex-col justify-center items-left space-y-2">
-                <h1 class="text-6xl hanalei text-azul text-left">Promoção</h1>
-                @if($carouselprodutosPromocao->count() > 0)
+        @if($carouselprodutosPromocao->count() > 0)
+            <section class=" flex justify-center items-center mt-10">
+                <div class="w-5/6 flex flex-col justify-center items-left space-y-2">
+                    <h1 class="text-6xl hanalei text-azul text-left">Promoção</h1>
                     <div id="controls-carousel" class="relative w-full" data-carousel="static">
                         <div class="relative overflow-hidden rounded-lg h-72 flex items-center">
                             @foreach ($carouselprodutosPromocao as $i => $chunk)
@@ -93,9 +93,9 @@
                                 </svg>
                         </button>
                     </div>
-                @endif
-            </div>
-        </section>
+                </div>
+            </section>
+        @endif
 
     </main>
 </x-layout>
