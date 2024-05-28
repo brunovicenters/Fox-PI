@@ -15,7 +15,7 @@
     class="hidden" {{$required ? 'required' : ''}}
 >
     @if ($type == 2)
-        <option value="todas">Todas</option>
+        <option value="">Todas</option>
     @endif
     @foreach ($options as $option)
         @if ($type == 0)

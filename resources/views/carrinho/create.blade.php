@@ -20,16 +20,17 @@
                     <div class="w-3/5 px-3">
                         <h2 class="hanalei text-laranja-escuro text-4xl">Revisar Itens</h2>
                         <div id="itens-resumo" class="max-w-xs">
-                            @for ($i = 1; $i <= 3; $i++)
+                            @foreach ($itens as $item)
+
                                 <p class="truncate max-w-full text-xs">
-                                    Nome - R$ 00,00 - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil veritatis odio quasi praesentium! Voluptates distinctio veritatis nesciunt consequatur fugiat molestiae, fuga blanditiis vel hic quis commodi doloribus. Nulla, culpa necessitatibus!
+                                    {{$item->Produto->PRODUTO_NOME}} - R$ {{$item->Produto->PRODUTO_PRECO}} - {{$item->Produto->PRODUTO_DESC}}
                                 </p>
-                            @endfor
+                            @endforeach
                         </div>
                     </div>
                     <div class="w-2/5 flex justify-between items-center">
                         <div class="px-3 text-vermelho text-3xl">
-                            <p>R$ <span id="precoTotal">00,00</span></p>
+                            <p>R$ <span id="precoTotal">${{$valorTotal}}</span></p>
                         </div>
                         <div id="mais-itens" class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="itens-down-arrow" class="w-10 h-10 -rotate-90">
@@ -47,29 +48,33 @@
                         <div class="my-3 w-full h-1 bg-verde"></div>
 
                         <div class="flex flex-col space-y-5 mb-2">
-                            @for ($i = 1; $i <= 3; $i++)
+                            @foreach ($itens as $item)
                                 <div class="flex items-center ">
                                     <div class="pl-2 w-2/12">
                                         <img class="w-24 h-32" src="https://img.freepik.com/fotos-gratis/fundo_53876-32170.jpg?w=740&t=st=1710889922~exp=1710890522~hmac=7a5a91fb224ef325005348cdd768218cbc50b49696db300ff345702f6d7b06d6" alt="">
                                     </div>
                                     <div class="w-6/12">
-                                        <h2 class="hanalei text-laranja-escuro text-2xl">Nome</h2>
-                                        <p class="text-verde uppercase text-sm">16/02/2024</p>
-                                        <p class="text-vermelho poppins text-xl font-semibold">R$ 000,00</p>
+                                        <h2 class="hanalei text-laranja-escuro text-2xl">{{$item->Produto->PRODUTO_NOME}}</h2>
+                                        <p class="text-verde uppercase text-sm">{{$item->Produto->Categoria->CATEGORIA_NOME}}</p>
+                                        <p class="text-vermelho poppins text-xl font-semibold">R$ {{$item->Produto->PRODUTO_PRECO}}</p>
                                         <p class="truncate max-w-xs">
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil veritatis odio quasi praesentium! Voluptates distinctio veritatis nesciunt consequatur fugiat molestiae, fuga blanditiis vel hic quis commodi doloribus. Nulla, culpa necessitatibus!
+                                            {{$item->Produto->PRODUTO_DESC}}
                                         </p>
                                     </div>
                                     <div class="ml-8 w-3/12 flex items-center justify-evenly space-x-3">
-                                        <span class="text-azul text-3xl">{{ $i }}x</span>
-                                        <div class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#B20D30" class="w-10 h-10">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
-                                            </svg>
-                                        </div>
+                                        <span class="text-azul text-3xl">{{$item->ITEM_QTD}}x</span>
+                                        <form action="{{ Route('carrinho.delete', $item->Produto->PRODUTO_ID) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#B20D30" class="w-10 h-10">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                                </svg>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
-                            @endfor
+                            @endforeach
                         </div>
                     </div>
                 </x-card-horizontal>
@@ -79,7 +84,10 @@
                     <div class="w-3/5 px-3">
                         <h2 class="hanalei text-laranja-escuro text-4xl">Frete</h2>
                         <p class="truncate max-w-xs text-xs">
-                            Av. Alguma Coisa, 789 - 09871, Bloco 03, Apt 97
+
+                            {{ucfirst($endereco->ENDERECO_NOME)}}, {{$endereco->ENDERECO_NUMERO}} - {{$endereco->ENDERECO_CEP}} {{$endereco->ENDERECO_COMPLEMENTO ? '- ' .$endereco->ENDERECO_COMPLEMENTO: ''}}
+
+
                         </p>
                         <p id="frete-resumo" class="truncate max-w-xs text-xs italic">
                             Escolha uma empresa

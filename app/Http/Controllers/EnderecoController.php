@@ -57,7 +57,7 @@ class EnderecoController extends Controller
         } else {
             $instancia = Endereco::create($endereco);
 
-            return redirect()->route('carrinho.create', $instancia);;
+            return redirect()->route('carrinho.create', ['endereco' => $instancia]);
         }
     }
 
