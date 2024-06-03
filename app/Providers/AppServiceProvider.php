@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
             ->join('PRODUTO_ESTOQUE', 'PRODUTO_ESTOQUE.PRODUTO_ID', '=', 'PRODUTO.PRODUTO_ID')
             ->where('PRODUTO_ESTOQUE.PRODUTO_QTD', '>', 0)
             ->where('CATEGORIA_ATIVO', '=', 1)
+            ->whereColumn('PRODUTO_PRECO', '>', "PRODUTO_DESCONTO")
             ->get();
 
         View::share([
