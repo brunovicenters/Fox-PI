@@ -30,7 +30,7 @@
                     </div>
                     <div class="w-2/5 flex justify-between items-center">
                         <div class="px-3 text-vermelho text-3xl">
-                            <p>R$ <span id="precoTotal">${{number_format($valorTotal, 2, ',', '.')}}</span></p>
+                            <p>R$ <span id="precoTotal">{{number_format($valorTotal, 2, ',', '.')}}</span></p>
                         </div>
                         <div id="mais-itens" class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="itens-down-arrow" class="w-10 h-10 -rotate-90">

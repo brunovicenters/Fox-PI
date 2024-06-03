@@ -55,8 +55,12 @@ const setFrete = (frete, preco) => {
     preco = Number(preco.toFixed(2));
 
     freteRes.innerText = capitalizeFirstLetter(frete);
-    precoFrete.innerText = preco.toString().replace(".", ",");
-    freteFinal.innerText = preco.toString().replace(".", ",");
+    precoFrete.innerText = preco.toLocaleString("pt-br", {
+        minimumFractionDigits: 2,
+    });
+    freteFinal.innerText = preco.toLocaleString("pt-br", {
+        minimumFractionDigits: 2,
+    });
 
     let itens_final = Number(
         itensFinal.innerText.replace(".", "").replace(",", ".")
