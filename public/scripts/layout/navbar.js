@@ -13,7 +13,7 @@ window.onload = function () {
         }
 
         if (
-            window.location.href.includes("endereco") ||
+            window.location.href.split("?")[0].includes("endereco") ||
             window.location.href.includes("fale-conosco") ||
             window.location.href.includes("pesquisa")
         ) {
