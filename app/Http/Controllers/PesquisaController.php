@@ -23,7 +23,8 @@ class PesquisaController extends Controller
             ->join('PRODUTO_ESTOQUE', 'PRODUTO_ESTOQUE.PRODUTO_ID', '=', 'PRODUTO.PRODUTO_ID')
             ->join('CATEGORIA', 'CATEGORIA.CATEGORIA_ID', '=', 'PRODUTO.CATEGORIA_ID')
             ->where('PRODUTO_ESTOQUE.PRODUTO_QTD', '>', 0)
-            ->where('CATEGORIA_ATIVO', '=', 1);
+            ->where('CATEGORIA_ATIVO', '=', 1)
+            ->whereColumn('PRODUTO_PRECO', '>', "PRODUTO_DESCONTO");
 
         if ($categoria) {
             $query->where('CATEGORIA.CATEGORIA_ID', '=', $categoria);
