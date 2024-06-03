@@ -55,14 +55,17 @@ const setFrete = (frete, preco) => {
     preco = Number(preco.toFixed(2));
 
     freteRes.innerText = capitalizeFirstLetter(frete);
-    precoFrete.innerText = preco;
-    freteFinal.innerText = preco;
+    precoFrete.innerText = preco.toString().replace(".", ",");
+    freteFinal.innerText = preco.toString().replace(".", ",");
 
-    let itens_final = Number(itensFinal.innerText.replace(/,/g, "."));
+    let itens_final = Number(
+        itensFinal.innerText.replace(".", "").replace(",", ".")
+    );
 
-    totalFinal.innerText = (
-        Number(precoFrete.innerText) + Number(itens_final)
-    ).toFixed(2);
+    totalFinal.innerText = (Number(preco) + Number(itens_final)).toLocaleString(
+        "pt-br",
+        { minimumFractionDigits: 2 }
+    );
 };
 
 const capitalizeFirstLetter = (string) => {

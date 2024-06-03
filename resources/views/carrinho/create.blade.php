@@ -30,7 +30,7 @@
                     </div>
                     <div class="w-2/5 flex justify-between items-center">
                         <div class="px-3 text-vermelho text-3xl">
-                            <p>R$ <span id="precoTotal">${{$valorTotal}}</span></p>
+                            <p>R$ <span id="precoTotal">${{number_format($valorTotal, 2, ',', '.')}}</span></p>
                         </div>
                         <div id="mais-itens" class="pointer p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" id="itens-down-arrow" class="w-10 h-10 -rotate-90">
@@ -123,11 +123,11 @@
                                         </p>
                                     </div>
                                     <div class="px-3 text-vermelho text-3xl">
-                                        <p>R$ <span id="azulFrete">{{ 15*0.89 }}</span></p>
+                                        <p>R$ <span id="azulFrete">{{ number_format(($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.89, '2', ',', '.') }}</span></p>
                                     </div>
                                 </div>
                                 <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
-                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('azul', 15*0.89)">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('azul', {{ ($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.89 }})">
                                 </div>
                             </div>
 
@@ -141,11 +141,11 @@
                                         </p>
                                     </div>
                                     <div class="px-3 text-vermelho text-3xl">
-                                        <p>R$ <span id="azulFrete">{{ 15*0.97 }}</span></p>
+                                        <p>R$ <span id="azulFrete">{{ number_format(($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.97, '2', ',', '.') }}</span></p>
                                     </div>
                                 </div>
                                 <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
-                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('express', 15*0.97)">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('express', {{ ($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.97 }})">
                                 </div>
                             </div>
 
@@ -159,11 +159,11 @@
                                         </p>
                                     </div>
                                     <div class="px-3 text-vermelho text-3xl">
-                                        <p>R$ <span id="azulFrete">{{ 15*0.43 }}</span></p>
+                                        <p>R$ <span id="azulFrete">{{ number_format(($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.43, '2', ',', '.') }}</span></p>
                                     </div>
                                 </div>
                                 <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
-                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('touro', 15*0.43)">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('touro', {{ ($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.43 }})">
                                 </div>
                             </div>
 
@@ -177,11 +177,11 @@
                                         </p>
                                     </div>
                                     <div class="px-3 text-vermelho text-3xl">
-                                        <p>R$ <span id="azulFrete">{{ 15*0.22 }}</span></p>
+                                        <p>R$ <span id="azulFrete">{{ number_format(($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.22, '2', ',', '.') }}</span></p>
                                     </div>
                                 </div>
                                 <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
-                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('cometa', 15*0.22)">
+                                    <input type="radio" name="frete" class="w-5 h-5" value="azul" onclick="setFrete('cometa', {{ ($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) *0.22 }})">
                                 </div>
                             </div>
 
@@ -274,7 +274,7 @@
                                 <div class="w-full flex justify-around items-center">
                                     <span class="hanalei text-laranja-escuro text-xl">Itens</span>
                                     <p class="poppins text-vermelho">
-                                        R$ <span id="itens-final">00,00</span>
+                                        R$ <span id="itens-final">{{number_format($valorTotal, 2, ',', '.')}}</span>
                                     </p>
                                 </div>
                                 <div class="w-full flex justify-around items-center relative">
