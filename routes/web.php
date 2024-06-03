@@ -41,13 +41,14 @@ Route::get('/produto', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/meus-pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
-    Route::get('/pedido', [PedidoController::class, 'show'])->name('pedidos.show');
+    Route::get('/pedido/{pedido}', [PedidoController::class, 'show'])->name('pedidos.show');
 
     Route::get('/fale-conosco', [FaleConoscoController::class, 'create'])->name('fale-conosco.create');
     Route::post('/fale-conosco', [FaleConoscoController::class, 'store'])->name('fale-conosco.store');
 
     Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho.index');
     Route::get('/carrinho/finalizar', [CarrinhoController::class, 'create'])->name('carrinho.create');
+    Route::post('/carrinho/finalizar', [CarrinhoController::class, 'store'])->name('carrinho.store');
 
     Route::get('/carrinho/endereco', [CarrinhoController::class, 'endereco'])->name('carrinho.endereco');
     Route::post('/carrinho/endereco', [CarrinhoController::class, 'addEndereco'])->name('carrinho.addEndereco');

@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Produto;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasCompositePrimaryKey;
+
 
 class Pedido_Item extends Model
 {
@@ -18,8 +20,8 @@ class Pedido_Item extends Model
     protected $guarded = [];
     public $incrementing = false;
 
-    public function produtos()
+    public function Produto()
     {
-        return $this->hasMany(Produto::class, "PRODUTO_ID", "PRODUTO_ID");
+        return $this->hasOne(Produto::class, "PRODUTO_ID", "PRODUTO_ID");
     }
 }

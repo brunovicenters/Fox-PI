@@ -29,6 +29,10 @@ class EnderecoController extends Controller
 
     public function store(Request $request, $screen)
     {
+        if($request->ENDERECO_SALVO){
+            return redirect()->route('carrinho.create', ['endereco' => $request->ENDERECO_SALVO]);
+        }
+
         $user = Auth::user();
 
         $request['USUARIO_ID'] = $user->USUARIO_ID;

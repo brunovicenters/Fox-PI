@@ -27,19 +27,16 @@ const freteDesc = document.querySelector("#frete-desc");
 const precoFrete = document.querySelector("#preco-frete");
 const freteFinal = document.querySelector("#frete-final");
 
-freteDA.addEventListener("click", () => {
+const toggleFrete = () => {
     freteDA.classList.toggle("hidden");
     freteUA.classList.toggle("hidden");
     freteRes.classList.toggle("hidden");
     freteDesc.classList.toggle("hidden");
-});
+};
 
-freteUA.addEventListener("click", () => {
-    freteDA.classList.toggle("hidden");
-    freteUA.classList.toggle("hidden");
-    freteRes.classList.toggle("hidden");
-    freteDesc.classList.toggle("hidden");
-});
+freteDA.addEventListener("click", toggleFrete);
+
+freteUA.addEventListener("click", toggleFrete);
 
 const setFrete = (frete, preco) => {
     if (frete === "azul") {
@@ -74,19 +71,16 @@ const pagamentoUA = document.querySelector("#pagamento-up-arrow");
 const pagamentoRes = document.querySelector("#pagamento-resumo");
 const pagamentoDesc = document.querySelector("#pagamento-desc");
 
-pagamentoDA.addEventListener("click", () => {
+const togglePagamento = () => {
     pagamentoDA.classList.toggle("hidden");
     pagamentoUA.classList.toggle("hidden");
     pagamentoRes.classList.toggle("hidden");
     pagamentoDesc.classList.toggle("hidden");
-});
+};
 
-pagamentoUA.addEventListener("click", () => {
-    pagamentoDA.classList.toggle("hidden");
-    pagamentoUA.classList.toggle("hidden");
-    pagamentoRes.classList.toggle("hidden");
-    pagamentoDesc.classList.toggle("hidden");
-});
+pagamentoDA.addEventListener("click", togglePagamento);
+
+pagamentoUA.addEventListener("click", togglePagamento);
 
 const setPagamento = (pagamento) => {
     if (pagamento === "pix") {
@@ -99,3 +93,17 @@ const setPagamento = (pagamento) => {
 
     pagamentoRes.innerText = capitalizeFirstLetter(pagamento);
 };
+
+const btnFinalizar = document.querySelector("#btn-finalizar");
+const btnInternoForm = document.querySelector("#btn-interno-form");
+const formFinalizar = document.querySelector("#form-finalizar");
+
+btnFinalizar.addEventListener("click", () => {
+    if (!pagamentoDA.classList.contains("hidden")) {
+        togglePagamento();
+    }
+    if (!freteDA.classList.contains("hidden")) {
+        toggleFrete();
+    }
+    btnInternoForm.click();
+});

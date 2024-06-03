@@ -8,7 +8,8 @@
     @if ($screen === 'minha-conta')
         <div class="flex">
             <a href="{{ route('page.minha-conta') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white"
+                    class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                 </svg>
             </a>
@@ -16,7 +17,8 @@
     @elseif ($screen === 'carrinho')
         <div class="flex w-full">
             <a href="{{ route('carrinho.index') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="white" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                 </svg>
             </a>
@@ -26,7 +28,8 @@
 
         @if ($enderecos && $enderecos->count())
             <x-card-horizontal>
-                <form action="#" method="POST" class="w-full flex flex-col p-1 relative">
+                <form action="{{ route('endereco.store', 'carrinho') }}" method="POST"
+                    class="w-full flex flex-col p-1 relative">
                     @csrf
                     <x-form.select label="Endereços salvos" name="ENDERECO_SALVO" :options="$enderecos" type="1" />
                     <div class="flex items-center justify-end mt-3">
