@@ -170,7 +170,7 @@
                             </div>
                             <div class="ml-8 w-2/12 flex items-center justify-evenly space-x-3">
                                 <input type="radio" required name="frete" class="w-5 h-5" value="touro"
-                                    onclick="setFrete('touro', $valorTotal*0.13)">
+                                    onclick="setFrete('touro', {{$valorTotal*0.13}})">
                             </div>
                         </div>
 
