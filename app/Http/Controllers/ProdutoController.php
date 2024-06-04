@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carrinho;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
 {
@@ -27,11 +27,12 @@ class ProdutoController extends Controller
             Carrinho::create($itemCarrinho);
         }
 
+        session()->flash('success', 'Item adicionado ao carrinho');
+
         if ($acao) {
             return redirect()->route('carrinho.index');
         } else {
             return redirect()->route('page.produto', $request->produto);
         }
-
     }
 }
