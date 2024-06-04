@@ -13,7 +13,7 @@
                 href="{{ route('page.produto', $item->Produto->PRODUTO_ID) }}">{{ $item->Produto->PRODUTO_NOME }}</a>
         </h2>
         <p class="text-verde uppercase text-sm">{{ $item->Produto->Categoria->CATEGORIA_NOME }}</p>
-        <p class="text-vermelho poppins text-xl font-semibold">R$ {{ $item->Produto->PRODUTO_PRECO }}</p>
+        <p class="text-vermelho poppins text-xl font-semibold">R$ {{ number_format($item->Produto->PRODUTO_PRECO-$item->Produto->PRODUTO_DESCONTO, 2, ',', '.') }}</p>
         <p class="truncate max-w-xs">{{ $item->Produto->PRODUTO_DESC }}</p>
     </div>
     <div class="w-3/12 flex items-center space-x-2">

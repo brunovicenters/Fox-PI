@@ -21,17 +21,17 @@
                                 <span class="hanalei text-laranja-escuro truncate w-1/2" title="{{ $item->Produto->PRODUTO_NOME }}">{{ $item->Produto->PRODUTO_NOME }}</span>
                                 <p class="w-1/2 flex items-center text-base">
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
-                                    <span class="poppins text-vermelho">R$ {{ number_format($item->Produto->PRODUTO_PRECO, 2, ',', '.') }}</span>
+                                    <span class="poppins text-vermelho">R$ {{ number_format($item->Produto->PRODUTO_PRECO-$item->Produto->PRODUTO_DESCONTO, 2, ',', '.') }}</span>
                                 </p>
                             </div>
                         @else
                             <div class="w-full flex justify-around items-center relative">
                                 <span class="absolute poppins text-azul font-bold -left-3">+</span>
-                                <span class="hanalei text-laranja-escuro truncate w-1/2" title="">{{ $item->Produto->PRODUTO_NOME }}</span>
+                                <span class="hanalei text-laranja-escuro truncate w-1/2" title="{{ $item->Produto->PRODUTO_NOME }}">{{ $item->Produto->PRODUTO_NOME }}</span>
                                 <p class="w-1/2 flex items-center text-base">
                                     <span class="poppins text-vermelho">{{ $item->ITEM_QTD }}x</span>
                                     <span class="poppins text-vermelho">
-                                        R$ {{ number_format($item->Produto->PRODUTO_PRECO, 2, ',', '.') }}
+                                        R$ {{ number_format($item->Produto->PRODUTO_PRECO-$item->Produto->PRODUTO_DESCONTO, 2, ',', '.') }}
                                     </span>
                                 </p>
                             </div>

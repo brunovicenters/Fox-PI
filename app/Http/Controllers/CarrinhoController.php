@@ -22,7 +22,7 @@ class CarrinhoController extends Controller
         $valorTotal = 0;
 
         foreach ($itens as $item) {
-            $valorTotal += ($item->Produto->PRODUTO_PRECO) * $item->ITEM_QTD;
+            $valorTotal += ($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) * $item->ITEM_QTD;
         }
 
         return view('carrinho.index')->with(['itens' => $itens, 'valorTotal' => $valorTotal]);
@@ -52,7 +52,7 @@ class CarrinhoController extends Controller
         $valorTotal = 0;
 
         foreach ($itens as $item) {
-            $valorTotal += ($item->Produto->PRODUTO_PRECO) * $item->ITEM_QTD;
+            $valorTotal += ($item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO) * $item->ITEM_QTD;
         }
 
         return view('carrinho.create')->with(['endereco' => $endereco, 'itens' => $itens, 'valorTotal' => $valorTotal]);
@@ -88,7 +88,7 @@ class CarrinhoController extends Controller
                 'PEDIDO_ID' => $pedidoID,
                 'PRODUTO_ID' => $item->PRODUTO_ID,
                 'ITEM_QTD' => $item->ITEM_QTD,
-                'ITEM_PRECO' => $item->Produto->PRODUTO_PRECO,
+                'ITEM_PRECO' => $item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO,
             ];
 
             $item->ITEM_QTD = 0;
@@ -96,6 +96,8 @@ class CarrinhoController extends Controller
 
             Pedido_Item::create($itemPedido);
         }
+
+        session()->flash("success", "Seu pedido foi realizado com sucesso!");
 
         return redirect()->route('pedidos.index');
     }

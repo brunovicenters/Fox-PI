@@ -1,6 +1,13 @@
 <x-layout>
 
-    <main class="max-w-5xl mx-auto mt-10 mb-3 flex gap-16">
+    <div class="flex">
+        <a href="{{ route('pedidos.index') }}" class="bg-btn-sign p-1 rounded-lg mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+        </a>
+    </div>
+    <main class="max-w-5xl mx-auto mb-3 flex gap-16">
         {{-- Pedido --}}
         <div class="w-3/4">
             {{-- Cabeçalho --}}
@@ -25,7 +32,7 @@
 
             {{-- Valor e data --}}
             <div class="mb-3">
-                <p class="text-vermelho poppins text-4xl font-semibold">R$ {{ $pedido->PEDIDO_VALOR }}</p>
+                <p class="text-vermelho poppins text-4xl font-semibold">R$ {{ number_format($pedido->PEDIDO_VALOR, 2, ',', '.') }}</p>
                 <p class="text-verde">{{ $pedido->PEDIDO_DATA }}</p>
             </div>
 
@@ -39,7 +46,7 @@
                         <div class="w-3/4 px-3">
                             <h2 class="hanalei text-laranja-escuro text-2xl">{{ $item->Produto->PRODUTO_NOME }}</h2>
                             <p class="text-vermelho poppins text-xl font-semibold">R$
-                                {{ $item->Produto->PRODUTO_PRECO }}</p>
+                                {{ number_format($item->Produto->PRODUTO_PRECO-$item->Produto->PRODUTO_DESCONTO, 2, ',', '.') }}</p>
                             <p class="truncate max-w-xs">
                                 {{ $item->Produto->PRODUTO_DESC }}
                             </p>

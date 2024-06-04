@@ -1,7 +1,7 @@
 <x-card-horizontal>
     <div>
         <h2 class="hanalei text-laranja-escuro text-4xl">Pedido - Nº {{ $pedido->PEDIDO_ID }}</h2>
-        <p class="text-vermelho poppins text-3xl font-semibold">R$ {{ $pedido->PEDIDO_VALOR }}</p>
+        <p class="text-vermelho poppins text-3xl font-semibold">R$ {{ number_format($pedido->PEDIDO_VALOR, 2, ',', '.') }}</p>
         <p class="text-verde">{{ $pedido->PEDIDO_DATA }}</p>
     </div>
     <div class="flex flex-col relative pr-10">

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Pedido;
 use App\Models\Pedido_Item;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -23,7 +23,7 @@ class PedidoController extends Controller
             $pedido->PEDIDO_VALOR = 0;
 
             foreach ($itens as $item) {
-                $pedido->PEDIDO_VALOR += $item->ITEM_PRECO;
+                $pedido->PEDIDO_VALOR += $item->ITEM_PRECO * $item->ITEM_QTD;
             }
         }
 
@@ -36,7 +36,7 @@ class PedidoController extends Controller
         $pedido->PEDIDO_VALOR = 0;
 
         foreach ($itens as $item) {
-            $pedido->PEDIDO_VALOR += $item->ITEM_PRECO;
+            $pedido->PEDIDO_VALOR += $item->ITEM_PRECO * $item->ITEM_QTD;
         }
 
 
