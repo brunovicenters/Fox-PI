@@ -42,8 +42,16 @@ class PesquisaController extends Controller
         $produtos->appends(['termoPesquisa' => $termoPesquisa, 'categoria' => $categoria, 'limite' => $limite,]);
 
         if (!$produtos->isEmpty()) {
-            $precoMax = $produtos->first()->PRODUTO_PRECO - $produtos->first()->PRODUTO_DESCONTO;
-            $precoMin = $produtos->last()->PRODUTO_PRECO - $produtos->last()->PRODUTO_DESCONTO;
+            $produtosMaxAndMin = Produto::where('PRODUTO_ATIVO', '=', 1)
+                ->join('PRODUTO_ESTOQUE', 'PRODUTO_ESTOQUE.PRODUTO_ID', '=', 'PRODUTO.PRODUTO_ID')
+                ->join('CATEGORIA', 'CATEGORIA.CATEGORIA_ID', '=', 'PRODUTO.CATEGORIA_ID')
+                ->where('PRODUTO_ESTOQUE.PRODUTO_QTD', '>', 0)
+                ->where('CATEGORIA_ATIVO', '=', 1)
+                ->whereColumn('PRODUTO_PRECO', '>', "PRODUTO_DESCONTO")
+                ->orderBy('PRODUTO.PRODUTO_PRECO', 'desc')
+                ->get();
+            $precoMax = $produtosMaxAndMin->first()->PRODUTO_PRECO - $produtosMaxAndMin->first()->PRODUTO_DESCONTO;
+            $precoMin = $produtosMaxAndMin->last()->PRODUTO_PRECO - $produtosMaxAndMin->last()->PRODUTO_DESCONTO;
         }
 
         return view('pesquisa.index', [
