@@ -1,7 +1,7 @@
 <x-card-horizontal>
     <div class="pl-2 w-2/12">
         @isset($item->Produto->Imagem->first()->IMAGEM_URL)
-            <img class="w-24 h-32" src="{{ $item->Produto->Imagem->first()->IMAGEM_URL }}"
+            <img class="w-24 h-32 object-scale-down bg-white" src="{{ $item->Produto->Imagem->first()->IMAGEM_URL }}"
                 alt="{{ $item->Produto->PRODUTO_NOME }}">
         @else
             <img class="w-full h-full rounded-t-xl" src="{{ asset('images/not-available.png') }}"
