@@ -61,7 +61,7 @@
                 </div>
                 <div class="w-2/12">
                     <x-form.input-group label="Número" name="ENDERECO_NUMERO" placeholder="Número" type="number"
-                        title="Escreva o número do seu endereço" />
+                        min="1" title="Escreva o número do seu endereço" />
                 </div>
             </div>
             <div class="flex justify-between">
