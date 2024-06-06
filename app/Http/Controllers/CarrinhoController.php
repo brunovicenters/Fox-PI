@@ -91,7 +91,20 @@ class CarrinhoController extends Controller
                 'ITEM_PRECO' => $item->Produto->PRODUTO_PRECO - $item->Produto->PRODUTO_DESCONTO,
             ];
 
+            $updateEstoque = Produto_Estoque::where('PRODUTO_ID', '=', $item->PRODUTO_ID)
+                ->get()
+                ->first();
+
+            if ($item->ITEM_QTD > $updateEstoque->PRODUTO_QTD) {
+                session()->flash("alert", "Quantidade indisponível em estoque");
+                return redirect()->back();
+            }
+            $updateEstoque->PRODUTO_QTD -= $item->ITEM_QTD;
+
+            $updateEstoque->save();
+
             $item->ITEM_QTD = 0;
+
             $item->save();
 
             Pedido_Item::create($itemPedido);
