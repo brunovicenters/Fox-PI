@@ -22,16 +22,16 @@
             @method('PUT')
             <input type="hidden" name="qtd" value="{{ $item->ITEM_QTD }}" id="qtd">
 
-            <button class="btn-decrement p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+            <button class="w-1/4 btn-decrement p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
                     stroke="#43ADDA" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                 </svg>
             </button>
 
-            <span class="text-azul text-3xl font-bold" id="text-qtd">{{ $item->ITEM_QTD }}</span>
+            <span class="text-azul text-3xl font-bold w-2/4" id="text-qtd">{{ $item->ITEM_QTD }}</span>
 
-            <button class="btn-increment p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+            <button class="w-1/4 btn-increment p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
                     stroke="#43ADDA" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
