@@ -11,13 +11,13 @@ function mascaraCEP(i) {
 }
 
 function limparCampos() {
-    document.querySelector("#cep").value = "";
-    document.querySelector("#rua").value = "";
-    document.querySelector("#numero").value = "";
-    document.querySelector("#cidade").value = "";
-    document.querySelector("#estado").value = "";
-    document.querySelector("#nome_end").value = "";
-    document.querySelector("#complemento").value = "";
+    document.querySelector("#ENDERECO_CEP").value = "";
+    document.querySelector("#ENDERECO_LOGRADOURO").value = "";
+    document.querySelector("#ENDERECO_NUMERO").value = "";
+    document.querySelector("#ENDERECO_CIDADE").value = "";
+    document.querySelector("#ENDERECO_ESTADO").value = "";
+    document.querySelector("#ENDERECO_NOME").value = "";
+    document.querySelector("#ENDERECO_COMPLEMENTO").value = "";
 }
 
 const limpar = document.querySelector("#limpar");
