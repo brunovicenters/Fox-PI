@@ -51,7 +51,7 @@
         <form action="{{ route('pesquisa.index') }}" method="GET" class="mt-3 relative" id="search">
             <div class="w-full relative">
 
-                <input type="text" name="termoPesquisa" id="search" old="{{ old('termoPesquisa') }}"
+                <input placeholder="Digite o nome do produto" type="text" name="termoPesquisa" id="search" old="{{ old('termoPesquisa') }}"
                     value="{{ request('termoPesquisa') }}"
                     class="w-full h-10 rounded-full input-form pl-3 pr-10 py-2 drop-shadow-md text-laranja-escuro">
                 <button type="submit" class="lupa absolute right-3 top-1 rotate-90 rounded-full">
