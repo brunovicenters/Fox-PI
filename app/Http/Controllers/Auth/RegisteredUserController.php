@@ -51,6 +51,6 @@ class RegisteredUserController extends Controller
 
         session()->flash('success', 'Usuário criado com sucesso!');
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 }
