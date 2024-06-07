@@ -30,18 +30,24 @@ class HomeController extends Controller
 
     public function index(Produto $produto)
     {
-        $user = Auth::user()->USUARIO_ID;
-
-        $existingItem = Carrinho::where('USUARIO_ID', $user)->where('PRODUTO_ID', $produto->PRODUTO_ID)->first();
-
-
-        if ($existingItem) {
-            $qtdDisponivel = $produto->ProdutoEstoque->first()->PRODUTO_QTD - $existingItem->ITEM_QTD;
-        } else {
-            $qtdDisponivel = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
-        }
 
         $qtdEstoque = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
+
+        $qtdDisponivel = $qtdEstoque;
+
+        if (Auth::user()) {
+            $user = Auth::user()->USUARIO_ID;
+
+            $existingItem = Carrinho::where('USUARIO_ID', $user)->where('PRODUTO_ID', $produto->PRODUTO_ID)->first();
+
+
+            if ($existingItem) {
+                $qtdDisponivel = $produto->ProdutoEstoque->first()->PRODUTO_QTD - $existingItem->ITEM_QTD;
+            } else {
+                $qtdDisponivel = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
+            }
+        }
+
 
         $produtosSemelhantes = Produto::with('Imagem', 'Categoria')
             ->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)
