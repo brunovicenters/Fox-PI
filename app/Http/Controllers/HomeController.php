@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Carrinho;
 use App\Models\Produto_Estoque;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -28,8 +30,18 @@ class HomeController extends Controller
 
     public function index(Produto $produto)
     {
-        $qtdEstoque = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
+        $user = Auth::user()->USUARIO_ID;
 
+        $existingItem = Carrinho::where('USUARIO_ID', $user)->where('PRODUTO_ID', $produto->PRODUTO_ID)->first();
+
+
+        if ($existingItem) {
+            $qtdDisponivel = $produto->ProdutoEstoque->first()->PRODUTO_QTD - $existingItem->ITEM_QTD;
+        } else {
+            $qtdDisponivel = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
+        }
+
+        $qtdEstoque = $produto->ProdutoEstoque->first()->PRODUTO_QTD;
 
         $produtosSemelhantes = Produto::with('Imagem', 'Categoria')
             ->where("CATEGORIA_ID", '=', $produto->CATEGORIA_ID)
@@ -48,7 +60,8 @@ class HomeController extends Controller
             'produto' => $produto,
             'carouselImagens' => $produtoImagem,
             'carouselProdutosSemelhantes' => $produtosSemelhantes,
-            'qtdEstoque' => $qtdEstoque
+            'qtdEstoque' => $qtdEstoque,
+            'qtdDisponivel' => $qtdDisponivel,
         ]);
     }
 }
