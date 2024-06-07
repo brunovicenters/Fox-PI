@@ -22,7 +22,7 @@
                 <div class="w-2/6 h-full relative flex flex-col items-center">
 
                     {{-- Seta de cima --}}
-                    <div id="up-arrow" onclick="carouselPrev()" class="hidden absolute flex items-center justify-center -top-10 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
+                    <div id="up-arrow" onclick="carouselPrev()" class="hidden absolute items-center justify-center -top-10 cursor-pointer p-1 hover:bg-slate-500 hover:bg-opacity-30 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="#43ADDA" class="w-8 h-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
                         </svg>

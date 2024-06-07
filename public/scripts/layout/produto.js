@@ -79,8 +79,10 @@ carouselContainer.addEventListener("scroll", () => {
         carouselContainer.scrollHeight - carouselContainer.clientHeight;
     if (carouselContainer.scrollTop < scrollabeArea * 0.01) {
         arrowUp.classList.add("hidden");
+        arrowUp.classList.remove("flex");
     } else {
         arrowUp.classList.remove("hidden");
+        arrowUp.classList.add("flex");
     }
     if (carouselContainer.scrollTop > scrollabeArea * 0.98) {
         arrowDown.classList.add("hidden");
