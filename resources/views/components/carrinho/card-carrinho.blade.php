@@ -16,22 +16,22 @@
         <p class="text-vermelho poppins text-xl font-semibold">R$ {{ number_format($item->Produto->PRODUTO_PRECO-$item->Produto->PRODUTO_DESCONTO, 2, ',', '.') }}</p>
         <p class="truncate max-w-xs">{{ $item->Produto->PRODUTO_DESC }}</p>
     </div>
-    <div class="w-3/12 flex items-center space-x-2">
-        <form action="{{ Route('carrinho.update', $item->Produto->PRODUTO_ID) }}" method="POST">
+    <div class="w-4/12 flex items-center space-x-2">
+        <form class="w-full flex justify-between items-center" action="{{ Route('carrinho.update', $item->Produto->PRODUTO_ID) }}" method="POST">
             @csrf
             @method('PUT')
             <input type="hidden" name="qtd" value="{{ $item->ITEM_QTD }}" id="qtd">
 
-            <button class="w-1/4 btn-decrement p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+            <button class="max-w-1/5 btn-decrement p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
                     stroke="#43ADDA" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                 </svg>
             </button>
 
-            <span class="text-azul text-3xl font-bold w-2/4" id="text-qtd">{{ $item->ITEM_QTD }}</span>
+            <span class="text-azul text-center text-3xl font-bold w-3/5" id="text-qtd">{{ $item->ITEM_QTD }}</span>
 
-            <button class="w-1/4 btn-increment p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
+            <button class="max-w-1/5 btn-increment p-2 rounded-full hover:bg-slate-100 hover:bg-opacity-30">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
                     stroke="#43ADDA" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
